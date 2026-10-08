@@ -228,6 +228,8 @@ void animTarget(const Bone& b, const BoneSim& s, const Rig::Impl& r, float out[3
     const Physics& p = b.physics;
     for (int i = 0; i < 3; i++)
         out[i] += r.air * axisOf(p.air, i) + r.sprint * axisOf(p.sprint, i) + r.sneak * axisOf(p.sneak, i) + speedN * axisOf(p.speed, i);
+    // one hop per footstep, in step with the leg swing of the body
+    if (p.hop > 0.f) move.y += p.hop * (std::fabs(std::sin(r.gait)) * std::min(1.f, r.m.fwd / 3.f) * (1.f + 0.6f * r.sprint) + 1.6f * r.air);
 }
 
 void springStep(const Bone& b, BoneSim& s, const Rig::Impl& r, float h) {

@@ -26,6 +26,11 @@
    "slot": "cape"
   },
   {
+   "id": "glass_rose",
+   "name": "Glass Rose",
+   "slot": "cape"
+  },
+  {
    "id": "gradient_cape",
    "name": "Gradient Cape",
    "slot": "cape"
@@ -86,6 +91,11 @@
    "slot": "wings"
   },
   {
+   "id": "rose_cape",
+   "name": "Rose Cape",
+   "slot": "cape"
+  },
+  {
    "id": "royal_cape",
    "name": "Royal Cape",
    "slot": "cape"
@@ -94,6 +104,16 @@
    "id": "sakura_wings",
    "name": "Sakura Wings",
    "slot": "wings"
+  },
+  {
+   "id": "shoulder_cat",
+   "name": "Shoulder Cat",
+   "slot": "back"
+  },
+  {
+   "id": "shoulder_fox",
+   "name": "Shoulder Fox",
+   "slot": "back"
   },
   {
    "id": "starry_cape",

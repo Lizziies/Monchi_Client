@@ -1,12 +1,43 @@
 {
  "items": [
   {
+   "id": "shoulder_cat",
+   "name": "Shoulder Cat",
+   "slot": "back",
+   "tags": [
+    "pet",
+    "cat",
+    "animated"
+   ]
+  },
+  {
+   "id": "shoulder_fox",
+   "name": "Shoulder Fox",
+   "slot": "back",
+   "tags": [
+    "pet",
+    "fox",
+    "animated"
+   ]
+  },
+  {
    "id": "flame_cape",
    "name": "Flame Cape",
    "slot": "cape",
    "tags": [
     "cape",
     "fire",
+    "animated"
+   ]
+  },
+  {
+   "id": "glass_rose",
+   "name": "Glass Rose",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "rose",
+    "glass",
     "animated"
    ]
   },
@@ -36,6 +67,16 @@
     "cape",
     "pink",
     "heart"
+   ]
+  },
+  {
+   "id": "rose_cape",
+   "name": "Rose Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "rose",
+    "flower"
    ]
   },
   {

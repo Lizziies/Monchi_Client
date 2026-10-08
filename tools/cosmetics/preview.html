@@ -164,6 +164,7 @@ function parseItem(entry) {
         inertia: Math.min(5, Math.max(0, po.inertia ?? 1)),
         wind: Math.min(4, Math.max(0, po.wind ?? 1)),
         air: drive.air || [0, 0, 0], sprint: drive.sprint || [0, 0, 0], sneak: drive.sneak || [0, 0, 0], speed: drive.speed || [0, 0, 0],
+        hop: Math.min(4, Math.max(0, drive.hop || 0)),
       },
       cubes: [], tubes: [],
     };
@@ -251,6 +252,7 @@ function animTarget(bone, s, r, out, move) {
   }
   const p = bone.phys;
   for (let i = 0; i < 3; i++) out[i] += r.air * p.air[i] + r.sprint * p.sprint[i] + r.sneak * p.sneak[i] + speedN * p.speed[i];
+  if (p.hop > 0) move.y += p.hop * (Math.abs(Math.sin(r.gait)) * Math.min(1, r.m.fwd / 3) * (1 + 0.6 * r.sprint) + 1.6 * r.air);
 }
 
 function springStep(bone, s, r, h) {

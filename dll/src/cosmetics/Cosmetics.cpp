@@ -121,6 +121,7 @@ bool readItem(const std::filesystem::path& dir, Item& out) {
                     p.sprint = vec(d.value("sprint", nlohmann::json()));
                     p.sneak = vec(d.value("sneak", nlohmann::json()));
                     p.speed = vec(d.value("speed", nlohmann::json()));
+                    p.hop = std::clamp(d.value("hop", 0.f), 0.f, 4.f);
                 }
             }
         }

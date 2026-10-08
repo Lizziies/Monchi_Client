@@ -1,7 +1,7 @@
 import math
 import random
 
-from lib import Canvas, Item, clamp, lerp, paint, rect_painter, smooth
+from lib import Canvas, Item, clamp, hexrgb, lerp, paint, rect_painter, smooth
 
 
 def heart(u, v, cx, cy, r):
@@ -221,6 +221,133 @@ def mini_art(wu, hu, texel):
     return shape
 
 
+def rose_cloth_art(wu, hu, texel):
+    ww, hh = wu * texel, hu * texel
+    top, bottom = hexrgb("#5c1530"), hexrgb("#1e0812")
+    gold, gold_hi = hexrgb("#c08a3a"), hexrgb("#f3cf7a")
+    leaf, leaf_hi, stem = hexrgb("#2f7a3c"), hexrgb("#5cb862"), hexrgb("#2b5e2e")
+
+    def vine_x(v, side):
+        return 7.5 + 2.2 * math.sin(v * hh * 0.11 + side * 1.7)
+
+    def stem_x(v):
+        return 0.5 * ww - 3.0 * math.sin((v - 0.5) * 5.0) - 2.0 * (v - 0.5)
+
+    def shape(u, v):
+        if v > scallop(u, 6, 0.03):
+            return None
+        px, py = u * ww, v * hh
+        side = sides(u, ww)
+        if side < 1.0 or (1 - v) * hh < 1.2:
+            return (*gold, 1.0)
+        if side < 2.4:
+            return (*[lerp(a, b, 0.5 + 0.5 * math.sin(py * 0.35)) for a, b in zip(gold, gold_hi)], 1.0)
+        if v < 0.07:
+            if v > 0.055 or v < 0.012:
+                return (*[lerp(a, b, 0.5 + 0.5 * math.sin(px * 0.35)) for a, b in zip(gold, gold_hi)], 1.0)
+            return (*hexrgb("#2a0a15"), 1.0)
+        fold = 0.5 + 0.5 * math.sin(u * wu * 0.95 + 0.7 * math.sin(v * hu * 0.38 + u * 3.0))
+        base = [lerp(a, b, smooth(0.05, 1.0, v)) for a, b in zip(top, bottom)]
+        k = 0.78 + 0.32 * clamp(fold, 0, 1) + 0.05 * math.sin(px * 0.9 + py * 0.15)
+        col = tuple(c * k for c in base)
+        if v > 0.3:
+            for sd in (0, 1):
+                vx = vine_x(v, sd)
+                dx = (px if sd == 0 else ww - px) - vx
+                if abs(dx) < 0.7 and v > 0.34 + 0.08 * sd:
+                    return (*stem, 1.0)
+                if int(py) % 13 == 4 and 0.7 <= dx < 2.6 and abs(py % 13 - 4.5) < 1.5:
+                    return (*leaf, 1.0)
+                if int(py) % 13 == 10 and -2.6 < dx <= -0.7:
+                    return (*leaf_hi, 1.0)
+                if int(py) % 9 == 7 and abs(dx - 1.1) < 0.5:
+                    return (*hexrgb("#8a2a3a"), 1.0)
+        bx, by = 0.5 * ww + 21, 0.6 * hh + 7
+        jx, jy = stem_x(0.76), 0.76 * hh
+        t = (px - jx) / (bx - jx)
+        if 0 < t < 1:
+            off = py - (jy + (by - jy) * t + 3.0 * math.sin(t * math.pi))
+            if abs(off) < 1.25:
+                return (*(leaf_hi if off < 0 else stem), 1.0)
+        for gx, gy in ((0.27, 0.22), (0.74, 0.18), (0.22, 0.45), (0.8, 0.4), (0.33, 0.12), (0.66, 0.5)):
+            dx, dy = abs(px - gx * ww), abs(py - gy * hh)
+            if (dx < 0.6 and dy < 2.1) or (dy < 0.6 and dx < 2.1):
+                return (*(gold_hi if dx + dy < 0.9 else gold), 1.0)
+        if 0.52 < v < 0.93:
+            sx = stem_x(v)
+            if abs(px - sx) < 1.1:
+                return (*(leaf_hi if px < sx else stem), 1.0)
+            for ly, dir in ((0.64, -1), (0.78, 1)):
+                lx, lyp = sx + dir * 6.5, ly * hh - 2.5
+                a, b = (px - lx) * 0.85 + (py - lyp) * 0.5 * dir, -(px - lx) * 0.5 * dir + (py - lyp) * 0.85
+                d = (a / 7.0) ** 2 + (b / 3.3) ** 2
+                if d < 1.0:
+                    if abs(b) < 0.45 and abs(a) < 5.5:
+                        return (*stem, 1.0)
+                    return (*(leaf_hi if b < 0 else leaf), 1.0)
+            if abs(px - sx - 1.6) < 0.6 and int(py) % 11 == 3:
+                return (*hexrgb("#8a2a3a"), 1.0)
+        return (*col, 1.0)
+
+    return shape
+
+
+def rose_bloom_art(wu, hu, texel):
+    ww, hh = wu * texel, hu * texel
+    petals = [
+        (-9.0, -7.0, 10.0, 8.0, -0.5, 0.6),
+        (9.0, -7.0, 10.0, 8.0, 0.5, 0.6),
+        (0.0, -11.0, 9.0, 6.5, 0.0, 0.52),
+        (0.0, -5.0, 7.0, 8.0, 0.0, 0.82),
+        (-11.0, 2.0, 7.5, 10.0, 0.45, 0.8),
+        (11.0, 2.0, 7.5, 10.0, -0.45, 0.8),
+        (0.0, 6.0, 13.5, 8.5, 0.0, 1.0),
+        (0.0, 11.5, 9.5, 5.5, 0.0, 0.88),
+    ]
+
+    def rose(px, py, cx, cy, scale):
+        g = None
+        for dx, dy, rx, ry, rot, base in petals:
+            x, y = (px - cx) / scale - dx, (py - cy) / scale - dy
+            a = x * math.cos(rot) + y * math.sin(rot)
+            b = -x * math.sin(rot) + y * math.cos(rot)
+            d = (a / rx) ** 2 + (b / ry) ** 2
+            if d > 1:
+                continue
+            t = (b + ry) / (2 * ry)
+            k = base * (1.08 - 0.4 * t)
+            if d > 0.72:
+                k *= 1.22 if b < 0 else 0.62
+            g = 255 * k
+        if g is not None:
+            x, y = (px - cx) / scale, (py - cy) / scale + 5.5
+            r = (x * x + y * y) ** 0.5
+            ang = math.atan2(y, x)
+            if abs(r - 3.6) < 0.7 and -2.6 < ang < 1.2:
+                g *= 0.55
+            if abs(r - 1.6) < 0.6 and ang > -0.5:
+                g *= 0.6
+        return g
+
+    fallen = [(0.24, 0.84, 0.6), (0.76, 0.9, -0.5), (0.63, 0.955, 0.2)]
+
+    def shape(u, v):
+        px, py = u * ww, v * hh
+        g = rose(px, py, 0.5 * ww, 0.35 * hh, 1.25)
+        if g is None:
+            g = rose(px, py, 0.5 * ww + 21, 0.6 * hh, 0.45)
+        if g is None:
+            for pu, pv, tilt in fallen:
+                dx, dy = px - pu * ww, py - pv * hh
+                a, b = dx * math.cos(tilt) + dy * math.sin(tilt), -dx * math.sin(tilt) + dy * math.cos(tilt)
+                if (a / 3.0) ** 2 + (b / 1.8) ** 2 < 1:
+                    g = 220 if b < 0 else 160
+        if g is None:
+            return None
+        return (clamp(g, 0, 255), 1.0)
+
+    return shape
+
 def build():
     out = []
     w, h, t = 12.0, 19.2, 5
@@ -260,6 +387,12 @@ def build():
         cape(
             "mini_cape", "Mini Cape", [("Main", "#7ee0c8"), ("Trim", "#ffffff")], mini_art(8.0, 8.0, t), 6, 8.0, 8.0,
             lambda i, n: ("Trim" if i == 0 else "Main", None, 0.0), tags=["short"],
+        )
+    )
+    out.append(
+        cape(
+            "rose_cape", "Rose Cape", [("Rose", "#e3264c")], rose_cloth_art(12.0, 20.0, 8), 16, 12.0, 20.0,
+            lambda i, n: (None, None, 0.0), overlay=(rose_bloom_art(12.0, 20.0, 8), None, "Rose"), tags=["rose", "flower"], texel=8,
         )
     )
     return out

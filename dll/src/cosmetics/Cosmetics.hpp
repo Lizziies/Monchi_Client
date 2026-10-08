@@ -69,6 +69,7 @@ struct Physics {
     float damping = 7.f;
     float inertia = 1.f;
     float wind = 1.f;
+    float hop = 0.f;
     V3 air, sprint, sneak, speed;
 };
 
