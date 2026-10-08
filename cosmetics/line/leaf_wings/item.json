@@ -1,0 +1,339 @@
+{
+ "id": "leaf_wings",
+ "name": "Leaf Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "nature",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Leaf",
+   "default": "#6fcf5b"
+  },
+  {
+   "name": "Vine",
+   "default": "#7a5c3a"
+  },
+  {
+   "name": "Bloom",
+   "default": "#ffb6d5"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.2,
+    19.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    29.218,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 12.72,
+    "speed": 0.45,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      24.4,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Leaf"
+    }
+   ]
+  },
+  {
+   "name": "arm_r",
+   "pivot": [
+    2.2,
+    19.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    29.218,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 12.0,
+    "speed": 0.45,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      24.4,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.71
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Vine"
+    },
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Bloom"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.2,
+    19.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -29.218,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -12.72,
+    "speed": 0.45,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -24.4,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Leaf",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "arm_l",
+   "pivot": [
+    -2.2,
+    19.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -29.218,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -12.0,
+    "speed": 0.45,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -24.4,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.71
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Vine",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Bloom",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

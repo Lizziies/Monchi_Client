@@ -1,0 +1,63 @@
+#include "I18n.hpp"
+
+namespace {
+
+const i18n::Entry entries[] = {
+    {"Release signature is missing or invalid", "Die Release-Signatur fehlt oder ist ungültig"},
+    {"Minecraft settings backup is damaged", "Die Sicherung der Minecraft-Einstellungen ist beschädigt"},
+    {"Could not check for updates", "Updates konnten nicht geprüft werden"},
+    {"Monchi is up to date", "Monchi ist aktuell"},
+    {"Could not restart the updated launcher", "Der aktualisierte Launcher konnte nicht neu gestartet werden"},
+    {"Minecraft settings could not be restored", "Minecraft-Einstellungen konnten nicht wiederhergestellt werden"},
+    {"Loading Minecraft versions", "Lade Minecraft-Versionen"},
+    {"Checking Minecraft installation", "Prüfe Minecraft-Installation"},
+    {"Downloading Minecraft", "Lade Minecraft herunter"},
+    {"Backing up worlds and installing", "Sichere Spielstände und installiere"},
+    {"Minecraft version installed", "Minecraft-Version installiert"},
+    {"Close Minecraft before switching versions", "Schließe Minecraft vor dem Versionswechsel"},
+    {"Install Gaming Services from the Microsoft Store first", "Installiere zuerst Gaming Services aus dem Microsoft Store"},
+    {"Install Minecraft with your own Microsoft account first", "Installiere zuerst Minecraft mit deinem eigenen Microsoft-Konto"},
+    {"The downloaded package is missing", "Das heruntergeladene Paket fehlt"},
+    {"Installed Minecraft version does not match the selected version", "Die installierte Minecraft-Version entspricht nicht der Auswahl"},
+    {"Could not prepare version installation", "Die Versionsinstallation konnte nicht vorbereitet werden"},
+    {"Could not start Windows package installation", "Die Windows-Paketinstallation konnte nicht gestartet werden"},
+    {"Windows could not install this Minecraft version", "Windows konnte diese Minecraft-Version nicht installieren"},
+    {"Could not load Minecraft versions", "Minecraft-Versionen konnten nicht geladen werden"},
+    {"Version download cancelled", "Versionsdownload abgebrochen"},
+    {"Minecraft download failed", "Minecraft-Download fehlgeschlagen"},
+
+    {"Checking for updates", "Suche nach Updates"},
+    {"Downloading {}", "Lade {} herunter"},
+    {"Connecting the client", "Verbinde den Client"},
+    {"Waiting for the game to load", "Warte, bis das Spiel geladen ist"},
+    {"Monchi is connected. Have fun!", "Monchi ist verbunden. Viel Spaß!"},
+    {"Updating the launcher", "Aktualisiere den Launcher"},
+    {"The release is incomplete", "Das Release ist unvollständig"},
+    {"Download failed", "Download fehlgeschlagen"},
+    {"Checksum does not match", "Prüfsumme stimmt nicht überein"},
+    {"Close Minecraft to update the client", "Schließe Minecraft, um den Client zu aktualisieren"},
+    {"Could not back up the client update", "Das Client-Update konnte nicht gesichert werden"},
+    {"Could not restore the previous client update", "Die vorherige Client-Version konnte nicht wiederhergestellt werden"},
+    {"Could not save the client version", "Die Client-Version konnte nicht gespeichert werden"},
+    {"Could not replace the launcher", "Der Launcher konnte nicht ersetzt werden"},
+    {"The client file is missing. Put Monchi.dll next to the launcher.", "Die Client-Datei fehlt. Lege Monchi.dll neben den Launcher."},
+    {"Could not open the Minecraft process", "Der Minecraft-Prozess konnte nicht geöffnet werden"},
+    {"The client is still loading. Wait before trying again.", "Der Client wird noch geladen. Warte, bevor du es erneut versuchst."},
+    {"Minecraft refused the client", "Minecraft hat den Client abgelehnt"},
+    {"Minecraft could not be started", "Minecraft konnte nicht gestartet werden"},
+    {"Minecraft did not start", "Minecraft wurde nicht gestartet"},
+    {"Minecraft closed before it was ready", "Minecraft wurde geschlossen, bevor es bereit war"},
+    {"No release notes yet.", "Noch keine Release-Notizen."},
+    {"Downloading LeviLauncher", "Lade LeviLauncher herunter"},
+    {"The downloaded file is not valid", "Die heruntergeladene Datei ist ungültig"},
+    {"Could not save the client", "Der Client konnte nicht gespeichert werden"},
+    {"Could not save LeviLauncher", "LeviLauncher konnte nicht gespeichert werden"},
+    {"The selected Minecraft version is not there anymore", "Die gewählte Minecraft-Version ist nicht mehr da"},
+    {"The selected Minecraft version could not be started", "Die gewählte Minecraft-Version konnte nicht gestartet werden"},
+    {"Minecraft is already running with another version. Close it first.", "Minecraft läuft schon mit einer anderen Version. Schließe es zuerst."},
+    {"The selected version closed before it was ready. Pick another version or use the Store one.", "Die gewählte Version wurde geschlossen, bevor sie bereit war. Wähle eine andere oder nimm die aus dem Store."},
+};
+
+i18n::Table table(entries);
+
+}

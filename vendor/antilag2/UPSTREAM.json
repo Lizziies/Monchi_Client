@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/GPUOpen-LibrariesAndSDKs/AntiLag2-SDK",
+  "commit": "390aa4a8c8655d0ae6e90079db2c85e103a96da3",
+  "license": "MIT",
+  "files": "ffx_antilag2_dx12.h, LICENSE.txt"
+}

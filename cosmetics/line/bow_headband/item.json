@@ -1,0 +1,507 @@
+{
+ "id": "bow_headband",
+ "name": "Bow Headband",
+ "slot": "face",
+ "tags": [
+  "face",
+  "headband",
+  "bow",
+  "cute",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 8,
+ "tint": [
+  {
+   "name": "Ribbon",
+   "default": "#ff6fae"
+  },
+  {
+   "name": "Shine",
+   "default": "#ffffff"
+  },
+  {
+   "name": "Charm",
+   "default": "#ffd77a"
+  }
+ ],
+ "bones": [
+  {
+   "name": "band_0",
+   "pivot": [
+    0,
+    31.0,
+    0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Ribbon"
+    },
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      72,
+      1
+     ],
+     "flat": true,
+     "tint": "Shine"
+    }
+   ]
+  },
+  {
+   "name": "band_1",
+   "pivot": [
+    0,
+    31.0,
+    0
+   ],
+   "rotation": [
+    0,
+    90,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      143,
+      1
+     ],
+     "flat": true,
+     "tint": "Ribbon"
+    },
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      1,
+      13
+     ],
+     "flat": true,
+     "tint": "Shine"
+    }
+   ]
+  },
+  {
+   "name": "band_2",
+   "pivot": [
+    0,
+    31.0,
+    0
+   ],
+   "rotation": [
+    0,
+    180,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      72,
+      13
+     ],
+     "flat": true,
+     "tint": "Ribbon"
+    },
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      143,
+      13
+     ],
+     "flat": true,
+     "tint": "Shine"
+    }
+   ]
+  },
+  {
+   "name": "band_3",
+   "pivot": [
+    0,
+    31.0,
+    0
+   ],
+   "rotation": [
+    0,
+    270,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      1,
+      25
+     ],
+     "flat": true,
+     "tint": "Ribbon"
+    },
+    {
+     "origin": [
+      -4.36,
+      30.375,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.25,
+      0.03
+     ],
+     "uv": [
+      72,
+      25
+     ],
+     "flat": true,
+     "tint": "Shine"
+    }
+   ]
+  },
+  {
+   "name": "bow",
+   "pivot": [
+    1.7,
+    32.4,
+    -4.6
+   ],
+   "rotation": [
+    -8,
+    0,
+    -12
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "z",
+    "amplitude": 7.0,
+    "speed": 0.85,
+    "phase": 0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 30.0,
+    "damping": 2.8,
+    "inertia": 1.9,
+    "drive": {
+     "air": [
+      10,
+      0,
+      -8
+     ],
+     "sprint": [
+      16,
+      0,
+      0
+     ],
+     "speed": [
+      6,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      -1.4,
+      30.6,
+      -4.6
+     ],
+     "size": [
+      6.2,
+      3.6,
+      0.03
+     ],
+     "uv": [
+      143,
+      25
+     ],
+     "flat": true,
+     "tint": "Ribbon"
+    },
+    {
+     "origin": [
+      -1.4,
+      30.6,
+      -4.65
+     ],
+     "size": [
+      6.2,
+      3.6,
+      0.03
+     ],
+     "uv": [
+      194,
+      25
+     ],
+     "flat": true,
+     "tint": "Shine"
+    },
+    {
+     "origin": [
+      -1.4,
+      30.6,
+      -4.7
+     ],
+     "size": [
+      6.2,
+      3.6,
+      0.03
+     ],
+     "uv": [
+      1,
+      56
+     ],
+     "flat": true,
+     "tint": "Charm"
+    }
+   ]
+  },
+  {
+   "name": "tail_r",
+   "pivot": [
+    2.0,
+    32.0,
+    -4.65
+   ],
+   "rotation": [
+    14.0,
+    24,
+    16.0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 11.0,
+    "speed": 0.95,
+    "phase": 0.0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 28.0,
+    "damping": 3.4,
+    "inertia": 1.5,
+    "drive": {
+     "sprint": [
+      42.0,
+      6,
+      0
+     ],
+     "speed": [
+      16.8,
+      0,
+      0
+     ],
+     "air": [
+      18,
+      0,
+      6
+     ],
+     "sneak": [
+      6,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.725,
+      27.4,
+      -4.7
+     ],
+     "size": [
+      1.15,
+      4.6,
+      0.03
+     ],
+     "uv": [
+      52,
+      56
+     ],
+     "flat": true,
+     "tint": "Ribbon"
+    },
+    {
+     "origin": [
+      1.725,
+      27.4,
+      -4.75
+     ],
+     "size": [
+      1.15,
+      4.6,
+      0.03
+     ],
+     "uv": [
+      62,
+      56
+     ],
+     "flat": true,
+     "tint": "Shine"
+    }
+   ]
+  },
+  {
+   "name": "tail_l",
+   "pivot": [
+    1.4,
+    32.0,
+    -4.65
+   ],
+   "rotation": [
+    14.0,
+    -24,
+    -16.0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 11.0,
+    "speed": 0.95,
+    "phase": 1.9
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 28.0,
+    "damping": 3.4,
+    "inertia": 1.5,
+    "drive": {
+     "sprint": [
+      42.0,
+      -6,
+      0
+     ],
+     "speed": [
+      16.8,
+      0,
+      0
+     ],
+     "air": [
+      18,
+      0,
+      -6
+     ],
+     "sneak": [
+      6,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      0.525,
+      27.4,
+      -4.7
+     ],
+     "size": [
+      1.15,
+      4.6,
+      0.03
+     ],
+     "uv": [
+      52,
+      56
+     ],
+     "flat": true,
+     "tint": "Ribbon",
+     "mirror": true
+    },
+    {
+     "origin": [
+      0.525,
+      27.4,
+      -4.75
+     ],
+     "size": [
+      1.15,
+      4.6,
+      0.03
+     ],
+     "uv": [
+      62,
+      56
+     ],
+     "flat": true,
+     "tint": "Shine",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

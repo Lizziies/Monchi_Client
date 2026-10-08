@@ -1,0 +1,19 @@
+{
+ "items": [
+  {
+   "id": "test_wings",
+   "name": "Test Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "test_cape",
+   "name": "Test Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "test_bandana",
+   "name": "Test Bandana",
+   "slot": "head"
+  }
+ ]
+}

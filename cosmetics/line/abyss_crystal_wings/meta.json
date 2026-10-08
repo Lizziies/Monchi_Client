@@ -1,0 +1,18 @@
+{
+  "id": "abyss_crystal_wings",
+  "name": "Abyss Crystal Wings",
+  "category": "wings",
+  "version": 3,
+  "status": "rebuilt",
+  "description": "Compact crystal wing cosmetic for Mochi with tint slots, idle/movement-reactive animation and Lunar-inspired proportions.",
+  "supports": [
+    "tint",
+    "idle animation",
+    "movement-reactive preview"
+  ],
+  "performance": {
+    "animated_bones": 4,
+    "particles": 0,
+    "target": "compact gameplay cosmetic"
+  }
+}

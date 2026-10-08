@@ -1,0 +1,5 @@
+# Copy to local.cmake (which git ignores) and fill in. Without it the client is built without an update source and
+# without a default address for Monchi Online.
+set(MONCHI_REPO_OWNER "<github-account>" CACHE STRING "" FORCE)
+set(MONCHI_REPO_NAME "<repository>" CACHE STRING "" FORCE)
+set(MONCHI_ONLINE_URL "https://<your-service-address>" CACHE STRING "" FORCE)

@@ -1,0 +1,341 @@
+{
+ "id": "baby_dragon_wings",
+ "name": "Baby Dragon Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "black",
+  "dragon",
+  "cute",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 8,
+ "tint": [
+  {
+   "name": "Membrane",
+   "default": "#3b3546"
+  },
+  {
+   "name": "Bone",
+   "default": "#5d5570"
+  },
+  {
+   "name": "Accent",
+   "default": "#a07cff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.0,
+    19.6,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    36.227,
+    8.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 18.02,
+    "speed": 0.9,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      32.1,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.6,
+      14.6,
+      -2.62
+     ],
+     "size": [
+      11.0,
+      9.8,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Membrane"
+    },
+    {
+     "origin": [
+      1.6,
+      14.6,
+      -2.71
+     ],
+     "size": [
+      11.0,
+      9.8,
+      0.04
+     ],
+     "uv": [
+      90,
+      1
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ]
+  },
+  {
+   "name": "arm_r",
+   "pivot": [
+    2.0,
+    19.6,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    36.227,
+    8.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 17.0,
+    "speed": 0.9,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      32.1,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.6,
+      14.6,
+      -2.8
+     ],
+     "size": [
+      11.0,
+      9.8,
+      0.04
+     ],
+     "uv": [
+      1,
+      81
+     ],
+     "flat": true,
+     "tint": "Bone"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.0,
+    19.6,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -36.227,
+    -8.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -18.02,
+    "speed": 0.9,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -32.1,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -12.6,
+      14.6,
+      -2.62
+     ],
+     "size": [
+      11.0,
+      9.8,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Membrane",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -12.6,
+      14.6,
+      -2.71
+     ],
+     "size": [
+      11.0,
+      9.8,
+      0.04
+     ],
+     "uv": [
+      90,
+      1
+     ],
+     "flat": true,
+     "tint": "Accent",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "arm_l",
+   "pivot": [
+    -2.0,
+    19.6,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -36.227,
+    -8.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -17.0,
+    "speed": 0.9,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -32.1,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -12.6,
+      14.6,
+      -2.8
+     ],
+     "size": [
+      11.0,
+      9.8,
+      0.04
+     ],
+     "uv": [
+      1,
+      81
+     ],
+     "flat": true,
+     "tint": "Bone",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

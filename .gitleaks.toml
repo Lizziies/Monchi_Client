@@ -1,0 +1,12 @@
+title = "Monchi secret scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Exact ImGui keyboard-range comparison, not an API credential"
+targetRules = ["generic-api-key"]
+condition = "AND"
+regexTarget = "line"
+paths = ['''^(dll/lib/imgui/imgui\.cpp|vendor/flarial/lib/ImGui/imgui\.cpp)$''']
+regexes = ['''^\s*if \(\(key >= ImGuiKey_0 && key <= ImGuiKey_9\) \|\| \(key >= ImGuiKey_A && key <= ImGuiKey_Z\) \|\| \(key >= ImGuiKey_Keypad0 && key <= ImGuiKey_Keypad9\)\s*$''']

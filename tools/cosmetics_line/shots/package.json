@@ -1,0 +1,8 @@
+{
+ "name": "mochi-cosmetic-shots",
+ "private": true,
+ "dependencies": {
+  "playwright": "1.56.1",
+  "three": "0.128.0"
+ }
+}

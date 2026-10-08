@@ -1,0 +1,3559 @@
+{
+ "id": "angel_wings",
+ "name": "Angel Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "white",
+  "feathers",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 4,
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#ffffff"
+  },
+  {
+   "name": "Accent",
+   "default": "#ffe7a3"
+  }
+ ],
+ "bones": [
+  {
+   "name": "primary_r0",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.0
+   ],
+   "rotation": [
+    0,
+    16.0,
+    66.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.0
+     ],
+     "size": [
+      17.5,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 11.0,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 74.0,
+    "damping": 6.5,
+    "inertia": 0.8,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r1",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.012
+   ],
+   "rotation": [
+    0,
+    17.11111111111111,
+    56.888888888888886
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.012
+     ],
+     "size": [
+      16.778,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      72,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.555555555555555,
+    "speed": 0.55,
+    "phase": 0.16
+   },
+   "physics": {
+    "stiffness": 70.66666666666667,
+    "damping": 6.333333333333333,
+    "inertia": 0.888888888888889,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r2",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.024
+   ],
+   "rotation": [
+    0,
+    18.22222222222222,
+    47.77777777777778
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.024
+     ],
+     "size": [
+      16.056,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      140,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.11111111111111,
+    "speed": 0.55,
+    "phase": 0.32
+   },
+   "physics": {
+    "stiffness": 67.33333333333333,
+    "damping": 6.166666666666667,
+    "inertia": 0.9777777777777779,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r3",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.036
+   ],
+   "rotation": [
+    0,
+    19.333333333333332,
+    38.66666666666667
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.036
+     ],
+     "size": [
+      15.333,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      1,
+      21
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 9.666666666666666,
+    "speed": 0.55,
+    "phase": 0.48
+   },
+   "physics": {
+    "stiffness": 64.0,
+    "damping": 6.0,
+    "inertia": 1.0666666666666667,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r4",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.048
+   ],
+   "rotation": [
+    0,
+    20.444444444444443,
+    29.555555555555557
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.048
+     ],
+     "size": [
+      14.611,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      63,
+      21
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 9.222222222222221,
+    "speed": 0.55,
+    "phase": 0.64
+   },
+   "physics": {
+    "stiffness": 60.66666666666667,
+    "damping": 5.833333333333333,
+    "inertia": 1.1555555555555557,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r5",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.06
+   ],
+   "rotation": [
+    0,
+    21.555555555555557,
+    20.444444444444443
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.06
+     ],
+     "size": [
+      13.889,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      122,
+      21
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 8.777777777777779,
+    "speed": 0.55,
+    "phase": 0.8
+   },
+   "physics": {
+    "stiffness": 57.33333333333333,
+    "damping": 5.666666666666667,
+    "inertia": 1.2444444444444445,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r6",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.072
+   ],
+   "rotation": [
+    0,
+    22.666666666666664,
+    11.333333333333336
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.072
+     ],
+     "size": [
+      13.167,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      179,
+      21
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 8.333333333333334,
+    "speed": 0.55,
+    "phase": 0.96
+   },
+   "physics": {
+    "stiffness": 54.0,
+    "damping": 5.5,
+    "inertia": 1.3333333333333335,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r7",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.084
+   ],
+   "rotation": [
+    0,
+    23.77777777777778,
+    2.2222222222222214
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.084
+     ],
+     "size": [
+      12.444,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      1,
+      41
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.888888888888889,
+    "speed": 0.55,
+    "phase": 1.12
+   },
+   "physics": {
+    "stiffness": 50.66666666666667,
+    "damping": 5.333333333333333,
+    "inertia": 1.4222222222222223,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r8",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.096
+   ],
+   "rotation": [
+    0,
+    24.88888888888889,
+    -6.888888888888886
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.096
+     ],
+     "size": [
+      11.722,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      52,
+      41
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.444444444444445,
+    "speed": 0.55,
+    "phase": 1.28
+   },
+   "physics": {
+    "stiffness": 47.333333333333336,
+    "damping": 5.166666666666667,
+    "inertia": 1.511111111111111,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_r9",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.108
+   ],
+   "rotation": [
+    0,
+    26.0,
+    -16.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.9,
+      -3.108
+     ],
+     "size": [
+      11.0,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      100,
+      41
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.0,
+    "speed": 0.55,
+    "phase": 1.44
+   },
+   "physics": {
+    "stiffness": 44.0,
+    "damping": 5.0,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r0",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.2
+   ],
+   "rotation": [
+    0,
+    16.0,
+    54.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.2
+     ],
+     "size": [
+      12.0,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      145,
+      41
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 11.0,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 74.0,
+    "damping": 6.5,
+    "inertia": 0.8,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r1",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.212
+   ],
+   "rotation": [
+    0,
+    17.428571428571427,
+    45.714285714285715
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.212
+     ],
+     "size": [
+      11.357,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      194,
+      41
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.428571428571429,
+    "speed": 0.55,
+    "phase": 0.16
+   },
+   "physics": {
+    "stiffness": 69.71428571428571,
+    "damping": 6.285714285714286,
+    "inertia": 0.9142857142857144,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r2",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.224
+   ],
+   "rotation": [
+    0,
+    18.857142857142858,
+    37.42857142857143
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.224
+     ],
+     "size": [
+      10.714,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      1,
+      61
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 9.857142857142858,
+    "speed": 0.55,
+    "phase": 0.32
+   },
+   "physics": {
+    "stiffness": 65.42857142857143,
+    "damping": 6.071428571428571,
+    "inertia": 1.0285714285714287,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r3",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.236
+   ],
+   "rotation": [
+    0,
+    20.285714285714285,
+    29.142857142857146
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.236
+     ],
+     "size": [
+      10.071,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      45,
+      61
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 9.285714285714286,
+    "speed": 0.55,
+    "phase": 0.48
+   },
+   "physics": {
+    "stiffness": 61.142857142857146,
+    "damping": 5.857142857142858,
+    "inertia": 1.1428571428571428,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r4",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.248
+   ],
+   "rotation": [
+    0,
+    21.714285714285715,
+    20.85714285714286
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.248
+     ],
+     "size": [
+      9.429,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      86,
+      61
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 8.714285714285715,
+    "speed": 0.55,
+    "phase": 0.64
+   },
+   "physics": {
+    "stiffness": 56.85714285714286,
+    "damping": 5.642857142857143,
+    "inertia": 1.2571428571428571,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r5",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.2600000000000002
+   ],
+   "rotation": [
+    0,
+    23.142857142857142,
+    12.57142857142857
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.26
+     ],
+     "size": [
+      8.786,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      125,
+      61
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 8.142857142857142,
+    "speed": 0.55,
+    "phase": 0.8
+   },
+   "physics": {
+    "stiffness": 52.57142857142857,
+    "damping": 5.428571428571429,
+    "inertia": 1.3714285714285714,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r6",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.2720000000000002
+   ],
+   "rotation": [
+    0,
+    24.57142857142857,
+    4.285714285714292
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.272
+     ],
+     "size": [
+      8.143,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      161,
+      61
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.571428571428571,
+    "speed": 0.55,
+    "phase": 0.96
+   },
+   "physics": {
+    "stiffness": 48.28571428571429,
+    "damping": 5.214285714285714,
+    "inertia": 1.4857142857142858,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_r7",
+   "pivot": [
+    2.4,
+    20.7,
+    -3.2840000000000003
+   ],
+   "rotation": [
+    0,
+    26.0,
+    -4.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.7,
+      -3.284
+     ],
+     "size": [
+      7.5,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      195,
+      61
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.0,
+    "speed": 0.55,
+    "phase": 1.12
+   },
+   "physics": {
+    "stiffness": 44.0,
+    "damping": 5.0,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r0",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.4
+   ],
+   "rotation": [
+    0,
+    16.0,
+    76.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.4
+     ],
+     "size": [
+      7.0,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      226,
+      61
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 11.0,
+    "speed": 0.55,
+    "phase": 0.4
+   },
+   "physics": {
+    "stiffness": 74.0,
+    "damping": 6.5,
+    "inertia": 0.8,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r1",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.412
+   ],
+   "rotation": [
+    0,
+    17.25,
+    67.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.412
+     ],
+     "size": [
+      6.575,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      1,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.5,
+    "speed": 0.55,
+    "phase": 0.56
+   },
+   "physics": {
+    "stiffness": 70.25,
+    "damping": 6.3125,
+    "inertia": 0.9,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r2",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.424
+   ],
+   "rotation": [
+    0,
+    18.5,
+    59.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.424
+     ],
+     "size": [
+      6.15,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      28,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.0,
+    "speed": 0.55,
+    "phase": 0.72
+   },
+   "physics": {
+    "stiffness": 66.5,
+    "damping": 6.125,
+    "inertia": 1.0,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r3",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.436
+   ],
+   "rotation": [
+    0,
+    19.75,
+    50.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.436
+     ],
+     "size": [
+      5.725,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      54,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 9.5,
+    "speed": 0.55,
+    "phase": 0.88
+   },
+   "physics": {
+    "stiffness": 62.75,
+    "damping": 5.9375,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r4",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.448
+   ],
+   "rotation": [
+    0,
+    21.0,
+    42.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.448
+     ],
+     "size": [
+      5.3,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      78,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 9.0,
+    "speed": 0.55,
+    "phase": 1.04
+   },
+   "physics": {
+    "stiffness": 59.0,
+    "damping": 5.75,
+    "inertia": 1.2000000000000002,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r5",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.46
+   ],
+   "rotation": [
+    0,
+    22.25,
+    33.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.46
+     ],
+     "size": [
+      4.875,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      100,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 8.5,
+    "speed": 0.55,
+    "phase": 1.2000000000000002
+   },
+   "physics": {
+    "stiffness": 55.25,
+    "damping": 5.5625,
+    "inertia": 1.3,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r6",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.472
+   ],
+   "rotation": [
+    0,
+    23.5,
+    25.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.472
+     ],
+     "size": [
+      4.45,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      121,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 8.0,
+    "speed": 0.55,
+    "phase": 1.3599999999999999
+   },
+   "physics": {
+    "stiffness": 51.5,
+    "damping": 5.375,
+    "inertia": 1.4000000000000001,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r7",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.484
+   ],
+   "rotation": [
+    0,
+    24.75,
+    16.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.484
+     ],
+     "size": [
+      4.025,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      140,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.5,
+    "speed": 0.55,
+    "phase": 1.52
+   },
+   "physics": {
+    "stiffness": 47.75,
+    "damping": 5.1875,
+    "inertia": 1.5,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_r8",
+   "pivot": [
+    2.4,
+    22.099999999999998,
+    -3.496
+   ],
+   "rotation": [
+    0,
+    26.0,
+    8.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      20.45,
+      -3.496
+     ],
+     "size": [
+      3.6,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      157,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7.0,
+    "speed": 0.55,
+    "phase": 1.6800000000000002
+   },
+   "physics": {
+    "stiffness": 44.0,
+    "damping": 5.0,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      16,
+      0
+     ],
+     "speed": [
+      0,
+      4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "root_r",
+   "pivot": [
+    2.4,
+    21.2,
+    -3.5
+   ],
+   "rotation": [
+    0,
+    14,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      19.6,
+      -3.5
+     ],
+     "size": [
+      5.0,
+      3.6,
+      0.1
+     ],
+     "uv": [
+      172,
+      79
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 7,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 70,
+    "damping": 6.5,
+    "drive": {
+     "sprint": [
+      0,
+      16,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l0",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.0
+   ],
+   "rotation": [
+    0,
+    -16.0,
+    -66.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -19.9,
+      18.9,
+      -3.0
+     ],
+     "size": [
+      17.5,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -11.0,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 74.0,
+    "damping": 6.5,
+    "inertia": 0.8,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l1",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.012
+   ],
+   "rotation": [
+    0,
+    -17.11111111111111,
+    -56.888888888888886
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -19.178,
+      18.9,
+      -3.012
+     ],
+     "size": [
+      16.778,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      72,
+      1
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.555555555555555,
+    "speed": 0.55,
+    "phase": 0.16
+   },
+   "physics": {
+    "stiffness": 70.66666666666667,
+    "damping": 6.333333333333333,
+    "inertia": 0.888888888888889,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l2",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.024
+   ],
+   "rotation": [
+    0,
+    -18.22222222222222,
+    -47.77777777777778
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -18.456,
+      18.9,
+      -3.024
+     ],
+     "size": [
+      16.056,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      140,
+      1
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.11111111111111,
+    "speed": 0.55,
+    "phase": 0.32
+   },
+   "physics": {
+    "stiffness": 67.33333333333333,
+    "damping": 6.166666666666667,
+    "inertia": 0.9777777777777779,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l3",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.036
+   ],
+   "rotation": [
+    0,
+    -19.333333333333332,
+    -38.66666666666667
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -17.733,
+      18.9,
+      -3.036
+     ],
+     "size": [
+      15.333,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      1,
+      21
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -9.666666666666666,
+    "speed": 0.55,
+    "phase": 0.48
+   },
+   "physics": {
+    "stiffness": 64.0,
+    "damping": 6.0,
+    "inertia": 1.0666666666666667,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l4",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.048
+   ],
+   "rotation": [
+    0,
+    -20.444444444444443,
+    -29.555555555555557
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -17.011,
+      18.9,
+      -3.048
+     ],
+     "size": [
+      14.611,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      63,
+      21
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -9.222222222222221,
+    "speed": 0.55,
+    "phase": 0.64
+   },
+   "physics": {
+    "stiffness": 60.66666666666667,
+    "damping": 5.833333333333333,
+    "inertia": 1.1555555555555557,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l5",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.06
+   ],
+   "rotation": [
+    0,
+    -21.555555555555557,
+    -20.444444444444443
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -16.289,
+      18.9,
+      -3.06
+     ],
+     "size": [
+      13.889,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      122,
+      21
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -8.777777777777779,
+    "speed": 0.55,
+    "phase": 0.8
+   },
+   "physics": {
+    "stiffness": 57.33333333333333,
+    "damping": 5.666666666666667,
+    "inertia": 1.2444444444444445,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l6",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.072
+   ],
+   "rotation": [
+    0,
+    -22.666666666666664,
+    -11.333333333333336
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -15.567,
+      18.9,
+      -3.072
+     ],
+     "size": [
+      13.167,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      179,
+      21
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -8.333333333333334,
+    "speed": 0.55,
+    "phase": 0.96
+   },
+   "physics": {
+    "stiffness": 54.0,
+    "damping": 5.5,
+    "inertia": 1.3333333333333335,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l7",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.084
+   ],
+   "rotation": [
+    0,
+    -23.77777777777778,
+    -2.2222222222222214
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -14.844,
+      18.9,
+      -3.084
+     ],
+     "size": [
+      12.444,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      1,
+      41
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.888888888888889,
+    "speed": 0.55,
+    "phase": 1.12
+   },
+   "physics": {
+    "stiffness": 50.66666666666667,
+    "damping": 5.333333333333333,
+    "inertia": 1.4222222222222223,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l8",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.096
+   ],
+   "rotation": [
+    0,
+    -24.88888888888889,
+    6.888888888888886
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -14.122,
+      18.9,
+      -3.096
+     ],
+     "size": [
+      11.722,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      52,
+      41
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.444444444444445,
+    "speed": 0.55,
+    "phase": 1.28
+   },
+   "physics": {
+    "stiffness": 47.333333333333336,
+    "damping": 5.166666666666667,
+    "inertia": 1.511111111111111,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "primary_l9",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.108
+   ],
+   "rotation": [
+    0,
+    -26.0,
+    16.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -13.4,
+      18.9,
+      -3.108
+     ],
+     "size": [
+      11.0,
+      4.6,
+      0.1
+     ],
+     "uv": [
+      100,
+      41
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.0,
+    "speed": 0.55,
+    "phase": 1.44
+   },
+   "physics": {
+    "stiffness": 44.0,
+    "damping": 5.0,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l0",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.2
+   ],
+   "rotation": [
+    0,
+    -16.0,
+    -54.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -14.4,
+      18.7,
+      -3.2
+     ],
+     "size": [
+      12.0,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      145,
+      41
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -11.0,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 74.0,
+    "damping": 6.5,
+    "inertia": 0.8,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l1",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.212
+   ],
+   "rotation": [
+    0,
+    -17.428571428571427,
+    -45.714285714285715
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -13.757,
+      18.7,
+      -3.212
+     ],
+     "size": [
+      11.357,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      194,
+      41
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.428571428571429,
+    "speed": 0.55,
+    "phase": 0.16
+   },
+   "physics": {
+    "stiffness": 69.71428571428571,
+    "damping": 6.285714285714286,
+    "inertia": 0.9142857142857144,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l2",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.224
+   ],
+   "rotation": [
+    0,
+    -18.857142857142858,
+    -37.42857142857143
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -13.114,
+      18.7,
+      -3.224
+     ],
+     "size": [
+      10.714,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      1,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -9.857142857142858,
+    "speed": 0.55,
+    "phase": 0.32
+   },
+   "physics": {
+    "stiffness": 65.42857142857143,
+    "damping": 6.071428571428571,
+    "inertia": 1.0285714285714287,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l3",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.236
+   ],
+   "rotation": [
+    0,
+    -20.285714285714285,
+    -29.142857142857146
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -12.471,
+      18.7,
+      -3.236
+     ],
+     "size": [
+      10.071,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      45,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -9.285714285714286,
+    "speed": 0.55,
+    "phase": 0.48
+   },
+   "physics": {
+    "stiffness": 61.142857142857146,
+    "damping": 5.857142857142858,
+    "inertia": 1.1428571428571428,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l4",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.248
+   ],
+   "rotation": [
+    0,
+    -21.714285714285715,
+    -20.85714285714286
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -11.829,
+      18.7,
+      -3.248
+     ],
+     "size": [
+      9.429,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      86,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -8.714285714285715,
+    "speed": 0.55,
+    "phase": 0.64
+   },
+   "physics": {
+    "stiffness": 56.85714285714286,
+    "damping": 5.642857142857143,
+    "inertia": 1.2571428571428571,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l5",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.2600000000000002
+   ],
+   "rotation": [
+    0,
+    -23.142857142857142,
+    -12.57142857142857
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -11.186,
+      18.7,
+      -3.26
+     ],
+     "size": [
+      8.786,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      125,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -8.142857142857142,
+    "speed": 0.55,
+    "phase": 0.8
+   },
+   "physics": {
+    "stiffness": 52.57142857142857,
+    "damping": 5.428571428571429,
+    "inertia": 1.3714285714285714,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l6",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.2720000000000002
+   ],
+   "rotation": [
+    0,
+    -24.57142857142857,
+    -4.285714285714292
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -10.543,
+      18.7,
+      -3.272
+     ],
+     "size": [
+      8.143,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      161,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.571428571428571,
+    "speed": 0.55,
+    "phase": 0.96
+   },
+   "physics": {
+    "stiffness": 48.28571428571429,
+    "damping": 5.214285714285714,
+    "inertia": 1.4857142857142858,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "secondary_l7",
+   "pivot": [
+    -2.4,
+    20.7,
+    -3.2840000000000003
+   ],
+   "rotation": [
+    0,
+    -26.0,
+    4.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -9.9,
+      18.7,
+      -3.284
+     ],
+     "size": [
+      7.5,
+      4.0,
+      0.1
+     ],
+     "uv": [
+      195,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.0,
+    "speed": 0.55,
+    "phase": 1.12
+   },
+   "physics": {
+    "stiffness": 44.0,
+    "damping": 5.0,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l0",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.4
+   ],
+   "rotation": [
+    0,
+    -16.0,
+    -76.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -9.4,
+      20.45,
+      -3.4
+     ],
+     "size": [
+      7.0,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      226,
+      61
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -11.0,
+    "speed": 0.55,
+    "phase": 0.4
+   },
+   "physics": {
+    "stiffness": 74.0,
+    "damping": 6.5,
+    "inertia": 0.8,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l1",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.412
+   ],
+   "rotation": [
+    0,
+    -17.25,
+    -67.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -8.975,
+      20.45,
+      -3.412
+     ],
+     "size": [
+      6.575,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      1,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.5,
+    "speed": 0.55,
+    "phase": 0.56
+   },
+   "physics": {
+    "stiffness": 70.25,
+    "damping": 6.3125,
+    "inertia": 0.9,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l2",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.424
+   ],
+   "rotation": [
+    0,
+    -18.5,
+    -59.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -8.55,
+      20.45,
+      -3.424
+     ],
+     "size": [
+      6.15,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      28,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.0,
+    "speed": 0.55,
+    "phase": 0.72
+   },
+   "physics": {
+    "stiffness": 66.5,
+    "damping": 6.125,
+    "inertia": 1.0,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l3",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.436
+   ],
+   "rotation": [
+    0,
+    -19.75,
+    -50.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -8.125,
+      20.45,
+      -3.436
+     ],
+     "size": [
+      5.725,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      54,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -9.5,
+    "speed": 0.55,
+    "phase": 0.88
+   },
+   "physics": {
+    "stiffness": 62.75,
+    "damping": 5.9375,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l4",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.448
+   ],
+   "rotation": [
+    0,
+    -21.0,
+    -42.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -7.7,
+      20.45,
+      -3.448
+     ],
+     "size": [
+      5.3,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      78,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -9.0,
+    "speed": 0.55,
+    "phase": 1.04
+   },
+   "physics": {
+    "stiffness": 59.0,
+    "damping": 5.75,
+    "inertia": 1.2000000000000002,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l5",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.46
+   ],
+   "rotation": [
+    0,
+    -22.25,
+    -33.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -7.275,
+      20.45,
+      -3.46
+     ],
+     "size": [
+      4.875,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      100,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -8.5,
+    "speed": 0.55,
+    "phase": 1.2000000000000002
+   },
+   "physics": {
+    "stiffness": 55.25,
+    "damping": 5.5625,
+    "inertia": 1.3,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l6",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.472
+   ],
+   "rotation": [
+    0,
+    -23.5,
+    -25.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -6.85,
+      20.45,
+      -3.472
+     ],
+     "size": [
+      4.45,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      121,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -8.0,
+    "speed": 0.55,
+    "phase": 1.3599999999999999
+   },
+   "physics": {
+    "stiffness": 51.5,
+    "damping": 5.375,
+    "inertia": 1.4000000000000001,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l7",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.484
+   ],
+   "rotation": [
+    0,
+    -24.75,
+    -16.5
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -6.425,
+      20.45,
+      -3.484
+     ],
+     "size": [
+      4.025,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      140,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.5,
+    "speed": 0.55,
+    "phase": 1.52
+   },
+   "physics": {
+    "stiffness": 47.75,
+    "damping": 5.1875,
+    "inertia": 1.5,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "covert_l8",
+   "pivot": [
+    -2.4,
+    22.099999999999998,
+    -3.496
+   ],
+   "rotation": [
+    0,
+    -26.0,
+    -8.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -6.0,
+      20.45,
+      -3.496
+     ],
+     "size": [
+      3.6,
+      3.3,
+      0.1
+     ],
+     "uv": [
+      157,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7.0,
+    "speed": 0.55,
+    "phase": 1.6800000000000002
+   },
+   "physics": {
+    "stiffness": 44.0,
+    "damping": 5.0,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -16,
+      0
+     ],
+     "speed": [
+      0,
+      -4,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "root_l",
+   "pivot": [
+    -2.4,
+    21.2,
+    -3.5
+   ],
+   "rotation": [
+    0,
+    -14,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -6.8,
+      19.6,
+      -3.5
+     ],
+     "size": [
+      5.0,
+      3.6,
+      0.1
+     ],
+     "uv": [
+      172,
+      79
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -7,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 70,
+    "damping": 6.5,
+    "drive": {
+     "sprint": [
+      0,
+      -16,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  }
+ ]
+}

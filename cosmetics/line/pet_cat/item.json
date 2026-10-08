@@ -1,0 +1,580 @@
+{
+ "id": "pet_cat",
+ "name": "Cat Companion",
+ "slot": "pet",
+ "tags": [
+  "pet",
+  "cat",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 4,
+ "tint": [
+  {
+   "name": "Fur",
+   "default": "#f2a65a"
+  },
+  {
+   "name": "Belly",
+   "default": "#fff3e3"
+  },
+  {
+   "name": "Eyes",
+   "default": "#8fd14f"
+  },
+  {
+   "name": "Nose",
+   "default": "#ff8fa8"
+  }
+ ],
+ "bones": [
+  {
+   "name": "pet",
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "physics": {
+    "type": "spring",
+    "stiffness": 16.0,
+    "damping": 4.0,
+    "inertia": 0.5,
+    "drive": {
+     "speed": [
+      0,
+      26.0,
+      0
+     ],
+     "sprint": [
+      0,
+      11.700000000000001,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "name": "body",
+   "pivot": [
+    11.4,
+    4.2,
+    0.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "pet",
+   "anim": {
+    "type": "hop",
+    "axis": "y",
+    "amplitude": 0.1,
+    "speed": 0.35,
+    "phase": 0
+   },
+   "cubes": [
+    {
+     "origin": [
+      9.65,
+      2.8,
+      -3.85
+     ],
+     "size": [
+      3.5,
+      3.15,
+      7.7
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      10,
+      9,
+      22
+     ]
+    }
+   ]
+  },
+  {
+   "name": "head",
+   "pivot": [
+    11.4,
+    5.6,
+    3.36
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "sway",
+    "axis": "y",
+    "amplitude": 16.0,
+    "speed": 0.16,
+    "phase": 0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 30.0,
+    "damping": 5.0,
+    "inertia": 0.6,
+    "drive": {
+     "speed": [
+      6,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      9.3,
+      4.55,
+      3.15
+     ],
+     "size": [
+      4.2,
+      3.85,
+      3.5
+     ],
+     "uv": [
+      66,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      12,
+      11,
+      10
+     ]
+    },
+    {
+     "origin": [
+      9.65,
+      8.4,
+      4.2
+     ],
+     "size": [
+      1.05,
+      1.05,
+      0.7
+     ],
+     "uv": [
+      111,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      3,
+      3,
+      2
+     ]
+    },
+    {
+     "origin": [
+      10.0,
+      8.4,
+      4.9
+     ],
+     "size": [
+      0.7,
+      0.7,
+      0.35
+     ],
+     "uv": [
+      122,
+      1
+     ],
+     "tint": "Nose",
+     "uvsize": [
+      2,
+      2,
+      1
+     ]
+    },
+    {
+     "origin": [
+      12.1,
+      8.4,
+      4.2
+     ],
+     "size": [
+      1.05,
+      1.05,
+      0.7
+     ],
+     "uv": [
+      129,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      3,
+      3,
+      2
+     ]
+    },
+    {
+     "origin": [
+      12.1,
+      8.4,
+      4.9
+     ],
+     "size": [
+      0.7,
+      0.7,
+      0.35
+     ],
+     "uv": [
+      140,
+      1
+     ],
+     "tint": "Nose",
+     "uvsize": [
+      2,
+      2,
+      1
+     ]
+    },
+    {
+     "origin": [
+      10.7,
+      4.55,
+      6.65
+     ],
+     "size": [
+      1.4,
+      1.05,
+      0.7
+     ],
+     "uv": [
+      147,
+      1
+     ],
+     "tint": "Belly",
+     "uvsize": [
+      4,
+      3,
+      2
+     ]
+    },
+    {
+     "origin": [
+      11.05,
+      5.6,
+      6.65
+     ],
+     "size": [
+      0.7,
+      0.35,
+      0.35
+     ],
+     "uv": [
+      160,
+      1
+     ],
+     "tint": "Nose",
+     "uvsize": [
+      2,
+      1,
+      1
+     ]
+    },
+    {
+     "origin": [
+      10.0,
+      6.3,
+      6.58
+     ],
+     "size": [
+      0.7,
+      0.7,
+      0.35
+     ],
+     "uv": [
+      167,
+      1
+     ],
+     "tint": "Eyes",
+     "uvsize": [
+      2,
+      2,
+      1
+     ]
+    },
+    {
+     "origin": [
+      12.1,
+      6.3,
+      6.58
+     ],
+     "size": [
+      0.7,
+      0.7,
+      0.35
+     ],
+     "uv": [
+      174,
+      1
+     ],
+     "tint": "Eyes",
+     "uvsize": [
+      2,
+      2,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "name": "leg0",
+   "pivot": [
+    10.35,
+    3.15,
+    2.45
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "walk",
+    "axis": "x",
+    "amplitude": 38.0,
+    "speed": 1,
+    "phase": 0.0
+   },
+   "cubes": [
+    {
+     "origin": [
+      9.825,
+      0.0,
+      1.925
+     ],
+     "size": [
+      1.05,
+      3.15,
+      1.05
+     ],
+     "uv": [
+      181,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      3,
+      9,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "leg1",
+   "pivot": [
+    12.45,
+    3.15,
+    2.45
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "walk",
+    "axis": "x",
+    "amplitude": 38.0,
+    "speed": 1,
+    "phase": 3.141592653589793
+   },
+   "cubes": [
+    {
+     "origin": [
+      11.925,
+      0.0,
+      1.925
+     ],
+     "size": [
+      1.05,
+      3.15,
+      1.05
+     ],
+     "uv": [
+      194,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      3,
+      9,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "leg2",
+   "pivot": [
+    10.35,
+    3.15,
+    -2.8
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "walk",
+    "axis": "x",
+    "amplitude": 38.0,
+    "speed": 1,
+    "phase": 3.141592653589793
+   },
+   "cubes": [
+    {
+     "origin": [
+      9.825,
+      0.0,
+      -3.325
+     ],
+     "size": [
+      1.05,
+      3.15,
+      1.05
+     ],
+     "uv": [
+      207,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      3,
+      9,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "leg3",
+   "pivot": [
+    12.45,
+    3.15,
+    -2.8
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "walk",
+    "axis": "x",
+    "amplitude": 38.0,
+    "speed": 1,
+    "phase": 0.0
+   },
+   "cubes": [
+    {
+     "origin": [
+      11.925,
+      0.0,
+      -3.325
+     ],
+     "size": [
+      1.05,
+      3.15,
+      1.05
+     ],
+     "uv": [
+      220,
+      1
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      3,
+      9,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "tail",
+   "pivot": [
+    11.4,
+    5.46,
+    -3.64
+   ],
+   "rotation": [
+    42,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "wag",
+    "axis": "y",
+    "amplitude": 18.0,
+    "speed": 0.55,
+    "phase": 0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 24.0,
+    "damping": 3.5,
+    "inertia": 1.2,
+    "drive": {
+     "speed": [
+      -18,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      11.05,
+      5.11,
+      -9.8
+     ],
+     "size": [
+      0.7,
+      0.7,
+      6.3
+     ],
+     "uv": [
+      1,
+      34
+     ],
+     "tint": "Fur",
+     "uvsize": [
+      2,
+      2,
+      18
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+[
+  {"name": "Combo HUD", "file": "combo_hud.lua", "author": "Monchi", "description": "Combo number with a bar that empties after 1.5 seconds."},
+  {"name": "Kill Counter", "file": "kill_counter.lua", "author": "Monchi", "description": "Kill streak with a saved record."},
+  {"name": "Ping Warning", "file": "ping_warning.lua", "author": "Monchi", "description": "Shows a warning when your ping gets high."}
+]

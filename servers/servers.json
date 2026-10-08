@@ -1,0 +1,148 @@
+{
+  "updated": "2026-10-01",
+  "servers": [
+    {
+      "name": "Zeqa",
+      "match": [
+        "zeqa.net"
+      ],
+      "resolve": ["zeqa.net"],
+      "warn": [
+        "Zeqa Utils"
+      ]
+    },
+    {
+      "name": "The Hive",
+      "match": [
+        "hivebedrock.network",
+        "playhive.com"
+      ],
+      "resolve": ["geo.hivebedrock.network"],
+      "rules": "https://support.playhive.com/allowed-and-denied-mods/",
+      "block": [
+        "Freelook"
+      ],
+      "blockOptions": {
+        "Auto GG": [
+          "onKill"
+        ]
+      },
+      "warn": [
+        "Entity Counter",
+        "Null Movement",
+        "Faster Inventory",
+        "Item Use Delay Fix",
+        "Insta Hurt Animation",
+        "Opponent Reach",
+        "Hit Ping",
+        "Snap Look",
+        "Waypoints",
+        "Command Hotkey",
+        "Text Hotkey",
+        "Damage Indicator",
+        "Target HUD",
+        "Hotbar Keys",
+        "Hive Utils",
+        "Kill Cleanup",
+        "Light Overlay"
+      ]
+    },
+    {
+      "name": "CubeCraft",
+      "match": [
+        "cubecraft.net"
+      ],
+      "resolve": ["mco.cubecraft.net"],
+      "rules": "https://www.cubecraft.net/threads/allowed-mods-and-clients.228596/",
+      "warn": [
+        "Faster Inventory",
+        "Disable Inventory Hotkeys",
+        "Item Use Delay Fix",
+        "Null Movement",
+        "Insta Hurt Animation",
+        "Snap Look",
+        "Command Hotkey",
+        "Text Hotkey",
+        "Kill Cleanup",
+        "Light Overlay"
+      ]
+    },
+    {
+      "name": "Lifeboat",
+      "match": [
+        "lbsg.net"
+      ],
+      "resolve": ["mco.lbsg.net"],
+      "rules": "https://www.lbsg.net/in-game-rules/index.html",
+      "block": [
+        "Null Movement",
+        "Faster Inventory",
+        "Item Use Delay Fix",
+        "Insta Hurt Animation"
+      ],
+      "warnTags": [
+        "info-others",
+        "input",
+        "timing",
+        "chat"
+      ],
+      "notice": "Monchi ist auf Lifeboat noch nicht offiziell freigegeben.",
+      "warn": [
+        "Crystal Optimizer"
+      ]
+    },
+    {
+      "name": "Galaxite",
+      "match": [
+        "galaxite.net"
+      ],
+      "resolve": ["play.galaxite.net"],
+      "rules": "https://www.galaxite.net/rules/",
+      "block": [
+        "Null Movement",
+        "Faster Inventory",
+        "Item Use Delay Fix",
+        "Insta Hurt Animation"
+      ],
+      "warnTags": [
+        "info-others",
+        "input",
+        "timing"
+      ],
+      "warn": [
+        "Crystal Optimizer"
+      ]
+    },
+    {
+      "name": "NetherGames",
+      "match": [
+        "nethergames.org"
+      ],
+      "resolve": ["play.nethergames.org"],
+      "rules": "https://support.nethergames.org/terms-of-service",
+      "warn": [
+        "Toggle Sprint",
+        "Bow Charge",
+        "Null Movement",
+        "Faster Inventory",
+        "Item Use Delay Fix"
+      ],
+      "notice": "Monchi has not checked the NetherGames mod list in detail. Reports say Toggle Sprint and bow indicators are blocked there."
+    },
+    {
+      "name": "Mineville",
+      "match": [
+        "mineville.org"
+      ],
+      "resolve": ["play.inpvp.net"],
+      "rules": "https://mineville.org/support/what-are-the-rules/",
+      "warn": [
+        "Null Movement",
+        "Faster Inventory",
+        "Item Use Delay Fix",
+        "Insta Hurt Animation"
+      ],
+      "notice": "Mineville bans mods that give an advantage but has no public list. Stay with display modules."
+    }
+  ]
+}

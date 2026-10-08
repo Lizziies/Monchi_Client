@@ -1,0 +1,12 @@
+#pragma once
+
+struct ToolTipParams {
+    float x;
+    float y;
+    std::string text;
+    float width;
+    float height;
+    bool relative;
+    std::string textSize;
+    std::chrono::milliseconds duration;
+};

@@ -1,0 +1,104 @@
+{
+ "items": [
+  {
+   "id": "angel_wings",
+   "name": "Angel Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "butterfly_wings",
+   "name": "Butterfly Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "demon_wings",
+   "name": "Demon Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "dragon_wings",
+   "name": "Dragon Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "flame_cape",
+   "name": "Flame Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "gradient_cape",
+   "name": "Gradient Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "mini_cape",
+   "name": "Mini Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "mochi_bandana",
+   "name": "Bandana",
+   "slot": "face"
+  },
+  {
+   "id": "mochi_beanie",
+   "name": "Beanie",
+   "slot": "head"
+  },
+  {
+   "id": "mochi_cape",
+   "name": "Monchi Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "mochi_cat_ears",
+   "name": "Cat Ears",
+   "slot": "head"
+  },
+  {
+   "id": "mochi_cat_tail",
+   "name": "Cat Tail",
+   "slot": "body"
+  },
+  {
+   "id": "mochi_dog_ears",
+   "name": "Dog Ears",
+   "slot": "head"
+  },
+  {
+   "id": "mochi_dog_tail",
+   "name": "Dog Tail",
+   "slot": "body"
+  },
+  {
+   "id": "mochi_sneakers",
+   "name": "Sneakers",
+   "slot": "feet"
+  },
+  {
+   "id": "mochi_wizard_hat",
+   "name": "Wizard Hat",
+   "slot": "head"
+  },
+  {
+   "id": "pixel_wings",
+   "name": "Pixel Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "royal_cape",
+   "name": "Royal Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "sakura_wings",
+   "name": "Sakura Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "starry_cape",
+   "name": "Starry Cape",
+   "slot": "cape"
+  }
+ ]
+}

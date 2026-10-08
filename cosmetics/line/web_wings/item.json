@@ -1,0 +1,399 @@
+{
+ "id": "web_wings",
+ "name": "Web Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "halloween",
+  "spooky",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 8,
+ "tint": [
+  {
+   "name": "Web",
+   "default": "#ececf4"
+  },
+  {
+   "name": "Dew",
+   "default": "#ff8a2a"
+  },
+  {
+   "name": "Shadow",
+   "default": "#251a33"
+  },
+  {
+   "name": "Spider",
+   "default": "#1e1a24"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.2,
+    20.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    22.0,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 11.0,
+    "speed": 0.45,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      16.0,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      12.6,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      1.8,
+      12.6,
+      -2.68
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      122,
+      1
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      1.8,
+      12.6,
+      -2.74
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      110
+     ],
+     "flat": true,
+     "tint": "Shadow"
+    },
+    {
+     "origin": [
+      1.8,
+      12.6,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      1.8,
+      12.6,
+      -2.86
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      122,
+      1
+     ],
+     "flat": true,
+     "tint": "Dew"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.2,
+    20.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -22.0,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -11.0,
+    "speed": 0.45,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -16.0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.8,
+      12.6,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Web",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      12.6,
+      -2.68
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      122,
+      1
+     ],
+     "flat": true,
+     "tint": "Dew",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      12.6,
+      -2.74
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      110
+     ],
+     "flat": true,
+     "tint": "Shadow",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      12.6,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Web",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      12.6,
+      -2.86
+     ],
+     "size": [
+      15.0,
+      13.4,
+      0.04
+     ],
+     "uv": [
+      122,
+      1
+     ],
+     "flat": true,
+     "tint": "Dew",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "spider_r",
+   "pivot": [
+    2.2,
+    20.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    22.0,
+    4.0
+   ],
+   "anim": {
+    "type": "bob",
+    "axis": "y",
+    "amplitude": 0.45,
+    "speed": 0.35,
+    "phase": 0.0
+   },
+   "cubes": [
+    {
+     "origin": [
+      4.9,
+      11.5,
+      -2.95
+     ],
+     "size": [
+      3.0,
+      5.4,
+      0.04
+     ],
+     "uv": [
+      122,
+      110
+     ],
+     "flat": true,
+     "tint": "Spider"
+    }
+   ]
+  },
+  {
+   "name": "spider_l",
+   "pivot": [
+    -2.2,
+    20.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -22.0,
+    -4.0
+   ],
+   "anim": {
+    "type": "bob",
+    "axis": "y",
+    "amplitude": 0.45,
+    "speed": 0.35,
+    "phase": 2.1
+   },
+   "cubes": [
+    {
+     "origin": [
+      -7.9,
+      11.5,
+      -2.95
+     ],
+     "size": [
+      3.0,
+      5.4,
+      0.04
+     ],
+     "uv": [
+      122,
+      110
+     ],
+     "flat": true,
+     "tint": "Spider",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

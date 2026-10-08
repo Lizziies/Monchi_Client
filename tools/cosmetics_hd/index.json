@@ -1,0 +1,128 @@
+{
+ "items": [
+  {
+   "id": "flame_cape",
+   "name": "Flame Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "fire",
+    "animated"
+   ]
+  },
+  {
+   "id": "gradient_cape",
+   "name": "Gradient Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "gradient"
+   ]
+  },
+  {
+   "id": "mini_cape",
+   "name": "Mini Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "short"
+   ]
+  },
+  {
+   "id": "mochi_cape",
+   "name": "Monchi Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "pink",
+    "heart"
+   ]
+  },
+  {
+   "id": "royal_cape",
+   "name": "Royal Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "royal"
+   ]
+  },
+  {
+   "id": "starry_cape",
+   "name": "Starry Cape",
+   "slot": "cape",
+   "tags": [
+    "cape",
+    "night",
+    "animated"
+   ]
+  },
+  {
+   "id": "angel_wings",
+   "name": "Angel Wings",
+   "slot": "wings",
+   "tags": [
+    "wings",
+    "white",
+    "feathers",
+    "animated"
+   ]
+  },
+  {
+   "id": "butterfly_wings",
+   "name": "Butterfly Wings",
+   "slot": "wings",
+   "tags": [
+    "wings",
+    "animated",
+    "butterfly"
+   ]
+  },
+  {
+   "id": "demon_wings",
+   "name": "Demon Wings",
+   "slot": "wings",
+   "tags": [
+    "wings",
+    "animated",
+    "dark",
+    "bat",
+    "glow"
+   ]
+  },
+  {
+   "id": "dragon_wings",
+   "name": "Dragon Wings",
+   "slot": "wings",
+   "tags": [
+    "wings",
+    "animated",
+    "green",
+    "dragon",
+    "scales"
+   ]
+  },
+  {
+   "id": "pixel_wings",
+   "name": "Pixel Wings",
+   "slot": "wings",
+   "tags": [
+    "wings",
+    "pixel",
+    "rainbow",
+    "animated"
+   ]
+  },
+  {
+   "id": "sakura_wings",
+   "name": "Sakura Wings",
+   "slot": "wings",
+   "tags": [
+    "wings",
+    "pink",
+    "petals",
+    "animated"
+   ]
+  }
+ ]
+}

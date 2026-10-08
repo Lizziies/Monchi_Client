@@ -1,0 +1,337 @@
+{
+ "id": "baby_cherub_wings",
+ "name": "Baby Cherub Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "white",
+  "feathers",
+  "cute",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 8,
+ "tint": [
+  {
+   "name": "Feather",
+   "default": "#ffffff"
+  },
+  {
+   "name": "Gold",
+   "default": "#ffd77a"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.0,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    35.566,
+    6.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 16.96,
+    "speed": 1.05,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      31.4,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.6,
+      14.4,
+      -2.62
+     ],
+     "size": [
+      10.0,
+      9.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Feather"
+    }
+   ]
+  },
+  {
+   "name": "arm_r",
+   "pivot": [
+    2.0,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    35.566,
+    6.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 16.0,
+    "speed": 1.05,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      31.4,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.6,
+      14.4,
+      -2.71
+     ],
+     "size": [
+      10.0,
+      9.4,
+      0.04
+     ],
+     "uv": [
+      82,
+      1
+     ],
+     "flat": true,
+     "tint": "Feather"
+    },
+    {
+     "origin": [
+      1.6,
+      14.4,
+      -2.8
+     ],
+     "size": [
+      10.0,
+      9.4,
+      0.04
+     ],
+     "uv": [
+      163,
+      1
+     ],
+     "flat": true,
+     "tint": "Gold"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.0,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -35.566,
+    -6.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -16.96,
+    "speed": 1.05,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -31.4,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -11.6,
+      14.4,
+      -2.62
+     ],
+     "size": [
+      10.0,
+      9.4,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Feather",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "arm_l",
+   "pivot": [
+    -2.0,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -35.566,
+    -6.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -16.0,
+    "speed": 1.05,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -31.4,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -11.6,
+      14.4,
+      -2.71
+     ],
+     "size": [
+      10.0,
+      9.4,
+      0.04
+     ],
+     "uv": [
+      82,
+      1
+     ],
+     "flat": true,
+     "tint": "Feather",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -11.6,
+      14.4,
+      -2.8
+     ],
+     "size": [
+      10.0,
+      9.4,
+      0.04
+     ],
+     "uv": [
+      163,
+      1
+     ],
+     "flat": true,
+     "tint": "Gold",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

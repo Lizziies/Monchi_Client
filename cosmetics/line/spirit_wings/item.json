@@ -1,0 +1,372 @@
+{
+ "id": "spirit_wings",
+ "name": "Spirit Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "ghost",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Spirit",
+   "default": "#8fe6ff"
+  },
+  {
+   "name": "Edge",
+   "default": "#ffffff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.8,
+    18.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    35.764,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 15.9,
+    "speed": 0.4,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      31.6,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      10.2,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Spirit"
+    },
+    {
+     "origin": [
+      2.4,
+      10.2,
+      -2.71
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Edge"
+    }
+   ]
+  },
+  {
+   "name": "arm_r",
+   "pivot": [
+    2.8,
+    18.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    35.764,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 15.0,
+    "speed": 0.4,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      31.6,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      10.2,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Spirit"
+    },
+    {
+     "origin": [
+      2.4,
+      10.2,
+      -2.89
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      91
+     ],
+     "flat": true,
+     "tint": "Edge"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.8,
+    18.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -35.764,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -15.9,
+    "speed": 0.4,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -31.6,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -17.4,
+      10.2,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Spirit",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -17.4,
+      10.2,
+      -2.71
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Edge",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "arm_l",
+   "pivot": [
+    -2.8,
+    18.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -35.764,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -15.0,
+    "speed": 0.4,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -31.6,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -17.4,
+      10.2,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Spirit",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -17.4,
+      10.2,
+      -2.89
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      91
+     ],
+     "flat": true,
+     "tint": "Edge",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

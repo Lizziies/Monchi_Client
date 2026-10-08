@@ -1,0 +1,239 @@
+{
+ "items": [
+  {
+   "id": "mushroom_underglow",
+   "name": "Mushroom Underglow",
+   "slot": "aura"
+  },
+  {
+   "id": "neon_underglow",
+   "name": "Neon Underglow",
+   "slot": "aura"
+  },
+  {
+   "id": "battle_cape",
+   "name": "Battle Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "cherub_cape",
+   "name": "Cherub Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "crystal_cape",
+   "name": "Crystal Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "ember_cape",
+   "name": "Ember Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "leaf_cape",
+   "name": "Leaf Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "moonlit_cape",
+   "name": "Moonlit Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "neon_cape",
+   "name": "Neon Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "web_cape",
+   "name": "Web Cape",
+   "slot": "cape"
+  },
+  {
+   "id": "bow_headband",
+   "name": "Bow Headband",
+   "slot": "face"
+  },
+  {
+   "id": "classic_bandana",
+   "name": "Classic Bandana",
+   "slot": "face"
+  },
+  {
+   "id": "ember_bandana",
+   "name": "Ember Bandana",
+   "slot": "face"
+  },
+  {
+   "id": "moonlit_bandana",
+   "name": "Moonlit Bandana",
+   "slot": "face"
+  },
+  {
+   "id": "ninja_band",
+   "name": "Ninja Band",
+   "slot": "face"
+  },
+  {
+   "id": "axolotl_shoes",
+   "name": "Axolotl Shoes",
+   "slot": "feet"
+  },
+  {
+   "id": "bunny_shoes",
+   "name": "Bunny Shoes",
+   "slot": "feet"
+  },
+  {
+   "id": "cat_shoes",
+   "name": "Cat Shoes",
+   "slot": "feet"
+  },
+  {
+   "id": "court_sneakers",
+   "name": "Court Sneakers",
+   "slot": "feet"
+  },
+  {
+   "id": "dog_shoes",
+   "name": "Dog Shoes",
+   "slot": "feet"
+  },
+  {
+   "id": "fox_shoes",
+   "name": "Fox Shoes",
+   "slot": "feet"
+  },
+  {
+   "id": "high_sneakers",
+   "name": "High Sneakers",
+   "slot": "feet"
+  },
+  {
+   "id": "panda_shoes",
+   "name": "Panda Shoes",
+   "slot": "feet"
+  },
+  {
+   "id": "trail_boots",
+   "name": "Trail Boots",
+   "slot": "feet"
+  },
+  {
+   "id": "cat_ears",
+   "name": "Cat Ears",
+   "slot": "head"
+  },
+  {
+   "id": "dog_ears",
+   "name": "Dog Ears",
+   "slot": "head"
+  },
+  {
+   "id": "fox_ears",
+   "name": "Fox Ears",
+   "slot": "head"
+  },
+  {
+   "id": "halo",
+   "name": "Halo",
+   "slot": "head"
+  },
+  {
+   "id": "hare_ears",
+   "name": "Hare Ears",
+   "slot": "head"
+  },
+  {
+   "id": "pet_bunny",
+   "name": "Shoulder Bunny",
+   "slot": "pet"
+  },
+  {
+   "id": "pet_cat",
+   "name": "Cat Companion",
+   "slot": "pet"
+  },
+  {
+   "id": "pet_dog",
+   "name": "Dog Companion",
+   "slot": "pet"
+  },
+  {
+   "id": "pet_dragon",
+   "name": "Dragon Companion",
+   "slot": "pet"
+  },
+  {
+   "id": "cat_tail",
+   "name": "Cat Tail",
+   "slot": "waist"
+  },
+  {
+   "id": "dog_tail",
+   "name": "Dog Tail",
+   "slot": "waist"
+  },
+  {
+   "id": "fox_tail",
+   "name": "Fox Tail",
+   "slot": "waist"
+  },
+  {
+   "id": "hare_tail",
+   "name": "Hare Tail",
+   "slot": "waist"
+  },
+  {
+   "id": "abyss_crystal_wings",
+   "name": "Abyss Crystal Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "baby_cherub_wings",
+   "name": "Baby Cherub Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "baby_dragon_wings",
+   "name": "Baby Dragon Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "clockwork_wings",
+   "name": "Clockwork Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "crystal_wings",
+   "name": "Crystal Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "ember_wings",
+   "name": "Ember Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "leaf_wings",
+   "name": "Leaf Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "neon_wings",
+   "name": "Neon Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "spirit_wings",
+   "name": "Spirit Wings",
+   "slot": "wings"
+  },
+  {
+   "id": "web_wings",
+   "name": "Web Wings",
+   "slot": "wings"
+  }
+ ]
+}

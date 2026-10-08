@@ -1,0 +1,149 @@
+{
+ "id": "mini_cape",
+ "name": "Mini Cape",
+ "slot": "cape",
+ "tags": [
+  "cape",
+  "short"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#7ee0c8"
+  },
+  {
+   "name": "Trim",
+   "default": "#ffffff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "cape",
+   "pivot": [
+    0,
+    24.0,
+    -2.55
+   ],
+   "rotation": [
+    5,
+    0,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.0,
+      22.667,
+      -2.55
+     ],
+     "size": [
+      8.0,
+      1.333,
+      0.1
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Trim"
+    },
+    {
+     "origin": [
+      -4.0,
+      21.333,
+      -2.55
+     ],
+     "size": [
+      8.0,
+      1.333,
+      0.1
+     ],
+     "uv": [
+      50,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -4.0,
+      20.0,
+      -2.55
+     ],
+     "size": [
+      8.0,
+      1.333,
+      0.1
+     ],
+     "uv": [
+      99,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -4.0,
+      18.667,
+      -2.55
+     ],
+     "size": [
+      8.0,
+      1.333,
+      0.1
+     ],
+     "uv": [
+      148,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -4.0,
+      17.333,
+      -2.55
+     ],
+     "size": [
+      8.0,
+      1.333,
+      0.1
+     ],
+     "uv": [
+      197,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -4.0,
+      16.0,
+      -2.55
+     ],
+     "size": [
+      8.0,
+      1.333,
+      0.1
+     ],
+     "uv": [
+      1,
+      11
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "physics": {
+    "type": "cloth"
+   }
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+node_modules/
+package-lock.json
+out/
+anim/
+*.gif
+*.png
+head.html
+tail.html
+out*/
+new.html
+gifs_done
+close.html
+feet.html
+aura.html
+head2.html
+new.html

@@ -1,0 +1,313 @@
+{
+ "id": "neon_wings",
+ "name": "Neon Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "neon",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Fill",
+   "default": "#1d1238"
+  },
+  {
+   "name": "Line",
+   "default": "#ff47d7"
+  },
+  {
+   "name": "Inner",
+   "default": "#45e9ff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.2,
+    19.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    22.87,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 12.0,
+    "speed": 0.5,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      17.5,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Line"
+    },
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.68
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Inner"
+    },
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.74
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Fill"
+    },
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Inner"
+    },
+    {
+     "origin": [
+      1.8,
+      11.2,
+      -2.86
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Line"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.2,
+    19.8,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -22.87,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -12.0,
+    "speed": 0.5,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -17.5,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Line",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.68
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Inner",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.74
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Fill",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Inner",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      11.2,
+      -2.86
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Line",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

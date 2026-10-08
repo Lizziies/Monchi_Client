@@ -1,0 +1,354 @@
+{
+ "id": "demon_wings",
+ "name": "Demon Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "animated",
+  "dark",
+  "bat",
+  "glow"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#3a1f4d"
+  },
+  {
+   "name": "Accent",
+   "default": "#ff4a6a"
+  }
+ ],
+ "bones": [
+  {
+   "name": "inner_r",
+   "pivot": [
+    2.4,
+    21.0,
+    -3.2
+   ],
+   "rotation": [
+    0,
+    12,
+    8
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.4,
+      18.553,
+      -3.2
+     ],
+     "size": [
+      10.667,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      2.4,
+      18.553,
+      -3.25
+     ],
+     "size": [
+      10.667,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      66,
+      1
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 14.0,
+    "speed": 0.5,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 70.0,
+    "damping": 6.5,
+    "inertia": 1.0,
+    "drive": {
+     "air": [
+      0,
+      0,
+      16
+     ],
+     "sprint": [
+      0,
+      18,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "outer_r",
+   "pivot": [
+    2.4,
+    21.0,
+    -3.2
+   ],
+   "rotation": [
+    0,
+    12,
+    8
+   ],
+   "cubes": [
+    {
+     "origin": [
+      13.067,
+      18.553,
+      -3.2
+     ],
+     "size": [
+      8.0,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      131,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      13.067,
+      18.553,
+      -3.25
+     ],
+     "size": [
+      8.0,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      180,
+      1
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 22.0,
+    "speed": 0.5,
+    "phase": 0.55
+   },
+   "physics": {
+    "stiffness": 38.0,
+    "damping": 4.2,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      16
+     ],
+     "sprint": [
+      0,
+      18,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "inner_l",
+   "pivot": [
+    -2.4,
+    21.0,
+    -3.2
+   ],
+   "rotation": [
+    0,
+    -12,
+    -8
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -13.067,
+      18.553,
+      -3.2
+     ],
+     "size": [
+      10.667,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      1,
+      85
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -13.067,
+      18.553,
+      -3.25
+     ],
+     "size": [
+      10.667,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      66,
+      85
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -14.0,
+    "speed": 0.5,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 70.0,
+    "damping": 6.5,
+    "inertia": 1.0,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -16
+     ],
+     "sprint": [
+      0,
+      -18,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "outer_l",
+   "pivot": [
+    -2.4,
+    21.0,
+    -3.2
+   ],
+   "rotation": [
+    0,
+    -12,
+    -8
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -21.067,
+      18.553,
+      -3.2
+     ],
+     "size": [
+      8.0,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      131,
+      85
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -21.067,
+      18.553,
+      -3.25
+     ],
+     "size": [
+      8.0,
+      13.667,
+      0.1
+     ],
+     "uv": [
+      180,
+      85
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -22.0,
+    "speed": 0.5,
+    "phase": 0.55
+   },
+   "physics": {
+    "stiffness": 38.0,
+    "damping": 4.2,
+    "inertia": 1.6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -16
+     ],
+     "sprint": [
+      0,
+      -18,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  }
+ ]
+}

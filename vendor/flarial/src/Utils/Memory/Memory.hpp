@@ -1,0 +1,299 @@
+﻿#pragma once
+
+#include <windows.h>
+#include <unknwn.h>
+#include <Psapi.h>
+#include <utility>
+#include <vector>
+#include <type_traits>
+#include <format>
+#include <winrt/base.h>
+
+#include <Utils//Logger/Logger.hpp>
+#include <minhook/MinHook.h>
+#include <libhat/Scanner.hpp>
+
+
+template<typename Ret, typename Type>
+Ret &direct_access(Type *type, size_t offset) {
+    union {
+        size_t raw;
+        Type *source;
+        Ret *target;
+    } u;
+    u.source = type;
+    u.raw += offset;
+    return *u.target;
+}
+
+#define AS_FIELD(type, name, fn) __declspec(property(get = fn, put = set##name)) type name
+#define DEF_FIELD_RW(type, name) __declspec(property(get = get##name, put = set##name)) type name
+
+//fake class macro to avoid compile errors when using pragma once
+
+#define FK(typep) \
+class typep;
+
+#define FAKE_FIELD(type, name)                                                                                       \
+AS_FIELD(type, name, get##name);                                                                                     \
+type get##name()
+
+#define BUILD_ACCESS(ptr, type, name, offset)                                                                        \
+AS_FIELD(type, name, get##name);                                                                                     \
+type get##name() const { return direct_access<type>(ptr, offset); }                                                     \
+void set##name(type v) const { direct_access<type>(ptr, offset) = v; }
+
+#define BUILD_ACCESS_REF(ptr, type, name, offset)                                                                    \
+type& get##name() { return direct_access<type>(ptr, offset); }                                                    \
+const type& get##name() const { return direct_access<type>(ptr, offset); }                                        \
+void set##name(const type& v) { direct_access<type>(ptr, offset) = v; }
+
+class Memory {
+public:
+    /// Calls a virtual function at a compile-time vtable index on the given object.
+    template<unsigned int IIdx, typename TRet, typename... TArgs>
+    static auto CallVFunc(void *thisptr, TArgs... argList) -> TRet {
+        using Fn = TRet(__thiscall *)(void *, decltype(argList)...);
+        return (*static_cast<Fn **>(thisptr))[IIdx](thisptr, std::forward<TArgs>(argList)...);
+    }
+
+    /// Calls a virtual function at a runtime-determined vtable index on the given object.
+    template<typename TRet, typename... TArgs>
+    static auto CallVFuncI(uint32_t index, void *thisptr, TArgs... argList) -> TRet {
+        using Fn = TRet(__thiscall*)(void *, TArgs...);
+        return (*static_cast<Fn **>(thisptr))[index](thisptr, std::forward<TArgs>(argList)...);
+    }
+
+    /// Creates and immediately enables a MinHook detour, logging success/failure.
+    static void hookFunc(void *pTarget, void *pDetour, void **ppOriginal, std::string name) {
+        if (pTarget == nullptr) {
+            Logger::custom(fg(fmt::color::crimson), "vFunc Hook", "{} has invalid address", name);
+            return;
+        }
+
+        if (MH_CreateHook(pTarget, pDetour, ppOriginal) != MH_OK) {
+            Logger::custom(fg(fmt::color::crimson), "vFunc Hook", "Failed to hook {}", name);
+            return;
+        }
+
+        MH_EnableHook(pTarget);
+
+        Logger::custom(fg(fmt::color::dodger_blue), "vFunc Hook", "Hooked {} at {}", name, pTarget);
+    }
+
+    // Queued version - creates hook and queues for batch enabling
+    // Call applyQueuedHooks() after creating all hooks to enable them in one thread suspend
+    static void hookFuncQueued(void *pTarget, void *pDetour, void **ppOriginal, std::string name) {
+        if (pTarget == nullptr) {
+            Logger::custom(fg(fmt::color::crimson), "vFunc Hook", "{} has invalid address", name);
+            return;
+        }
+
+        if (MH_CreateHook(pTarget, pDetour, ppOriginal) != MH_OK) {
+            Logger::custom(fg(fmt::color::crimson), "vFunc Hook", "Failed to hook {}", name);
+            return;
+        }
+
+        if (MH_QueueEnableHook(pTarget) != MH_OK) {
+            Logger::custom(fg(fmt::color::crimson), "vFunc Hook", "Failed to queue {}", name);
+            return;
+        }
+
+        Logger::custom(fg(fmt::color::dodger_blue), "vFunc Hook", "Queued {} at {}", name, pTarget);
+    }
+
+    // Apply all queued hooks in one batch (single thread suspend/resume)
+    static void applyQueuedHooks() {
+        MH_ApplyQueued();
+    }
+
+    template<typename R, typename... Args>
+    static R CallFunc(void *func, Args... args) {
+        return static_cast<R(*)(Args...)>(func)(args...);
+    }
+
+    template<unsigned int index>
+    static void HookVFunc(uintptr_t sigOffset, void *pDetour, void **ppOriginal, std::string name) {
+        auto **vTable = reinterpret_cast<uintptr_t **>(sigOffset + 3 + 7);
+
+        hookFunc(vTable[index], pDetour, ppOriginal, std::move(name));
+    }
+
+    /// Scans the .text section for a byte pattern and returns its absolute address, or 0 if not found.
+    static uintptr_t findSig(std::string_view signature) {
+        auto parsed = hat::parse_signature(signature);
+        if (!parsed.has_value()) {
+            Logger::custom(fg(fmt::color::crimson), "Signatures", "Failed to parse signature: {} ", signature);
+            return 0u;
+        }
+
+        const auto result = hat::find_pattern(parsed.value(), ".text");
+
+        if (!result.has_result()) {
+            Logger::custom(fg(fmt::color::crimson), "Signatures", "Failed to find signature: {} ", signature);
+            return 0u;
+        }
+
+        return reinterpret_cast<uintptr_t>(result.get());
+    }
+
+    static uintptr_t findSig(std::string_view signature, std::string_view name) {
+        auto parsed = hat::parse_signature(signature);
+        if (!parsed.has_value()) {
+            Logger::custom(fg(fmt::color::crimson), "Signatures", "Failed to parse signature: {} ", name);
+            return 0u;
+        }
+
+        auto result = hat::find_pattern(parsed.value(), ".text");
+
+        if (!result.has_result()) {
+            Logger::custom(fg(fmt::color::crimson), "Signatures", "Failed to find signature: {} ", name);
+            return 0u;
+        }
+
+        return reinterpret_cast<uintptr_t>(result.get());
+    }
+
+
+    /// Safely releases a COM object pointer and nullifies it; no-ops if already null.
+    template<typename T>
+    static void SafeRelease(T *&pPtr) {
+        if (pPtr != nullptr) {
+            pPtr->Release();
+            pPtr = nullptr;
+        }
+    }
+
+
+    // Overload for winrt::com_ptr - smart pointer handles Release() automatically
+    template<typename T>
+    static void SafeRelease(winrt::com_ptr<T> &pPtr) {
+        pPtr = nullptr;  // Smart pointer automatically calls Release()
+    }
+
+    /// Follows a multi-level pointer chain, dereferencing and adding each offset in sequence.
+    static uintptr_t findDMAAddy(uintptr_t ptr, const std::vector<unsigned int>& offsets) {
+
+        uintptr_t addr = ptr;
+
+        for (unsigned int offset: offsets) {
+            addr = *reinterpret_cast<uintptr_t*>(addr);
+            addr += offset;
+        }
+        return addr;
+    }
+
+    /// Overwrites a memory region with NOP (0x90) instructions, temporarily elevating page protection.
+    static void nopBytes(void *dst, const unsigned int size) {
+        if (dst == nullptr) return;
+
+        DWORD oldprotect;
+        VirtualProtect(dst, size, PAGE_EXECUTE_READWRITE, &oldprotect);
+        memset(dst, 0x90, size);
+        VirtualProtect(dst, size, oldprotect, &oldprotect);
+    }
+
+    /// Copies bytes from src to dst with temporary write-protection elevation.
+    static void copyBytes(void *src, void *dst, const unsigned int size) {
+        if (src == nullptr || dst == nullptr) return;
+
+        DWORD oldprotect;
+        VirtualProtect(src, size, PAGE_EXECUTE_READWRITE, &oldprotect);
+        memcpy(dst, src, size);
+        VirtualProtect(src, size, oldprotect, &oldprotect);
+    }
+
+    /// Patches memory at dst with bytes from src, temporarily elevating page protection.
+    static void patchBytes(void *dst, const void *src, const unsigned int size) {
+        if (src == nullptr || dst == nullptr) return;
+
+        DWORD oldprotect;
+        VirtualProtect(dst, size, PAGE_EXECUTE_READWRITE, &oldprotect);
+        memcpy(dst, src, size);
+        VirtualProtect(dst, size, oldprotect, &oldprotect);
+    }
+
+    static uintptr_t offsetFromSig(uintptr_t sig, int offset) {
+        // REL RIP ADDR RESOLVER
+        // pointer is relative to the code it is in - it is how far to the left in bytes you need to move to get to the value it points to,
+        // this function returns absolute address in memory ("(sig)A B C (+offset)? ? ? ?(+4)(from here + bytes to move to get to value pointer points to) D E F")
+        // offset val = *reinterpret_cast<int *>(sig + offset)
+        // base = sig + offset + 4
+
+        if (sig == 0) return 0;
+        return sig + offset + 4 + *reinterpret_cast<int *>(sig + offset);
+    }
+
+    template<typename Ret>
+    static Ret getOffsetFromSig(const uintptr_t sig, const int offset) {
+        return reinterpret_cast<Ret>(offsetFromSig(sig, offset));
+    }
+
+    /// Calculates the 4-byte RIP-relative offset from instructionAddress to targetAddress.
+    static std::array<std::byte, 4> getRipRel(uintptr_t instructionAddress, uintptr_t targetAddress) {
+        uintptr_t relAddress = targetAddress - (instructionAddress + 4); // 4 bytes for RIP-relative addressing
+        std::array<std::byte, 4> relRipBytes{};
+
+        for (size_t i = 0; i < 4; ++i) {
+            relRipBytes[i] = static_cast<std::byte>((relAddress >> (i * 8)) & 0xFF);
+        }
+
+        return relRipBytes;
+    }
+
+    /// Reads a function pointer from a vtable at the given index (assumes 8-byte x64 pointers).
+    static uintptr_t GetAddressByIndex(uintptr_t vtable, int index) {
+        return *reinterpret_cast<uintptr_t *>(vtable + 8 * index);
+    }
+
+    static void SetProtection(uintptr_t addr, size_t size, DWORD protect) {
+        DWORD oldProtect;
+        VirtualProtect((LPVOID) addr, size, protect, &oldProtect);
+    }
+
+    static std::vector<std::byte> readFile(std::filesystem::path path) {
+        std::ifstream file(path, std::ios::binary);
+        if (!file.is_open()) {
+            return {};
+        }
+        file.seekg(0, std::ios::end);
+        std::streampos fileSize = file.tellg();
+        file.seekg(0, std::ios::beg);
+
+        std::vector<std::byte> buffer(fileSize);
+        file.read(reinterpret_cast<char *>(buffer.data()), fileSize);
+        file.close();
+
+        return buffer;
+    }
+};
+
+/// RAII guard that changes memory protection on construction and restores it on destruction.
+class ScopedVirtualProtect {
+public:
+    ScopedVirtualProtect(void *addr, size_t size, DWORD newProtect,
+                         bool instruction = true)
+        : addr(addr), size(size), instruction(instruction) {
+        restore = VirtualProtect(addr, size, newProtect, &oldProtect);
+    }
+    ~ScopedVirtualProtect() {
+        if (restore) {
+            VirtualProtect(addr, size, oldProtect, &oldProtect);
+        }
+        if (instruction) {
+            FlushInstructionCache(GetCurrentProcess(), addr, size);
+        }
+    }
+
+private:
+    void *addr;
+    size_t size;
+    DWORD oldProtect;
+    bool instruction;
+    bool restore;
+};
+
+#define GLUE1(a, b) a##b
+#define GLUE(a, b) GLUE1(a, b)
+#define ScopedVP(ptr, ...)                                                     \
+ScopedVirtualProtect GLUE(svp, __LINE__)((void *)(ptr), __VA_ARGS__);

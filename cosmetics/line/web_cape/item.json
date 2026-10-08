@@ -1,0 +1,548 @@
+{
+ "id": "web_cape",
+ "name": "Web Cape",
+ "slot": "cape",
+ "tags": [
+  "cape",
+  "halloween",
+  "spooky",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Cloth",
+   "default": "#2a1d3a"
+  },
+  {
+   "name": "Web",
+   "default": "#ececf4"
+  },
+  {
+   "name": "Dew",
+   "default": "#ff8a2a"
+  }
+ ],
+ "bones": [
+  {
+   "name": "cape",
+   "pivot": [
+    0,
+    23.7,
+    -2.55
+   ],
+   "rotation": [
+    10.7,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 5.0,
+    "speed": 0.28,
+    "phase": 0
+   },
+   "physics": {
+    "type": "cloth",
+    "stiffness": 36.0,
+    "damping": 2.6,
+    "inertia": 1.1,
+    "wind": 1.1
+   },
+   "cubes": [
+    {
+     "origin": [
+      -5.0,
+      21.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      19.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      62,
+      1
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      17.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      123,
+      1
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      15.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      184,
+      1
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      13.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      1,
+      15
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      11.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      62,
+      15
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      9.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      123,
+      15
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -5.0,
+      7.7,
+      -2.55
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      184,
+      15
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    }
+   ]
+  },
+  {
+   "name": "cape1",
+   "pivot": [
+    0,
+    23.7,
+    -2.55
+   ],
+   "rotation": [
+    10.7,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 5.0,
+    "speed": 0.28,
+    "phase": 0
+   },
+   "physics": {
+    "type": "cloth",
+    "stiffness": 36.0,
+    "damping": 2.6,
+    "inertia": 1.1,
+    "wind": 1.1
+   },
+   "cubes": [
+    {
+     "origin": [
+      -5.0,
+      21.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      1,
+      29
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      19.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      62,
+      29
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      17.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      123,
+      29
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      15.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      184,
+      29
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      13.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      1,
+      43
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      11.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      62,
+      43
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      9.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      123,
+      43
+     ],
+     "flat": true,
+     "tint": "Web"
+    },
+    {
+     "origin": [
+      -5.0,
+      7.7,
+      -2.61
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      184,
+      43
+     ],
+     "flat": true,
+     "tint": "Web"
+    }
+   ]
+  },
+  {
+   "name": "cape2",
+   "pivot": [
+    0,
+    23.7,
+    -2.55
+   ],
+   "rotation": [
+    10.7,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 5.0,
+    "speed": 0.28,
+    "phase": 0
+   },
+   "physics": {
+    "type": "cloth",
+    "stiffness": 36.0,
+    "damping": 2.6,
+    "inertia": 1.1,
+    "wind": 1.1
+   },
+   "cubes": [
+    {
+     "origin": [
+      -5.0,
+      21.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      1,
+      57
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      19.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      62,
+      57
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      17.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      123,
+      57
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      15.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      184,
+      57
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      13.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      1,
+      71
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      11.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      62,
+      71
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      9.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      123,
+      71
+     ],
+     "flat": true,
+     "tint": "Dew"
+    },
+    {
+     "origin": [
+      -5.0,
+      7.7,
+      -2.67
+     ],
+     "size": [
+      10.0,
+      2.0,
+      0.04
+     ],
+     "uv": [
+      184,
+      71
+     ],
+     "flat": true,
+     "tint": "Dew"
+    }
+   ]
+  }
+ ]
+}

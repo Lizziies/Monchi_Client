@@ -1,0 +1,585 @@
+{
+ "id": "pet_dragon",
+ "name": "Dragon Companion",
+ "slot": "pet",
+ "tags": [
+  "pet",
+  "dragon",
+  "flying",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 4,
+ "tint": [
+  {
+   "name": "Scale",
+   "default": "#3e3158"
+  },
+  {
+   "name": "Belly",
+   "default": "#c2a6ff"
+  },
+  {
+   "name": "Wing",
+   "default": "#6c52a6"
+  },
+  {
+   "name": "Horn",
+   "default": "#f0e6d2"
+  },
+  {
+   "name": "Eyes",
+   "default": "#ffcc33"
+  }
+ ],
+ "bones": [
+  {
+   "name": "pet",
+   "pivot": [
+    0,
+    0,
+    0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "float",
+    "axis": "y",
+    "amplitude": 0.9,
+    "speed": 0.32,
+    "phase": 0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 12.0,
+    "damping": 3.2,
+    "inertia": 0.5,
+    "drive": {
+     "speed": [
+      0,
+      -30,
+      0
+     ],
+     "sprint": [
+      0,
+      -14,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "name": "body",
+   "pivot": [
+    -14.8,
+    25.0,
+    0.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "pet",
+   "physics": {
+    "type": "spring",
+    "stiffness": 20.0,
+    "damping": 3.0,
+    "inertia": 1.0,
+    "drive": {
+     "speed": [
+      10,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.0,
+      23.8,
+      -3.0
+     ],
+     "size": [
+      2.4,
+      2.4,
+      5.4
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      8,
+      8,
+      18
+     ]
+    },
+    {
+     "origin": [
+      -15.7,
+      23.68,
+      -2.4
+     ],
+     "size": [
+      1.8,
+      0.3,
+      4.5
+     ],
+     "uv": [
+      54,
+      1
+     ],
+     "tint": "Belly",
+     "uvsize": [
+      6,
+      1,
+      15
+     ]
+    },
+    {
+     "origin": [
+      -15.7,
+      22.9,
+      0.9
+     ],
+     "size": [
+      0.6,
+      0.9,
+      0.6
+     ],
+     "uv": [
+      97,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      2,
+      3,
+      2
+     ]
+    },
+    {
+     "origin": [
+      -15.7,
+      22.9,
+      -2.1
+     ],
+     "size": [
+      0.6,
+      0.9,
+      0.9
+     ],
+     "uv": [
+      106,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      2,
+      3,
+      3
+     ]
+    },
+    {
+     "origin": [
+      -14.5,
+      22.9,
+      0.9
+     ],
+     "size": [
+      0.6,
+      0.9,
+      0.6
+     ],
+     "uv": [
+      117,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      2,
+      3,
+      2
+     ]
+    },
+    {
+     "origin": [
+      -14.5,
+      22.9,
+      -2.1
+     ],
+     "size": [
+      0.6,
+      0.9,
+      0.9
+     ],
+     "uv": [
+      126,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      2,
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "head",
+   "pivot": [
+    -14.8,
+    25.9,
+    2.4
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "sway",
+    "axis": "y",
+    "amplitude": 12.0,
+    "speed": 0.2,
+    "phase": 0.5
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.0,
+      25.3,
+      2.4
+     ],
+     "size": [
+      2.4,
+      2.1,
+      2.7
+     ],
+     "uv": [
+      137,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      8,
+      7,
+      9
+     ]
+    },
+    {
+     "origin": [
+      -15.55,
+      25.3,
+      5.1
+     ],
+     "size": [
+      1.5,
+      1.2,
+      1.5
+     ],
+     "uv": [
+      172,
+      1
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      5,
+      4,
+      5
+     ]
+    },
+    {
+     "origin": [
+      -15.7,
+      27.4,
+      2.7
+     ],
+     "size": [
+      0.3,
+      1.2,
+      0.3
+     ],
+     "uv": [
+      193,
+      1
+     ],
+     "tint": "Horn",
+     "uvsize": [
+      1,
+      4,
+      1
+     ]
+    },
+    {
+     "origin": [
+      -14.2,
+      27.4,
+      2.7
+     ],
+     "size": [
+      0.3,
+      1.2,
+      0.3
+     ],
+     "uv": [
+      198,
+      1
+     ],
+     "tint": "Horn",
+     "uvsize": [
+      1,
+      4,
+      1
+     ]
+    },
+    {
+     "origin": [
+      -16.06,
+      26.5,
+      4.2
+     ],
+     "size": [
+      0.6,
+      0.6,
+      0.6
+     ],
+     "uv": [
+      203,
+      1
+     ],
+     "tint": "Eyes",
+     "uvsize": [
+      2,
+      2,
+      2
+     ]
+    },
+    {
+     "origin": [
+      -14.14,
+      26.5,
+      4.2
+     ],
+     "size": [
+      0.6,
+      0.6,
+      0.6
+     ],
+     "uv": [
+      212,
+      1
+     ],
+     "tint": "Eyes",
+     "uvsize": [
+      2,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "wing-1",
+   "pivot": [
+    -16.0,
+    25.9,
+    0.0
+   ],
+   "rotation": [
+    90,
+    0,
+    -8
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "flap",
+    "axis": "z",
+    "amplitude": -34.0,
+    "speed": 1.1,
+    "phase": 0.0
+   },
+   "cubes": [
+    {
+     "origin": [
+      -22.6,
+      22.6,
+      0.0
+     ],
+     "size": [
+      6.6,
+      5.4,
+      0.048
+     ],
+     "uv": [
+      221,
+      1
+     ],
+     "flat": true,
+     "tint": "Wing",
+     "uvsize": [
+      22,
+      18,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "wing1",
+   "pivot": [
+    -13.6,
+    25.9,
+    0.0
+   ],
+   "rotation": [
+    90,
+    0,
+    8
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "flap",
+    "axis": "z",
+    "amplitude": 34.0,
+    "speed": 1.1,
+    "phase": 0.0
+   },
+   "cubes": [
+    {
+     "origin": [
+      -13.6,
+      22.6,
+      0.0
+     ],
+     "size": [
+      6.6,
+      5.4,
+      0.048
+     ],
+     "uv": [
+      1,
+      29
+     ],
+     "flat": true,
+     "tint": "Wing",
+     "uvsize": [
+      22,
+      18,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "tail",
+   "pivot": [
+    -14.8,
+    24.7,
+    -3.0
+   ],
+   "rotation": [
+    12,
+    0,
+    0
+   ],
+   "parent": "body",
+   "anim": {
+    "type": "sway",
+    "axis": "y",
+    "amplitude": 20.0,
+    "speed": 0.45,
+    "phase": 0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 18.0,
+    "damping": 3.0,
+    "inertia": 1.4,
+    "drive": {
+     "speed": [
+      -12,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      -15.4,
+      24.1,
+      -6.6
+     ],
+     "size": [
+      1.2,
+      1.2,
+      3.6
+     ],
+     "uv": [
+      24,
+      29
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      4,
+      4,
+      12
+     ]
+    },
+    {
+     "origin": [
+      -15.1,
+      24.28,
+      -9.3
+     ],
+     "size": [
+      0.6,
+      0.6,
+      2.7
+     ],
+     "uv": [
+      57,
+      29
+     ],
+     "tint": "Scale",
+     "uvsize": [
+      2,
+      2,
+      9
+     ]
+    },
+    {
+     "origin": [
+      -15.4,
+      24.4,
+      -10.2
+     ],
+     "size": [
+      1.2,
+      0.3,
+      0.9
+     ],
+     "uv": [
+      80,
+      29
+     ],
+     "tint": "Horn",
+     "uvsize": [
+      4,
+      1,
+      3
+     ]
+    }
+   ]
+  }
+ ]
+}

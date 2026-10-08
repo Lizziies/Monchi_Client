@@ -1,0 +1,136 @@
+{
+ "id": "pixel_wings",
+ "name": "Pixel Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "pixel",
+  "rainbow",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 1,
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#ffffff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "wing_r",
+   "pivot": [
+    2.2,
+    22.0,
+    -3.0
+   ],
+   "rotation": [
+    0,
+    22,
+    4
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.2,
+      14.0,
+      -3.0
+     ],
+     "size": [
+      16.0,
+      11.0,
+      0.5
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 15,
+    "speed": 0.9,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 80,
+    "damping": 6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      14
+     ],
+     "sprint": [
+      0,
+      18,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "wing_l",
+   "pivot": [
+    -2.2,
+    22.0,
+    -3.0
+   ],
+   "rotation": [
+    0,
+    -22,
+    -4
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -18.2,
+      14.0,
+      -3.0
+     ],
+     "size": [
+      16.0,
+      11.0,
+      0.5
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -15,
+    "speed": 0.9,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 80,
+    "damping": 6,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -14
+     ],
+     "sprint": [
+      0,
+      -18,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  }
+ ]
+}

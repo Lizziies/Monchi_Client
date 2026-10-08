@@ -1,0 +1,332 @@
+{
+ "id": "butterfly_wings",
+ "name": "Butterfly Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "animated",
+  "butterfly"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#ff9fd0"
+  },
+  {
+   "name": "Accent",
+   "default": "#ffffff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "fore_r",
+   "pivot": [
+    2.2,
+    21.5,
+    -3.1
+   ],
+   "rotation": [
+    0,
+    16,
+    24.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.2,
+      19.5,
+      -3.1
+     ],
+     "size": [
+      17.0,
+      13.0,
+      0.1
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      2.2,
+      19.5,
+      -3.15
+     ],
+     "size": [
+      17.0,
+      13.0,
+      0.1
+     ],
+     "uv": [
+      104,
+      1
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 30,
+    "speed": 1.05,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 90,
+    "damping": 6,
+    "inertia": 1.2,
+    "drive": {
+     "air": [
+      0,
+      0,
+      10
+     ],
+     "sprint": [
+      0,
+      22,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "hind_r",
+   "pivot": [
+    2.2,
+    20.0,
+    -3.1
+   ],
+   "rotation": [
+    0,
+    16,
+    -26.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      2.2,
+      10.3,
+      -3.1
+     ],
+     "size": [
+      12.0,
+      10.5,
+      0.1
+     ],
+     "uv": [
+      1,
+      81
+     ],
+     "flat": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      2.2,
+      10.3,
+      -3.15
+     ],
+     "size": [
+      12.0,
+      10.5,
+      0.1
+     ],
+     "uv": [
+      74,
+      81
+     ],
+     "flat": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 24,
+    "speed": 1.05,
+    "phase": 0.35
+   },
+   "physics": {
+    "stiffness": 70,
+    "damping": 6,
+    "inertia": 1.2,
+    "drive": {
+     "air": [
+      0,
+      0,
+      10
+     ],
+     "sprint": [
+      0,
+      22,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "fore_l",
+   "pivot": [
+    -2.2,
+    21.5,
+    -3.1
+   ],
+   "rotation": [
+    0,
+    -16,
+    -24.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -19.2,
+      19.5,
+      -3.1
+     ],
+     "size": [
+      17.0,
+      13.0,
+      0.1
+     ],
+     "uv": [
+      147,
+      81
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -19.2,
+      19.5,
+      -3.15
+     ],
+     "size": [
+      17.0,
+      13.0,
+      0.1
+     ],
+     "uv": [
+      1,
+      161
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -30,
+    "speed": 1.05,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 90,
+    "damping": 6,
+    "inertia": 1.2,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -10
+     ],
+     "sprint": [
+      0,
+      -22,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  },
+  {
+   "name": "hind_l",
+   "pivot": [
+    -2.2,
+    20.0,
+    -3.1
+   ],
+   "rotation": [
+    0,
+    -16,
+    26.0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -14.2,
+      10.3,
+      -3.1
+     ],
+     "size": [
+      12.0,
+      10.5,
+      0.1
+     ],
+     "uv": [
+      104,
+      161
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -14.2,
+      10.3,
+      -3.15
+     ],
+     "size": [
+      12.0,
+      10.5,
+      0.1
+     ],
+     "uv": [
+      177,
+      161
+     ],
+     "flat": true,
+     "mirror": true,
+     "tint": "Accent"
+    }
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -24,
+    "speed": 1.05,
+    "phase": 0.35
+   },
+   "physics": {
+    "stiffness": 70,
+    "damping": 6,
+    "inertia": 1.2,
+    "drive": {
+     "air": [
+      0,
+      0,
+      -10
+     ],
+     "sprint": [
+      0,
+      -22,
+      0
+     ]
+    },
+    "type": "spring"
+   }
+  }
+ ]
+}

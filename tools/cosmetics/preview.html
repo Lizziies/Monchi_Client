@@ -1,0 +1,789 @@
+<title>Monchi Cosmetics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* three columns on desktop: wardrobe, stage, colors. stage first on phones */
+:root {
+  --bg: #fbf4f6;
+  --panel: #ffffff;
+  --panel-2: #f6e9ee;
+  --line: #ead7df;
+  --fg: #3a2430;
+  --dim: #8a6b78;
+  --accent: #ec5f9a;
+  --accent-ink: #ffffff;
+  --stage-a: #ffe6ef;
+  --stage-b: #f3d2e0;
+  --display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1d1219; --panel: #2a1a24; --panel-2: #36212e; --line: #47303f; --fg: #fbe9f1; --dim: #b896a7;
+    --accent: #ff8ab8; --accent-ink: #2a1320; --stage-a: #4a2a3d; --stage-b: #2a1824;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1d1219; --panel: #2a1a24; --panel-2: #36212e; --line: #47303f; --fg: #fbe9f1; --dim: #b896a7;
+  --accent: #ff8ab8; --accent-ink: #2a1320; --stage-a: #4a2a3d; --stage-b: #2a1824;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.45; padding-inline: 16px; padding-block: 20px 28px; }
+.wrap { max-width: 1320px; margin-inline: auto; display: grid; gap: 18px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; }
+h1 { font: 600 28px/1.1 var(--display); letter-spacing: 0.01em; margin: 0; }
+header p { margin: 0; color: var(--dim); max-width: 60ch; }
+.grid { display: grid; gap: 16px; grid-template-columns: minmax(0, 340px) minmax(0, 1fr) minmax(0, 300px); grid-template-areas: "list stage side"; align-items: start; }
+.list { grid-area: list; } .stage-box { grid-area: stage; } .side { grid-area: side; }
+@media (max-width: 1040px) { .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "stage stage" "list side"; } }
+@media (max-width: 640px) { .grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "stage" "list" "side"; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 14px; display: grid; gap: 12px; min-width: 0; }
+h2 { font: 600 13px/1 var(--display); text-transform: uppercase; letter-spacing: 0.09em; color: var(--dim); margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+button { font: 500 13px/1 var(--body); color: var(--fg); background: var(--panel-2); border: 1px solid transparent; border-radius: 999px; padding: 8px 12px; cursor: pointer; transition: background 0.15s, color 0.15s, transform 0.1s; }
+button:hover { background: var(--line); }
+button:active { transform: scale(0.97); }
+button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; max-height: 640px; overflow-y: auto; padding: 2px; }
+.card { display: grid; gap: 6px; text-align: left; border-radius: 14px; padding: 6px 6px 9px; background: var(--panel-2); border: 2px solid transparent; }
+.card[aria-pressed="true"] { background: var(--panel-2); color: var(--fg); border-color: var(--accent); }
+.card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: linear-gradient(160deg, var(--stage-a), var(--stage-b)); display: block; }
+.card b { font: 500 13px/1.2 var(--body); padding-inline: 4px; }
+.card small { color: var(--dim); font-size: 11.5px; padding-inline: 4px; }
+.stage { position: relative; border-radius: 22px; overflow: hidden; background: radial-gradient(120% 90% at 50% 20%, var(--stage-a), var(--stage-b)); border: 1px solid var(--line); height: min(78vh, 720px); min-height: 460px; }
+.stage canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.stage canvas:active { cursor: grabbing; }
+.hint { position: absolute; top: 12px; left: 14px; font-size: 12px; color: var(--dim); pointer-events: none; }
+.bar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 12px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; }
+.row label { font-size: 13.5px; }
+.row output { font-variant-numeric: tabular-nums; color: var(--dim); font-size: 12.5px; }
+.row input[type="range"] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); }
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+.sw { width: 28px; height: 28px; padding: 0; border-radius: 50%; border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--line); }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--accent); }
+.tints { display: grid; gap: 10px; }
+.tint { display: grid; gap: 6px; }
+.tint b { font: 500 13.5px/1.2 var(--body); }
+.tint div { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tint label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--dim); }
+input[type="color"] { width: 34px; height: 28px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); cursor: pointer; }
+.empty { color: var(--dim); font-size: 13px; margin: 0; }
+.toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13.5px; }
+.note { color: var(--dim); font-size: 12.5px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Monchi Cosmetics</h1>
+    <p>So sehen die Cosmetics auf einem Minecraft-Körper aus. Alles hier läuft mit den echten Dateien aus dem Client, auch die Physik von Cape und Flügeln.</p>
+  </header>
+  <div class="grid">
+    <section class="panel list" aria-label="Auswahl">
+      <h2>Looks</h2>
+      <div class="chips" id="presets"></div>
+      <h2>Garderobe</h2>
+      <div class="chips" id="slots" role="group" aria-label="Kategorie"></div>
+      <div class="cards" id="cards"></div>
+    </section>
+    <section class="stage-box" aria-label="Vorschau">
+      <div class="stage" id="stage">
+        <canvas id="view" aria-label="3D-Vorschau des Charakters"></canvas>
+        <div class="hint">Ziehen zum Drehen, Mausrad zum Zoomen</div>
+        <div class="bar" id="motions" role="group" aria-label="Bewegung"></div>
+      </div>
+    </section>
+    <section class="panel side" aria-label="Einstellungen">
+      <h2>Körper</h2>
+      <div class="toggle"><span>Schmale Arme (Alex)</span><button id="slim" aria-pressed="false">Aus</button></div>
+      <div>
+        <div class="row"><label>Hautton</label></div>
+        <div class="swatches" id="skins" style="margin-top:8px"></div>
+      </div>
+      <div>
+        <div class="row"><label>Oberteil</label></div>
+        <div class="swatches" id="shirts" style="margin-top:8px"></div>
+      </div>
+      <h2>Tempo</h2>
+      <div class="row"><label for="spin">Drehen</label><output id="spinOut">18°/s</output><input id="spin" type="range" min="0" max="120" value="18"></div>
+      <div class="row"><label for="anim">Animationen</label><output id="animOut">1.0x</output><input id="anim" type="range" min="20" max="300" value="100"></div>
+      <h2>Farben</h2>
+      <div class="tints" id="tints"></div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const DATA = __DATA__;
+const RAD = Math.PI / 180;
+const SLOTS = { wings: "Flügel", cape: "Capes", head: "Kopf", face: "Gesicht", back: "Rücken", body: "Körper", feet: "Füße" };
+const SKINS = ["#e8b89a", "#f3d3b8", "#c88e68", "#8d5a3c", "#5a3a28"];
+const SHIRTS = ["#ee73ad", "#5aa9ff", "#7bd389", "#f2b84b", "#a07bf0", "#e9e4ec"];
+const MOTIONS = [["auto", "Auto"], ["idle", "Ruhig"], ["walk", "Gehen"], ["sprint", "Sprinten"], ["jump", "Springen"]];
+const PRESETS = [
+  ["Katzen-Look", ["monchi_cat_ears", "monchi_bandana", "monchi_cat_tail", "monchi_sneakers", "sakura_wings"]],
+  ["Hundefreund", ["monchi_dog_ears", "monchi_dog_tail", "monchi_sneakers", "monchi_cape"]],
+  ["Magier", ["monchi_wizard_hat", "starry_cape", "monchi_sneakers"]],
+  ["Engel", ["angel_wings", "monchi_beanie", "monchi_sneakers"]],
+  ["Drache", ["dragon_wings", "flame_cape", "monchi_bandana"]],
+  ["Alles ablegen", []],
+];
+const AXES = { x: 0, y: 1, z: 2 };
+
+/* ---------- items ---------- */
+const items = [];
+const itemById = {};
+
+function parseItem(entry) {
+  const j = entry.json;
+  const item = { id: j.id, name: j.name, slot: j.slot, texel: j.texel || 1, tints: (j.tint || []).map(t => ({ name: t.name, def: t.default })), bones: [], texture: null, tw: 0, th: 0 };
+  const tintIndex = n => item.tints.findIndex(t => t.name === n);
+  const names = [];
+  for (const b of j.bones) {
+    const a = b.anim || {};
+    const ph = b.physics;
+    const type = typeof ph === "string" ? ph : ph && typeof ph === "object" ? ph.type || "spring" : "";
+    const cloth = type === "cloth";
+    const po = ph && typeof ph === "object" ? ph : {};
+    const drive = po.drive || {};
+    const bone = {
+      parent: b.parent ? names.indexOf(b.parent) : -1,
+      pivot: b.pivot || [0, 0, 0], rotation: b.rotation || [0, 0, 0],
+      anim: { kind: a.type || "none", axis: AXES[a.axis || "y"], amp: a.amplitude || 0, speed: a.speed ?? 1, phase: a.phase || 0 },
+      phys: {
+        cloth, spring: type === "spring",
+        stiffness: Math.min(400, Math.max(1, po.stiffness ?? (cloth ? 38 : 60))),
+        damping: Math.min(60, Math.max(0.1, po.damping ?? (cloth ? 2.4 : 7))),
+        inertia: Math.min(5, Math.max(0, po.inertia ?? 1)),
+        wind: Math.min(4, Math.max(0, po.wind ?? 1)),
+        air: drive.air || [0, 0, 0], sprint: drive.sprint || [0, 0, 0], sneak: drive.sneak || [0, 0, 0], speed: drive.speed || [0, 0, 0],
+      },
+      cubes: [], tubes: [],
+    };
+    for (const c of b.cubes || []) {
+      const size = c.size || [1, 1, 1];
+      const k = item.texel;
+      const uvs = c.uvsize || size.map(v => Math.round(v * k));
+      bone.cubes.push({
+        origin: c.origin || [0, 0, 0], size, uvs, u: (c.uv || [0, 0])[0], v: (c.uv || [0, 0])[1],
+        flat: !!c.flat, mirror: !!c.mirror, tint: tintIndex(c.tint), tint2: tintIndex(c.tint2), mix: c.mix || 0,
+      });
+    }
+    for (const t of b.tubes || []) {
+      const n = (t.path || []).length;
+      const path = t.path.map((e, i) => ({ p: [e[0], e[1], e[2]], rx: e[3], rz: e.length > 4 ? e[4] : e[3], mix: e.length > 5 ? e[5] : i / Math.max(1, n - 1) }));
+      const w = t.wave;
+      bone.tubes.push({
+        path, sides: Math.min(32, Math.max(6, t.sides || 16)), power: Math.min(12, Math.max(1, t.power || 2)),
+        tint: tintIndex(t.tint), tint2: tintIndex(t.tint2), capped: t.capped !== false, twoSided: !!t.two_sided,
+        wave: w ? { axis: AXES[w.axis || "x"], amp: w.amplitude || 0, speed: w.speed ?? 1, freq: w.freq ?? 1 } : null,
+      });
+    }
+    names.push(b.name || "");
+    item.bones.push(bone);
+  }
+  return item;
+}
+
+function loadImage(src) {
+  return new Promise(res => { const img = new Image(); img.onload = () => res(img); img.onerror = () => res(null); img.src = src; });
+}
+
+/* ---------- physics (same model as the client preview) ---------- */
+class Rig {
+  constructor() {
+    this.sim = new Map();
+    this.m = { fwd: 0, side: 0, up: 0, turn: 0, sprint: false, sneak: false, air: false };
+    this.prev = null;
+    this.accF = 0; this.accS = 0; this.accU = 0;
+    this.air = 0; this.sprint = 0; this.sneak = 0;
+    this.clock = 0; this.dt = 1 / 60; this.gait = 0;
+  }
+  step(dt, m) {
+    dt = Math.min(0.05, Math.max(0.001, dt));
+    const follow = (k, target, rate) => { this[k] += (target - this[k]) * Math.min(1, dt * rate); };
+    if (this.prev) {
+      follow("accF", (m.fwd - this.prev.fwd) / dt, 12);
+      follow("accS", (m.side - this.prev.side) / dt, 12);
+      follow("accU", (m.up - this.prev.up) / dt, 12);
+    }
+    follow("air", m.air ? 1 : 0, 9);
+    follow("sprint", m.sprint ? 1 : 0, 6);
+    follow("sneak", m.sneak ? 1 : 0, 8);
+    this.prev = { ...m };
+    this.m = m;
+    this.dt = dt;
+    this.clock += dt;
+    this.gait += dt * (m.sprint ? 11 : 7.5) * Math.min(1, m.fwd / 3);
+  }
+}
+
+function simOf(rig, bone, order) {
+  let s = rig.sim.get(bone);
+  if (!s) {
+    s = { ang: [0, 0, 0], vel: [0, 0, 0], phase: 0, th: order.map(() => 0), om: order.map(() => 0), ph: order.map(() => 0), op: order.map(() => 0), fresh: true };
+    rig.sim.set(bone, s);
+  }
+  return s;
+}
+
+function animTarget(bone, s, r, out, move) {
+  out[0] = bone.rotation[0]; out[1] = bone.rotation[1]; out[2] = bone.rotation[2];
+  move.x = 0; move.y = 0; move.z = 0;
+  const a = bone.anim, tau = s.phase;
+  const speedN = Math.min(1.2, Math.max(0, r.m.fwd / 5.6));
+  switch (a.kind) {
+    case "flap": out[a.axis] += a.amp * (1 + 1.1 * r.air + 0.15 * speedN) * Math.sin(tau + a.phase); break;
+    case "sway": case "wag": out[a.axis] += a.amp * (1 + 0.6 * speedN) * Math.sin(tau + a.phase); break;
+    case "twitch": out[a.axis] += a.amp * Math.pow(Math.max(0, Math.sin(tau * 0.5 + a.phase)), 8) * Math.max(0, Math.sin(tau * 3)); break;
+    case "spin": out[a.axis] += tau * 57.29578 + a.phase; break;
+    case "bob": move.y = a.amp * Math.sin(tau + a.phase); break;
+    case "float": move.y = a.amp * Math.sin(tau + a.phase); move.x = a.amp * 0.3 * Math.sin(tau * 0.5 + a.phase); break;
+    case "walk": out[a.axis] += a.amp * Math.sin(r.gait + a.phase) * Math.min(1, Math.max(0, r.m.fwd / 3)) * (1 - r.air); break;
+    case "hop": move.y = a.amp * Math.abs(Math.sin(tau + a.phase)); break;
+  }
+  const p = bone.phys;
+  for (let i = 0; i < 3; i++) out[i] += r.air * p.air[i] + r.sprint * p.sprint[i] + r.sneak * p.sneak[i] + speedN * p.speed[i];
+}
+
+function springStep(bone, s, r, h) {
+  const target = [0, 0, 0], move = {};
+  animTarget(bone, s, r, target, move);
+  const kick = [-8 * r.accF + 2 * r.accU, -1.5 * r.m.turn, 8 * r.accS];
+  const p = bone.phys;
+  for (let i = 0; i < 3; i++) {
+    const acc = p.stiffness * (target[i] - s.ang[i]) - p.damping * s.vel[i] + p.inertia * kick[i];
+    s.vel[i] += acc * h;
+    s.ang[i] += s.vel[i] * h;
+  }
+}
+
+function clothStep(bone, s, r, order, h) {
+  const n = order.length, p = bone.phys;
+  const windDeg = Math.min(60, Math.max(0, r.m.fwd * 5.2)) * p.wind + Math.min(35, Math.max(0, -r.m.up * 3)) + r.sneak * 7;
+  const gravity = p.stiffness, drag = p.damping, link = 22;
+  for (let i = 0; i < n; i++) {
+    const frac = n > 1 ? i / (n - 1) : 0;
+    const target = windDeg * RAD * (0.3 + 0.7 * frac);
+    const gust = 0.35 * Math.sin(r.clock * 2.3 + i * 0.8) * (0.25 + Math.min(1, r.m.fwd / 4));
+    const up = i ? s.th[i - 1] : 0, down = i + 1 < n ? s.th[i + 1] : s.th[i];
+    let acc = -gravity * Math.sin(s.th[i] - target) - drag * s.om[i] + link * (up - s.th[i]) + link * 0.6 * (down - s.th[i]);
+    acc += p.inertia * (r.accF * 0.09 + r.accU * 0.03) * (0.4 + frac) + gust;
+    s.om[i] += acc * h;
+    const upR = i ? s.ph[i - 1] : 0, downR = i + 1 < n ? s.ph[i + 1] : s.ph[i];
+    let accR = -gravity * 0.8 * Math.sin(s.ph[i]) - drag * s.op[i] + link * (upR - s.ph[i]) + link * 0.6 * (downR - s.ph[i]);
+    accR += p.inertia * (r.accS * 0.09 - r.m.turn * 0.004) * (0.4 + frac) + gust * 0.4;
+    s.op[i] += accR * h;
+  }
+  const zmax = 0.35;
+  let z = 0;
+  for (let i = 0; i < n; i++) {
+    s.th[i] += s.om[i] * h;
+    s.ph[i] += s.op[i] * h;
+    s.th[i] = Math.min(1.9, Math.max(-1.2, s.th[i]));
+    s.ph[i] = Math.min(0.9, Math.max(-0.9, s.ph[i]));
+    const len = order[i].size[1];
+    let nz = z - len * Math.sin(s.th[i]);
+    if (nz > zmax) {
+      s.th[i] = -Math.asin(Math.min(1, Math.max(-1, (zmax - z) / len)));
+      if (s.om[i] > 0) s.om[i] *= -0.2;
+      nz = zmax;
+    }
+    z = nz;
+  }
+}
+
+function integrate(bone, s, r, order, frame) {
+  if (s.frame === frame) return;
+  const first = s.frame === undefined;
+  s.frame = frame;
+  if (first) {
+    const t = [0, 0, 0];
+    animTarget(bone, s, r, t, {});
+    s.ang = t.slice();
+    return;
+  }
+  const dt = Math.min(r.dt, 0.05);
+  const steps = Math.max(1, Math.ceil(dt * 120));
+  const h = dt / steps;
+  const rate = bone.anim.speed * (bone.anim.kind === "flap" ? 1 + 2 * r.air + 0.4 * r.sprint : 1);
+  for (let k = 0; k < steps; k++) {
+    s.phase += h * 2 * Math.PI * rate;
+    if (bone.phys.cloth) clothStep(bone, s, r, order, h);
+    else if (bone.phys.spring) springStep(bone, s, r, h);
+  }
+}
+
+/* ---------- geometry ---------- */
+function regionUv(c, region, item) {
+  const [w, h, d] = c.uvs, u = c.u, v = c.v;
+  let u0, v0, u1, v1;
+  if (c.flat) {
+    if (region > 1) return [u + 0.5, v + h + 0.5, u + 0.5, v + h + 0.5];
+    u0 = u; v0 = v; u1 = u + w; v1 = v + h;
+    if ((region === 1) !== c.mirror) [u0, u1] = [u1, u0];
+  } else {
+    switch (region) {
+      case 4: u0 = u + d; v0 = v; u1 = u0 + w; v1 = v + d; break;
+      case 5: u0 = u + d + w; v0 = v; u1 = u0 + w; v1 = v + d; break;
+      case 3: u0 = u; v0 = v + d; u1 = u0 + d; v1 = v0 + h; break;
+      case 0: u0 = u + d; v0 = v + d; u1 = u0 + w; v1 = v0 + h; break;
+      case 2: u0 = u + d + w; v0 = v + d; u1 = u0 + d; v1 = v0 + h; break;
+      default: u0 = u + 2 * d + w; v0 = v + d; u1 = u0 + w; v1 = v0 + h;
+    }
+  }
+  if (item.texel > 1 && Math.abs(u1 - u0) > 1 && Math.abs(v1 - v0) > 1) {
+    const dir = u1 > u0 ? 0.5 : -0.5;
+    u0 += dir; u1 -= dir; v0 += 0.5; v1 -= 0.5;
+  }
+  return [u0, v0, u1, v1];
+}
+
+function cubeGeometry(c, item, base) {
+  const [ox, oy, oz] = c.origin, [sx, sy, sz] = c.size;
+  const x0 = ox - base[0], y0 = oy - base[1], z0 = oz - base[2], x1 = x0 + sx, y1 = y0 + sy, z1 = z0 + sz;
+  const faces = [
+    [[x0, y1, z1], [x1, y1, z1], [x1, y0, z1], [x0, y0, z1], [0, 0, 1]],
+    [[x1, y1, z0], [x0, y1, z0], [x0, y0, z0], [x1, y0, z0], [0, 0, -1]],
+    [[x1, y1, z1], [x1, y1, z0], [x1, y0, z0], [x1, y0, z1], [1, 0, 0]],
+    [[x0, y1, z0], [x0, y1, z1], [x0, y0, z1], [x0, y0, z0], [-1, 0, 0]],
+    [[x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1], [0, 1, 0]],
+    [[x0, y0, z1], [x1, y0, z1], [x1, y0, z0], [x0, y0, z0], [0, -1, 0]],
+  ];
+  const pos = [], nor = [], uv = [], idx = [];
+  faces.forEach((f, i) => {
+    const [u0, v0, u1, v1] = item.texture ? regionUv(c, i, item) : [0, 0, 0, 0];
+    const tw = item.tw || 1, th = item.th || 1;
+    const uvs = [[u0, v0], [u1, v0], [u1, v1], [u0, v1]];
+    const b = pos.length / 3;
+    for (let k = 0; k < 4; k++) {
+      pos.push(...f[k]); nor.push(...f[4]); uv.push(uvs[k][0] / tw, uvs[k][1] / th);
+    }
+    idx.push(b, b + 2, b + 1, b, b + 3, b + 2);
+  });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute("normal", new THREE.Float32BufferAttribute(nor, 3));
+  g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2));
+  g.setIndex(idx);
+  return g;
+}
+
+function sweep(tube, time) {
+  const n = tube.path.length, c = [];
+  for (let i = 0; i < n; i++) {
+    const p = tube.path[i].p.slice();
+    if (tube.wave && tube.wave.amp) {
+      const prog = i / (n - 1), w = tube.wave;
+      p[w.axis] += w.amp * prog * prog * Math.sin(time * w.speed * 2 * Math.PI - prog * w.freq * Math.PI);
+    }
+    c.push(new THREE.Vector3(...p));
+  }
+  const inv = 2 / tube.power, rings = [];
+  let u = new THREE.Vector3();
+  for (let i = 0; i < n; i++) {
+    const tan = c[Math.min(i + 1, n - 1)].clone().sub(c[i ? i - 1 : 0]).normalize();
+    if (i === 0) {
+      const ref = Math.abs(tan.x) > 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0);
+      u = ref.sub(tan.clone().multiplyScalar(ref.dot(tan))).normalize();
+    } else {
+      u = u.clone().sub(tan.clone().multiplyScalar(u.dot(tan))).normalize();
+    }
+    const w = new THREE.Vector3().crossVectors(tan, u);
+    const pts = [];
+    for (let k = 0; k < tube.sides; k++) {
+      const a = 2 * Math.PI * k / tube.sides, cs = Math.cos(a), sn = Math.sin(a);
+      const x = Math.sign(cs) * Math.pow(Math.abs(cs), inv), z = Math.sign(sn) * Math.pow(Math.abs(sn), inv);
+      pts.push(c[i].clone().add(u.clone().multiplyScalar(tube.path[i].rx * x)).add(w.clone().multiplyScalar(tube.path[i].rz * z)));
+    }
+    rings.push({ pts, center: c[i], mix: tube.path[i].mix });
+  }
+  return rings;
+}
+
+function makeTube(tube, base) {
+  const n = tube.path.length, s = tube.sides;
+  const bodyCount = n * s, capCount = tube.capped ? 2 * (s + 1) : 0, total = bodyCount + capCount;
+  const idx = [];
+  for (let i = 0; i + 1 < n; i++)
+    for (let k = 0; k < s; k++) {
+      const k2 = (k + 1) % s, a = i * s + k, b = i * s + k2, c = (i + 1) * s + k2, d = (i + 1) * s + k;
+      idx.push(a, b, c, a, c, d);
+    }
+  if (tube.capped)
+    for (let e = 0; e < 2; e++) {
+      const o = bodyCount + e * (s + 1);
+      for (let k = 0; k < s; k++) idx.push(o + k, o + (k + 1) % s, o + s);
+    }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(total * 3), 3));
+  g.setAttribute("color", new THREE.BufferAttribute(new Float32Array(total * 3), 3));
+  g.setIndex(idx);
+  return { tube, geo: g, base, bodyCount, built: false };
+}
+
+function fillTube(rec, time, ca, cb) {
+  const t = rec.tube;
+  if (rec.built && !(t.wave && t.wave.amp) && rec.ca === ca && rec.cb === cb) return;
+  const s = t.sides, pos = rec.geo.attributes.position.array, col = rec.geo.attributes.color.array;
+  if (!rec.built || (t.wave && t.wave.amp)) {
+    const rings = sweep(t, time);
+    let o = 0;
+    for (const r of rings) for (const p of r.pts) { pos[o++] = p.x - rec.base[0]; pos[o++] = p.y - rec.base[1]; pos[o++] = p.z - rec.base[2]; }
+    if (t.capped) {
+      for (const r of [rings[0], rings[rings.length - 1]]) {
+        for (const p of r.pts) { pos[o++] = p.x - rec.base[0]; pos[o++] = p.y - rec.base[1]; pos[o++] = p.z - rec.base[2]; }
+        pos[o++] = r.center.x - rec.base[0]; pos[o++] = r.center.y - rec.base[1]; pos[o++] = r.center.z - rec.base[2];
+      }
+    }
+    rec.rings = rings;
+    rec.geo.attributes.position.needsUpdate = true;
+    rec.geo.computeVertexNormals();
+  }
+  const mixed = m => { m = Math.min(1, Math.max(0, m)); return [ca.r + (cb.r - ca.r) * m, ca.g + (cb.g - ca.g) * m, ca.b + (cb.b - ca.b) * m]; };
+  let o = 0;
+  for (const r of rec.rings) { const c = mixed(r.mix); for (let k = 0; k < s; k++) { col[o++] = c[0]; col[o++] = c[1]; col[o++] = c[2]; } }
+  if (t.capped)
+    for (const r of [rec.rings[0], rec.rings[rec.rings.length - 1]]) {
+      const c = mixed(r.mix);
+      for (let k = 0; k <= s; k++) { col[o++] = c[0]; col[o++] = c[1]; col[o++] = c[2]; }
+    }
+  rec.geo.attributes.color.needsUpdate = true;
+  rec.built = true; rec.ca = ca; rec.cb = cb;
+}
+
+/* ---------- avatar ---------- */
+const mats = {};
+function lambert(hexColor) { return new THREE.MeshLambertMaterial({ color: new THREE.Color(hexColor) }); }
+
+function buildAvatar(worn, opts) {
+  const root = new THREE.Group();
+  const skin = lambert(opts.skin), shirt = lambert(opts.shirt), pants = lambert(new THREE.Color(opts.shirt).multiplyScalar(0.5).getStyle());
+  const dark = new THREE.MeshBasicMaterial({ color: 0x2f1f27 });
+  const part = (w, h, d, x, y, z, m) => { const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); mesh.position.set(x, y, z); return mesh; };
+  const limb = (px, py, w, h, d, m) => { const g = new THREE.Group(); g.position.set(px, py, 0); g.add(part(w, h, d, 0, -h / 2, 0, m)); root.add(g); return g; };
+  const arm = opts.slim ? 3 : 4;
+  const head = part(8, 8, 8, 0, 28, 0, skin);
+  root.add(head);
+  for (const x of [-2, 2]) head.add(part(1.6, 1.8, 0.1, x * 1.0, 0.2, 4.05, dark));
+  head.add(part(2.2, 0.5, 0.1, 0, -1.9, 4.05, dark));
+  root.add(part(8, 12, 4, 0, 18, 0, shirt));
+  const armL = limb(4 + arm / 2, 24, arm, 12, 4, skin);
+  const armR = limb(-4 - arm / 2, 24, arm, 12, 4, skin);
+  const legL = limb(2, 12, 4, 12, 4, pants);
+  const legR = limb(-2, 12, 4, 12, 4, pants);
+  const live = [];
+  for (const w of worn) {
+    const item = w.item;
+    const recs = [];
+    for (const bone of item.bones) {
+      const order = bone.cubes.slice();
+      if (bone.phys.cloth) order.sort((a, b) => (b.origin[1] + b.size[1]) - (a.origin[1] + a.size[1]));
+      const onLeg = item.slot === "feet" ? (bone.pivot[0] >= 0 ? legL : legR) : null;
+      const origin = onLeg ? [onLeg.position.x, onLeg.position.y, 0] : [0, 0, 0];
+      const group = new THREE.Group();
+      group.rotation.order = "ZYX";
+      const up = bone.parent >= 0 ? recs[bone.parent] : null;
+      (up ? up.group : onLeg || root).add(group);
+      const rec = { bone, item, w, group, order, cubes: [], tubes: [], joints: [], origin: up ? up.bone.pivot : origin };
+      recs.push(rec);
+      const base = bone.pivot;
+      const addCube = (c, parent, from, j) => {
+        const geo = cubeGeometry(c, item, from);
+        const m = new THREE.MeshLambertMaterial({ side: THREE.DoubleSide, map: item.texture || null, transparent: !!item.texture, alphaTest: item.texture ? 0.3 : 0 });
+        const mesh = new THREE.Mesh(geo, m);
+        parent.add(mesh);
+        rec.cubes.push({ c, m, i: j });
+      };
+      if (bone.phys.cloth) {
+        let parent = group, prev = base;
+        order.forEach((c, j) => {
+          const joint = [c.origin[0] + c.size[0] / 2, c.origin[1] + c.size[1], c.origin[2] + c.size[2] / 2];
+          const jg = new THREE.Group();
+          jg.rotation.order = "ZYX";
+          jg.position.set(joint[0] - prev[0], joint[1] - prev[1], joint[2] - prev[2]);
+          parent.add(jg);
+          rec.joints.push(jg);
+          addCube(c, jg, joint, j);
+          parent = jg; prev = joint;
+        });
+      } else {
+        order.forEach((c, j) => addCube(c, group, base, j));
+      }
+      for (const t of bone.tubes) {
+        const tr = makeTube(t, base);
+        const m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide });
+        group.add(new THREE.Mesh(tr.geo, m));
+        rec.tubes.push(tr);
+      }
+      live.push(rec);
+    }
+  }
+  const tintOf = (w, i, fallback) => (i < 0 || i >= w.item.tints.length) ? fallback : new THREE.Color(w.tints[i] || w.item.tints[i].def);
+  const white = new THREE.Color(1, 1, 1);
+  const move = {}, target = [0, 0, 0];
+  let frame = 0;
+  function update(rig, motion) {
+    frame++;
+    const g = rig.gait, walking = Math.min(1, rig.m.fwd / 3);
+    const amp = (rig.m.sprint ? 48 : 32) * RAD * walking * (1 - rig.air);
+    legL.rotation.x = Math.sin(g) * amp; legR.rotation.x = -Math.sin(g) * amp;
+    armL.rotation.x = -Math.sin(g) * amp * 0.9 - rig.air * 2.2; armR.rotation.x = Math.sin(g) * amp * 0.9 - rig.air * 2.2;
+    for (const r of live) {
+      const s = simOf(rig, r.bone, r.order);
+      integrate(r.bone, s, rig, r.order, frame);
+      animTarget(r.bone, s, rig, target, move);
+      const pose = r.bone.phys.spring ? s.ang : target;
+      r.group.rotation.set(pose[0] * RAD, pose[1] * RAD, pose[2] * RAD);
+      r.group.position.set(r.bone.pivot[0] + move.x - r.origin[0], r.bone.pivot[1] + move.y - r.origin[1], r.bone.pivot[2] + move.z - r.origin[2]);
+      if (r.bone.phys.cloth) {
+        r.joints.forEach((jg, j) => {
+          const pt = j ? s.th[j - 1] : 0, pp = j ? s.ph[j - 1] : 0;
+          jg.rotation.set((s.th[j] - pt), 0, (s.ph[j] - pp));
+        });
+      }
+      for (const cu of r.cubes) {
+        let col = tintOf(r.w, cu.c.tint, white);
+        if (cu.c.tint2 >= 0) col = col.clone().lerp(tintOf(r.w, cu.c.tint2, col), cu.c.mix);
+        cu.m.color.copy(col);
+        if (r.bone.anim.kind === "sparkle") cu.m.opacity = 0.55 + 0.45 * Math.sin(s.phase * 2 + r.bone.anim.phase + cu.i * 1.7);
+      }
+      for (const tr of r.tubes) {
+        const a = tintOf(r.w, tr.tube.tint, white);
+        fillTube(tr, rig.clock, a, tintOf(r.w, tr.tube.tint2, a));
+      }
+    }
+  }
+  function dispose() {
+    root.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material && !o.material.map) o.material.dispose(); });
+  }
+  return { root, update, dispose };
+}
+
+/* ---------- state and ui ---------- */
+const state = { worn: new Map(), slim: false, skin: SKINS[0], shirt: SHIRTS[0], tints: {}, motion: "auto", spin: 18, anim: 1, slot: "all", yaw: 25, pitch: 10, zoom: 1, dragging: false };
+const rig = new Rig();
+let avatar = null, dirty = true;
+
+function wornList() {
+  return [...state.worn.values()].map(item => {
+    if (!state.tints[item.id]) state.tints[item.id] = item.tints.map(t => t.def);
+    return { item, tints: state.tints[item.id] };
+  });
+}
+
+function equip(item) {
+  if (state.worn.get(item.slot) === item) state.worn.delete(item.slot);
+  else state.worn.set(item.slot, item);
+  dirty = true;
+  renderLists();
+}
+
+const $ = id => document.getElementById(id);
+
+function renderLists() {
+  document.querySelectorAll(".card").forEach(el => el.setAttribute("aria-pressed", String(state.worn.get(el.dataset.slot) === itemById[el.dataset.id])));
+  const box = $("tints");
+  box.replaceChildren();
+  const list = wornList();
+  if (!list.length) { const p = document.createElement("p"); p.className = "empty"; p.textContent = "Wähle ein Cosmetic aus, dann kannst du hier die Farben ändern."; box.append(p); }
+  for (const w of list) {
+    if (!w.item.tints.length) continue;
+    const wrap = document.createElement("div"); wrap.className = "tint";
+    const b = document.createElement("b"); b.textContent = w.item.name; wrap.append(b);
+    const row = document.createElement("div");
+    w.item.tints.forEach((t, i) => {
+      const lab = document.createElement("label");
+      const inp = document.createElement("input"); inp.type = "color"; inp.id = `tint-${w.item.id}-${i}`; inp.value = w.tints[i];
+      inp.addEventListener("input", () => { w.tints[i] = inp.value; });
+      lab.append(inp, document.createTextNode(t.name));
+      row.append(lab);
+    });
+    wrap.append(row); box.append(wrap);
+  }
+}
+
+function applyPreset(ids) {
+  state.worn.clear();
+  for (const id of ids) { const it = itemById[id]; if (it) state.worn.set(it.slot, it); }
+  dirty = true; renderLists();
+}
+
+function buildUi() {
+  $("presets").replaceChildren(...PRESETS.map(([name, ids]) => { const b = document.createElement("button"); b.textContent = name; b.addEventListener("click", () => applyPreset(ids)); return b; }));
+  const slotNames = ["all", ...Object.keys(SLOTS).filter(s => items.some(i => i.slot === s))];
+  $("slots").replaceChildren(...slotNames.map(s => {
+    const b = document.createElement("button"); b.textContent = s === "all" ? "Alle" : SLOTS[s]; b.setAttribute("aria-pressed", String(state.slot === s));
+    b.addEventListener("click", () => { state.slot = s; $("slots").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); document.querySelectorAll(".card").forEach(c => { c.hidden = s !== "all" && c.dataset.slot !== s; }); });
+    return b;
+  }));
+  $("motions").replaceChildren(...MOTIONS.map(([id, name]) => {
+    const b = document.createElement("button"); b.textContent = name; b.setAttribute("aria-pressed", String(state.motion === id));
+    b.addEventListener("click", () => { state.motion = id; $("motions").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); });
+    return b;
+  }));
+  const swatches = (el, list, key) => el.replaceChildren(...list.map(c => {
+    const b = document.createElement("button"); b.className = "sw"; b.style.background = c; b.setAttribute("aria-label", c); b.setAttribute("aria-pressed", String(state[key] === c));
+    b.addEventListener("click", () => { state[key] = c; el.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); dirty = true; });
+    return b;
+  }));
+  swatches($("skins"), SKINS, "skin"); swatches($("shirts"), SHIRTS, "shirt");
+  $("slim").addEventListener("click", e => { state.slim = !state.slim; e.target.setAttribute("aria-pressed", String(state.slim)); e.target.textContent = state.slim ? "An" : "Aus"; dirty = true; });
+  $("spin").addEventListener("input", e => { state.spin = +e.target.value; $("spinOut").textContent = `${state.spin}°/s`; });
+  $("anim").addEventListener("input", e => { state.anim = e.target.value / 100; $("animOut").textContent = `${state.anim.toFixed(1)}x`; });
+}
+
+function motionNow(t) {
+  let mode = state.motion;
+  if (mode === "auto") { const c = t % 14; mode = c < 3 ? "idle" : c < 7 ? "walk" : c < 11 ? "sprint" : "jump"; }
+  const m = { fwd: 0, side: 0, up: 0, turn: 0, sprint: false, sneak: false, air: false };
+  if (mode === "walk") m.fwd = 4.3;
+  if (mode === "sprint") { m.fwd = 5.6; m.sprint = true; }
+  if (mode === "jump") { const k = t % 1.4; m.fwd = 1.5; m.air = k < 0.8; m.up = m.air ? 7 * (1 - k / 0.4) : 0; }
+  m.turn = mode === "idle" ? 0 : 18 * Math.sin(t * 0.7);
+  return m;
+}
+
+/* ---------- scenes ---------- */
+function makeLights(camera) {
+  camera.add(new THREE.AmbientLight(0xffffff, 0.5));
+  const key = new THREE.DirectionalLight(0xffffff, 0.48); key.position.set(-30, 50, 60); camera.add(key);
+  const fill = new THREE.DirectionalLight(0xffd6e8, 0.14); fill.position.set(40, 10, -20); camera.add(fill);
+}
+
+function shadowDisc() {
+  const c = document.createElement("canvas"); c.width = c.height = 128;
+  const x = c.getContext("2d"), g = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+  g.addColorStop(0, "rgba(40,10,30,0.42)"); g.addColorStop(1, "rgba(40,10,30,0)");
+  x.fillStyle = g; x.fillRect(0, 0, 128, 128);
+  const mesh = new THREE.Mesh(new THREE.PlaneGeometry(26, 26), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false }));
+  mesh.rotation.x = -Math.PI / 2; mesh.position.y = 0.05;
+  return mesh;
+}
+
+const FRAMES = { head: { y: 29.5, h: 19, yaw: 25 }, face: { y: 29.5, h: 19, yaw: 25 }, feet: { y: 3, h: 12, yaw: 30 } };
+const DEFAULT_FRAME = { y: 19, h: 38, yaw: 155 };
+
+function renderThumbs() {
+  const cv = document.createElement("canvas");
+  const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true, preserveDrawingBuffer: true });
+  r.setSize(220, 165, false);
+  const out = {};
+  for (const item of items) {
+    const f = FRAMES[item.slot] || DEFAULT_FRAME;
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(28, 220 / 165, 1, 600);
+    makeLights(cam); scene.add(cam);
+    const rg = new Rig();
+    const av = buildAvatar([{ item, tints: item.tints.map(t => t.def) }], { slim: false, skin: SKINS[0], shirt: SHIRTS[0] });
+    scene.add(av.root);
+    av.root.rotation.set(10 * RAD, f.yaw * RAD, 0);
+    cam.position.set(0, f.y, (f.h / 2) / Math.tan(14 * RAD));
+    cam.lookAt(0, f.y, 0);
+    const walk = { fwd: 4.3, side: 0, up: 0, turn: 0, sprint: false, sneak: false, air: false };
+    for (let i = 0; i < 70; i++) { rg.step(1 / 40, walk); av.update(rg, walk); }
+    const idle = { ...walk, fwd: 0 };
+    for (let i = 0; i < 50; i++) { rg.step(1 / 40, idle); av.update(rg, idle); }
+    r.render(scene, cam);
+    out[item.id] = cv.toDataURL("image/png");
+    av.dispose();
+  }
+  r.dispose();
+  return out;
+}
+
+function buildCards(thumbs) {
+  $("cards").replaceChildren(...items.map(item => {
+    const b = document.createElement("button");
+    b.className = "card"; b.dataset.id = item.id; b.dataset.slot = item.slot; b.setAttribute("aria-pressed", "false");
+    const img = document.createElement("img"); img.src = thumbs[item.id]; img.alt = ""; img.width = 220; img.height = 165;
+    const n = document.createElement("b"); n.textContent = item.name;
+    const s = document.createElement("small"); s.textContent = SLOTS[item.slot] || item.slot;
+    b.append(img, n, s);
+    b.addEventListener("click", () => equip(item));
+    return b;
+  }));
+}
+
+/* ---------- main ---------- */
+async function start() {
+  for (const entry of DATA) {
+    const item = parseItem(entry);
+    if (entry.tex) {
+      const img = await loadImage(entry.tex);
+      if (img) {
+        const t = new THREE.Texture(img);
+        t.flipY = false;
+        t.magFilter = item.texel > 1 ? THREE.LinearFilter : THREE.NearestFilter;
+        t.minFilter = item.texel > 1 ? THREE.LinearMipmapLinearFilter : THREE.NearestFilter;
+        t.generateMipmaps = item.texel > 1;
+        t.anisotropy = 4;
+        t.needsUpdate = true;
+        item.texture = t; item.tw = img.width; item.th = img.height;
+      }
+    }
+    items.push(item); itemById[item.id] = item;
+  }
+  const order = Object.keys(SLOTS);
+  items.sort((a, b) => order.indexOf(a.slot) - order.indexOf(b.slot) || a.name.localeCompare(b.name));
+  buildUi();
+  let thumbs = {};
+  try { thumbs = renderThumbs(); } catch (e) { console.error(e); }
+  buildCards(thumbs);
+  applyPreset(PRESETS[0][1]);
+
+  const canvas = $("view"), stage = $("stage");
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(28, 1, 1, 800);
+  makeLights(camera); scene.add(camera);
+  scene.add(shadowDisc());
+  const pivot = new THREE.Group(); scene.add(pivot);
+
+  const resize = () => {
+    const w = stage.clientWidth, h = stage.clientHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h;
+    const vh = 62 / state.zoom, dist = (vh / 2) / Math.tan(14 * RAD);
+    camera.position.set(0, 22, Math.max(dist, dist * (1 / camera.aspect) * 0.62));
+    camera.lookAt(0, 21, 0); camera.updateProjectionMatrix();
+  };
+  new ResizeObserver(resize).observe(stage); resize();
+
+  let lx = 0, ly = 0;
+  canvas.addEventListener("pointerdown", e => { state.dragging = true; lx = e.clientX; ly = e.clientY; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener("pointermove", e => { if (!state.dragging) return; state.yaw += (e.clientX - lx) * 0.7; state.pitch = Math.min(50, Math.max(-10, state.pitch + (e.clientY - ly) * 0.4)); lx = e.clientX; ly = e.clientY; });
+  const stop = () => { state.dragging = false; };
+  canvas.addEventListener("pointerup", stop); canvas.addEventListener("pointercancel", stop);
+  canvas.addEventListener("wheel", e => { e.preventDefault(); state.zoom = Math.min(2.2, Math.max(0.6, state.zoom * (e.deltaY < 0 ? 1.08 : 0.93))); resize(); }, { passive: false });
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { state.spin = 0; $("spin").value = 0; $("spinOut").textContent = "0°/s"; }
+  let last = performance.now();
+  function tick(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (dirty) {
+      if (avatar) { pivot.remove(avatar.root); avatar.dispose(); }
+      avatar = buildAvatar(wornList(), state);
+      pivot.add(avatar.root);
+      dirty = false;
+    }
+    if (!state.dragging) state.yaw += dt * state.spin;
+    const m = motionNow(now / 1000);
+    rig.step(dt * state.anim, m);
+    avatar.update(rig, m);
+    pivot.rotation.set(state.pitch * RAD, state.yaw * RAD, 0);
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+start();
+</script>

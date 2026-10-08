@@ -1,0 +1,8 @@
+rt.run("lib")
+rt.run("gammatag")
+local player = rt.u64(BASE + 0x11d61a70)
+local opt = rt.u64(rt.u64(rt.u64(player + 0x778) + 0xb8) + 0x1a0)
+local old = rt.f32(opt + 0x18)
+rt.log("gamma old", old)
+rt.wf32(opt + 0x18, GAMMA or 5.0)
+rt.log("gamma now", rt.f32(opt + 0x18))

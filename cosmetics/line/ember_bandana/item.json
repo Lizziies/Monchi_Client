@@ -1,0 +1,436 @@
+{
+ "id": "ember_bandana",
+ "name": "Ember Bandana",
+ "slot": "face",
+ "tags": [
+  "face",
+  "bandana",
+  "fire",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 8,
+ "tint": [
+  {
+   "name": "Cloth",
+   "default": "#3a1410"
+  },
+  {
+   "name": "Flame",
+   "default": "#ff6a2a"
+  }
+ ],
+ "bones": [
+  {
+   "name": "band_0",
+   "pivot": [
+    0,
+    30.2,
+    0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      72,
+      1
+     ],
+     "flat": true,
+     "tint": "Flame"
+    }
+   ]
+  },
+  {
+   "name": "band_1",
+   "pivot": [
+    0,
+    30.2,
+    0
+   ],
+   "rotation": [
+    0,
+    90,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      143,
+      1
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      1,
+      17
+     ],
+     "flat": true,
+     "tint": "Flame"
+    }
+   ]
+  },
+  {
+   "name": "band_2",
+   "pivot": [
+    0,
+    30.2,
+    0
+   ],
+   "rotation": [
+    0,
+    180,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      72,
+      17
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      143,
+      17
+     ],
+     "flat": true,
+     "tint": "Flame"
+    }
+   ]
+  },
+  {
+   "name": "band_3",
+   "pivot": [
+    0,
+    30.2,
+    0
+   ],
+   "rotation": [
+    0,
+    270,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.3
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      1,
+      33
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -4.36,
+      29.35,
+      4.35
+     ],
+     "size": [
+      8.72,
+      1.7,
+      0.03
+     ],
+     "uv": [
+      72,
+      33
+     ],
+     "flat": true,
+     "tint": "Flame"
+    }
+   ]
+  },
+  {
+   "name": "knot",
+   "pivot": [
+    0,
+    30.2,
+    -4.3
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -1.1,
+      29.2,
+      -4.42
+     ],
+     "size": [
+      2.2,
+      2.0,
+      0.03
+     ],
+     "uv": [
+      143,
+      33
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    }
+   ]
+  },
+  {
+   "name": "tail_r",
+   "pivot": [
+    0.35,
+    30.0,
+    -4.55
+   ],
+   "rotation": [
+    20.0,
+    24,
+    13.0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 9.0,
+    "speed": 0.8,
+    "phase": 0.0
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 28.0,
+    "damping": 3.4,
+    "inertia": 1.5,
+    "drive": {
+     "sprint": [
+      38.0,
+      6,
+      0
+     ],
+     "speed": [
+      15.200000000000001,
+      0,
+      0
+     ],
+     "air": [
+      18,
+      0,
+      6
+     ],
+     "sneak": [
+      6,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      -0.1,
+      24.8,
+      -4.6
+     ],
+     "size": [
+      1.5,
+      5.2,
+      0.03
+     ],
+     "uv": [
+      162,
+      33
+     ],
+     "flat": true,
+     "tint": "Cloth"
+    },
+    {
+     "origin": [
+      -0.1,
+      24.8,
+      -4.65
+     ],
+     "size": [
+      1.5,
+      5.2,
+      0.03
+     ],
+     "uv": [
+      175,
+      33
+     ],
+     "flat": true,
+     "tint": "Flame"
+    }
+   ]
+  },
+  {
+   "name": "tail_l",
+   "pivot": [
+    -0.35,
+    30.0,
+    -4.55
+   ],
+   "rotation": [
+    20.0,
+    -24,
+    -13.0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 9.0,
+    "speed": 0.8,
+    "phase": 1.9
+   },
+   "physics": {
+    "type": "spring",
+    "stiffness": 28.0,
+    "damping": 3.4,
+    "inertia": 1.5,
+    "drive": {
+     "sprint": [
+      38.0,
+      -6,
+      0
+     ],
+     "speed": [
+      15.200000000000001,
+      0,
+      0
+     ],
+     "air": [
+      18,
+      0,
+      -6
+     ],
+     "sneak": [
+      6,
+      0,
+      0
+     ]
+    }
+   },
+   "cubes": [
+    {
+     "origin": [
+      -1.4,
+      24.8,
+      -4.6
+     ],
+     "size": [
+      1.5,
+      5.2,
+      0.03
+     ],
+     "uv": [
+      162,
+      33
+     ],
+     "flat": true,
+     "tint": "Cloth",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -1.4,
+      24.8,
+      -4.65
+     ],
+     "size": [
+      1.5,
+      5.2,
+      0.03
+     ],
+     "uv": [
+      175,
+      33
+     ],
+     "flat": true,
+     "tint": "Flame",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}

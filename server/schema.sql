@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS players (
+  key TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  secret TEXT NOT NULL,
+  style TEXT NOT NULL,
+  worn TEXT NOT NULL,
+  visible INTEGER NOT NULL DEFAULT 1,
+  server TEXT NOT NULL DEFAULT '',
+  client TEXT NOT NULL DEFAULT '',
+  seen INTEGER NOT NULL,
+  created INTEGER NOT NULL,
+  role TEXT NOT NULL DEFAULT ''
+);
+
+CREATE INDEX IF NOT EXISTS players_seen ON players (seen);
+
+CREATE TABLE IF NOT EXISTS sessions (
+  token TEXT PRIMARY KEY,
+  key TEXT NOT NULL,
+  expires INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS sessions_key ON sessions (key);
+
+CREATE TABLE IF NOT EXISTS blocked (
+  key TEXT PRIMARY KEY,
+  reason TEXT NOT NULL DEFAULT ''
+);

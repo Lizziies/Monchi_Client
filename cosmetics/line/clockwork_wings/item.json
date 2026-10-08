@@ -1,0 +1,420 @@
+{
+ "id": "clockwork_wings",
+ "name": "Clockwork Wings",
+ "slot": "wings",
+ "tags": [
+  "wings",
+  "mechanical",
+  "animated"
+ ],
+ "texture": "tex.png",
+ "texel": 6,
+ "tint": [
+  {
+   "name": "Steel",
+   "default": "#9aa3b5"
+  },
+  {
+   "name": "Brass",
+   "default": "#d9a64e"
+  },
+  {
+   "name": "Glow",
+   "default": "#5fe0ff"
+  }
+ ],
+ "bones": [
+  {
+   "name": "feathers_r",
+   "pivot": [
+    2.2,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    22.87,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.6,
+    "speed": 0.55,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      17.5,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      10.8,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Steel"
+    },
+    {
+     "origin": [
+      1.8,
+      10.8,
+      -2.71
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Glow"
+    }
+   ]
+  },
+  {
+   "name": "arm_r",
+   "pivot": [
+    2.2,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    22.87,
+    4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 10.0,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      17.5,
+      14
+     ],
+     "sprint": [
+      0,
+      20,
+      0
+     ],
+     "speed": [
+      0,
+      5,
+      0
+     ],
+     "sneak": [
+      0,
+      10,
+      -4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      1.8,
+      10.8,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Brass"
+    }
+   ]
+  },
+  {
+   "name": "feathers_l",
+   "pivot": [
+    -2.2,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -22.87,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.6,
+    "speed": 0.55,
+    "phase": -0.12
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -17.5,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.8,
+      10.8,
+      -2.62
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      1
+     ],
+     "flat": true,
+     "tint": "Steel",
+     "mirror": true
+    },
+    {
+     "origin": [
+      -16.8,
+      10.8,
+      -2.71
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      1
+     ],
+     "flat": true,
+     "tint": "Glow",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "arm_l",
+   "pivot": [
+    -2.2,
+    19.4,
+    -2.6
+   ],
+   "rotation": [
+    0,
+    -22.87,
+    -4.0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": -10.0,
+    "speed": 0.55,
+    "phase": 0.0
+   },
+   "physics": {
+    "stiffness": 46.0,
+    "damping": 6.0,
+    "inertia": 1.1,
+    "drive": {
+     "air": [
+      0,
+      -17.5,
+      -14
+     ],
+     "sprint": [
+      0,
+      -20,
+      0
+     ],
+     "speed": [
+      0,
+      -5,
+      0
+     ],
+     "sneak": [
+      0,
+      -10,
+      4
+     ]
+    },
+    "type": "spring"
+   },
+   "cubes": [
+    {
+     "origin": [
+      -16.8,
+      10.8,
+      -2.8
+     ],
+     "size": [
+      15.0,
+      14.6,
+      0.04
+     ],
+     "uv": [
+      1,
+      91
+     ],
+     "flat": true,
+     "tint": "Brass",
+     "mirror": true
+    }
+   ]
+  },
+  {
+   "name": "gear_r",
+   "pivot": [
+    2.2,
+    19.4,
+    -2.95
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "spin",
+    "axis": "z",
+    "amplitude": 0,
+    "speed": 0.08,
+    "phase": 0
+   },
+   "cubes": [
+    {
+     "origin": [
+      0.4,
+      17.6,
+      -2.97
+     ],
+     "size": [
+      3.6,
+      3.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      91
+     ],
+     "flat": true,
+     "tint": "Brass"
+    }
+   ]
+  },
+  {
+   "name": "gear_l",
+   "pivot": [
+    -2.2,
+    19.4,
+    -2.95
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "spin",
+    "axis": "z",
+    "amplitude": 0,
+    "speed": -0.08,
+    "phase": 0
+   },
+   "cubes": [
+    {
+     "origin": [
+      -4.0,
+      17.6,
+      -2.97
+     ],
+     "size": [
+      3.6,
+      3.6,
+      0.04
+     ],
+     "uv": [
+      92,
+      91
+     ],
+     "flat": true,
+     "tint": "Brass",
+     "mirror": true
+    }
+   ]
+  }
+ ]
+}
