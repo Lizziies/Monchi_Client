@@ -1,0 +1,13 @@
+Monchi
+Copyright (C) 2026 Monchi
+
+Monchi is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public
+License version 3 as published by the Free Software Foundation. It comes without any warranty. See LICENSE.
+
+If you use code from Monchi in your own project, keep this notice and the copyright lines in the files you take,
+say that the code comes from Monchi, and publish the source of your project under the AGPL-3.0, as the license
+requires. This applies to clients that are distributed as well as to ones that are only run over a network.
+
+Parts of Monchi are adapted from Flarial (https://github.com/flarialmc/dll-oss), AGPL-3.0, copyright its authors.
+Those files say so in their first lines; the untouched upstream source and its commit are in vendor/flarial.
+Other bundled libraries keep their own license notices.

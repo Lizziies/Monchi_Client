@@ -37,6 +37,6 @@ The Online API tests also run with `STORE=d1` and `STORE=turso`. Linux/Wine deve
 
 ## License
 
-AGPL-3.0, see `LICENSE`. Adapted parts of [Flarial](https://github.com/flarialmc/dll-oss) retain attribution; its pinned upstream source and commit are in `vendor/flarial` and `vendor/flarial/UPSTREAM.json`. Other bundled dependencies retain their own license notices. Distributing a build also requires making its corresponding source available.
+Copyright (C) 2026 Monchi. AGPL-3.0, see `LICENSE` and `NOTICE`: if you use Monchi's code, credit Monchi and publish your source under the same license. Adapted parts of [Flarial](https://github.com/flarialmc/dll-oss) retain attribution; its pinned upstream source and commit are in `vendor/flarial` and `vendor/flarial/UPSTREAM.json`. Other bundled dependencies retain their own license notices. Distributing a build also requires making its corresponding source available.
 
 Monchi is not affiliated with Mojang or Microsoft. It does not distribute Minecraft files. Version tools rely on the user's own Minecraft entitlement. Follow each server's rules.
