@@ -8,6 +8,8 @@ If you use code from Monchi in your own project, keep this notice and the copyri
 say that the code comes from Monchi, and publish the source of your project under the AGPL-3.0, as the license
 requires. This applies to clients that are distributed as well as to ones that are only run over a network.
 
-Parts of Monchi are adapted from Flarial (https://github.com/flarialmc/dll-oss), AGPL-3.0, copyright its authors.
-Those files say so in their first lines; the untouched upstream source and its commit are in vendor/flarial.
+Parts of Monchi are adapted from Flarial (https://github.com/flarialmc/dll-oss), AGPL-3.0, copyright its authors:
+the Flarial core in dll/src/flarial, ported to Minecraft 1.26.52 with new signatures, offsets and hook callbacks, and
+two files in dll/src/hook. Those files say so in their first lines; the untouched upstream source and its commit are
+in vendor/flarial. Everything else is Monchi's own code; the README lists which modules come from where.
 Other bundled libraries keep their own license notices.

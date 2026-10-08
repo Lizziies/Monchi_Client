@@ -37,6 +37,15 @@ The Online API tests also run with `STORE=d1` and `STORE=turso`. Linux/Wine deve
 
 ## License
 
-Copyright (C) 2026 Monchi. AGPL-3.0, see `LICENSE` and `NOTICE`: if you use Monchi's code, credit Monchi and publish your source under the same license. Adapted parts of [Flarial](https://github.com/flarialmc/dll-oss) retain attribution; its pinned upstream source and commit are in `vendor/flarial` and `vendor/flarial/UPSTREAM.json`. Other bundled dependencies retain their own license notices. Distributing a build also requires making its corresponding source available.
+Copyright (C) 2026 Monchi. AGPL-3.0, see `LICENSE` and `NOTICE`: if you use Monchi's code, credit Monchi and publish your source under the same license.
+
+What is Monchi's own and what comes from Flarial:
+
+- The menu has 175 modules. 155 of them are Monchi's own code. 20 come from the Flarial core described below; 4 of those take the place of a Monchi module (Nametag, View Model, Freelook, Paperdoll), 16 are added on top.
+- The launcher, the menu and HUD, input and frame pacing, the live game readers, cosmetics, Monchi Online and the update and signing tools are Monchi's own code.
+- The Flarial core (`dll/src/flarial`) is [Flarial](https://github.com/flarialmc/dll-oss) source ported to Minecraft 1.26.52, not a 1:1 copy. It got a 1.26.52 set of 79 signatures and 57 offsets (part of the byte patterns were read from the installed Flarial client, each one checked on 1.26.52.3), hook callbacks rewritten for the new argument layouts, a bridge to Monchi (`flarial/Bridge`, 31 files) and crash guards around every listener. Its own menu, config, overlay, Discord and scripting parts are left out. 93 files there differ from upstream and say so in their first lines; the untouched upstream source and its commit are in `vendor/flarial` and `vendor/flarial/UPSTREAM.json`.
+- Two files outside the core are adapted from Flarial (`hook/FreeCamera.cpp`, `hook/OwnNametag.cpp`) and are marked the same way.
+
+Other bundled dependencies retain their own license notices. Distributing a build also requires making its corresponding source available.
 
 Monchi is not affiliated with Mojang or Microsoft. It does not distribute Minecraft files. Version tools rely on the user's own Minecraft entitlement. Follow each server's rules.
