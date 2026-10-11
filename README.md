@@ -1,14 +1,16 @@
 # Monchi
 
-A free Minecraft Bedrock PvP client for Windows GDK builds. The launcher injects the client DLL into Minecraft. The blue pixel heart is Monchi's logo.
+A free PvP client for Minecraft Bedrock on Windows. The launcher starts Minecraft and loads Monchi into it.
 
-This is a beta source release. Cosmetics, Auto GG and some game hooks still have known bugs. Performance and input latency depend on the game version, hardware and other overlays; this repository does not promise zero latency or a measured advantage over another client.
+It's still in beta, so there are a few bugs left, mostly in cosmetics, Auto GG and some game hooks.
 
-The client includes configurable HUDs, chat tools, cosmetics, camera settings, server rules and performance diagnostics. It supports English and German. Right Shift opens the in-game menu; Ctrl+L unloads Monchi. Missing version signatures disable the affected game features.
+Right Shift opens the menu, Ctrl+L unloads Monchi. There are HUD modules, chat tools, camera settings, server rules, cosmetics and a lot more, in English and German. If a Minecraft update breaks something, only that feature turns off until it's fixed.
 
-## Build on Windows
+To just play, grab `MonchiLauncher.exe` from the releases page.
 
-Install Visual Studio 2022 Build Tools with C++ and the Windows SDK, plus CMake. Use a Developer PowerShell. Short build paths avoid MSVC object path limits in the optional Flarial core.
+## Building
+
+You need Visual Studio 2022 Build Tools (C++ and the Windows SDK) and CMake. Run this in a Developer PowerShell and keep the build folder short, the Flarial core has really long object paths.
 
 ```powershell
 cmake -S dll -B C:/monchi-build -G "Visual Studio 17 2022" -A x64 -DMONCHI_FLARIAL=ON
@@ -17,13 +19,13 @@ cmake -S launcher -B build-launcher -G "Visual Studio 17 2022" -A x64 -DMONCHI_D
 cmake --build build-launcher --config Release
 ```
 
-The launcher embeds the DLLs into one executable. The cosmetics are not part of this repository; a launcher built from it runs without them. Without `MONCHI_DLL` it uses the client DLL next to the launcher. Never publish local PDBs, logs, dumps or Minecraft installation files.
+The launcher packs both DLLs into one exe. Without `MONCHI_DLL` it looks for `Monchi.dll` next to itself. The cosmetics aren't in this repo, so a launcher you build yourself runs without them.
 
-Update and Online endpoints are build settings. Copy `local.cmake.example` to the ignored `local.cmake` and configure your own service if needed. The source contains no production credentials or default private service address. See `server/README.md` for deploying the optional Online service and `SECURITY.md` for its identity limitations.
+The update and Online addresses are build settings. Copy `local.cmake.example` to `local.cmake` (git ignores it) and point it at your own service. `server/README.md` explains how to set up the Online service, `SECURITY.md` what it can and can't check.
 
-The two bundled Boy/Girl preview skins are included as requested by the project owner. A user's actual skin is read locally at runtime; cached player skins are not shipped in this repository.
+The boy and girl skins in the launcher preview are part of the repo. Your own skin only gets read on your PC.
 
-## Tests and privacy
+## Tests
 
 ```powershell
 cmake -S tools/tests -B build-tests -G "Visual Studio 17 2022" -A x64
@@ -33,19 +35,16 @@ node --test server/test/*.test.js
 python tools/check_publish.py --allow-history
 ```
 
-The Online API tests also run with `STORE=d1` and `STORE=turso`. Linux/Wine development tools are in `tools/cross.sh`.
+The Online tests also run with `STORE=d1` and `STORE=turso`. For working on Linux with Wine there's `tools/cross.sh`.
 
 ## License
 
-Copyright (C) 2026 Monchi. AGPL-3.0, see `LICENSE` and `NOTICE`: if you use Monchi's code, credit Monchi and publish your source under the same license.
+AGPL-3.0, see `LICENSE` and `NOTICE`. If you use code from Monchi, credit it and publish your source under the same license.
 
-What is Monchi's own and what comes from Flarial:
+Most of Monchi is its own code: the launcher, the menu and HUD, input and frame pacing, the game readers, the cosmetics code, Monchi Online and the update tools. 155 of the 175 modules in the menu are Monchi's.
 
-- The menu has 175 modules. 155 of them are Monchi's own code. 20 come from the Flarial core described below; 4 of those take the place of a Monchi module (Nametag, View Model, Freelook, Paperdoll), 16 are added on top.
-- The launcher, the menu and HUD, input and frame pacing, the live game readers, cosmetics, Monchi Online and the update and signing tools are Monchi's own code.
-- The Flarial core (`dll/src/flarial`) is [Flarial](https://github.com/flarialmc/dll-oss) source ported to Minecraft 1.26.52, not a 1:1 copy. It got a 1.26.52 set of 79 signatures and 57 offsets (part of the byte patterns were read from the installed Flarial client, each one checked on 1.26.52.3), hook callbacks rewritten for the new argument layouts, a bridge to Monchi (`flarial/Bridge`, 31 files) and crash guards around every listener. Its own menu, config, overlay, Discord and scripting parts are left out. 93 files there differ from upstream and say so in their first lines; the untouched upstream source and its commit are in `vendor/flarial` and `vendor/flarial/UPSTREAM.json`.
-- Two files outside the core are adapted from Flarial (`hook/FreeCamera.cpp`, `hook/OwnNametag.cpp`) and are marked the same way.
+The other 20 come from [Flarial](https://github.com/flarialmc/dll-oss), ported to Minecraft 1.26.52 in `dll/src/flarial`. Four of them replace a Monchi module (Nametag, View Model, Freelook, Paperdoll). The port has new signatures and offsets for 1.26.52, hooks changed for the new argument layouts, a bridge to Monchi in `flarial/Bridge` and crash guards around every listener. Some byte patterns were read from the installed Flarial client and checked on 1.26.52.3. Flarial's own menu, config, overlay, Discord and scripting parts aren't in here. Every changed file says so in its first lines, and the untouched original is in `vendor/flarial` with its commit in `vendor/flarial/UPSTREAM.json`. `hook/FreeCamera.cpp` and `hook/OwnNametag.cpp` are adapted from Flarial too.
 
-Other bundled dependencies retain their own license notices. Distributing a build also requires making its corresponding source available.
+The other libraries keep their own licenses. If you share a build, you have to share its source as well.
 
-Monchi is not affiliated with Mojang or Microsoft. It does not distribute Minecraft files. Version tools rely on the user's own Minecraft entitlement. Follow each server's rules.
+Monchi isn't affiliated with Mojang or Microsoft and doesn't ship any Minecraft files. Please stick to the rules of the servers you play on.

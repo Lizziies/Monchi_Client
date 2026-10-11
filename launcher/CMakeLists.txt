@@ -12,7 +12,7 @@ set(LIB ${CMAKE_CURRENT_SOURCE_DIR}/../dll/lib)
 set(MONCHI_VERSION "0.1.0" CACHE STRING "Version shown in the launcher")
 
 # The account that hosts updates and the online service is not part of the source. local.cmake (not in the repository,
-# see local.cmake.example) sets it for the builds of the project owner.
+# see local.cmake.example) sets it for the official builds.
 include("${CMAKE_CURRENT_LIST_DIR}/../local.cmake" OPTIONAL)
 set(MONCHI_REPO_OWNER "" CACHE STRING "GitHub account that hosts updates, signatures and server rules")
 set(MONCHI_REPO_NAME "" CACHE STRING "GitHub repository for updates")

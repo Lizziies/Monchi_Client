@@ -1,6 +1,6 @@
 # Mochi Online service
 
-Small Cloudflare Worker that lets Mochi clients find each other: who runs Mochi on this server, and how their name, tag and cosmetics look. No Minecraft traffic goes through it. The concept is in `docs/ONLINE.md`.
+Small Cloudflare Worker that lets Mochi clients find each other: who runs Mochi on this server, and how their name, tag and cosmetics look. No Minecraft traffic goes through it.
 
 ## Run it locally
 
