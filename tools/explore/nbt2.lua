@@ -1,0 +1,11 @@
+rt.run("lib")
+local player = rt.u64(BASE + 0x11d61a70)
+local b = rt.u64(rt.u64(rt.u64(player + 0x350) + 0x378) + 0x198)
+local tag = rt.u64(b + 0x98 + 0x10)
+local head = rt.u64(tag + 8)
+local root = rt.u64(head + 8)
+local out = {string.format("tag %x head %x root %x size %d", tag, head, root, rt.u64(tag + 0x10))}
+out[#out + 1] = "root " .. (rt.hex(root, 0x90) or "?")
+out[#out + 1] = "key " .. (rt.cstr(root + 0x20, 32) or "?")
+rt.out("nbt2.txt", table.concat(out, "\n"))
+rt.log("nbt2 fin")

@@ -1,0 +1,1 @@
+rt.run("lib") rt.run("sctag") local n = rt.scannext(SCV, SCV) local out = {} for _, a in ipairs(rt.scanlist(40)) do out[#out + 1] = string.format("%x", a) end rt.log("sc next", n, table.concat(out, " "))

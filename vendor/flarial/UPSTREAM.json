@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/flarialmc/dll-oss",
+  "license": "AGPL-3.0",
+  "integration": "full upstream source; built as flarial_core inside Mochi without its menu, config, overlay, discord and scripting, see docs/FLARIAL_PORT.md",
+  "directories": [
+    "src",
+    "lib/glm",
+    "lib/json",
+    "lib/ImGui",
+    "lib/kiero",
+    "lib/miniz",
+    "lib/xorstr.hpp",
+    "lib/stb_image_write.h",
+    "CMakeLists.upstream.txt"
+  ],
+  "commit": "40ad1870efd021138241192894cfbfacef1aefa5",
+  "publication_exclusions": [
+    "src/Assets/Assets.aps (unused editor cache with an upstream user path)"
+  ]
+}

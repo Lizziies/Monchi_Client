@@ -1,0 +1,85 @@
+{
+ "id": "test_bandana",
+ "name": "Test Bandana",
+ "slot": "head",
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#ff4d9d"
+  }
+ ],
+ "texture": "tex.png",
+ "bones": [
+  {
+   "name": "band",
+   "pivot": [
+    0,
+    28,
+    0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "cubes": [
+    {
+     "origin": [
+      -4.5,
+      27,
+      -4.5
+     ],
+     "size": [
+      9,
+      2,
+      9
+     ],
+     "uv": [
+      0,
+      0
+     ],
+     "tint": "Main"
+    }
+   ]
+  },
+  {
+   "name": "knot",
+   "pivot": [
+    0,
+    28,
+    -4.5
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "anim": {
+    "type": "sway",
+    "axis": "x",
+    "amplitude": 15,
+    "speed": 0.9,
+    "phase": 0
+   },
+   "cubes": [
+    {
+     "origin": [
+      -1,
+      22,
+      -6.5
+     ],
+     "size": [
+      2,
+      6,
+      2
+     ],
+     "uv": [
+      0,
+      0
+     ],
+     "tint": "Main"
+    }
+   ]
+  }
+ ]
+}

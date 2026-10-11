@@ -1,0 +1,126 @@
+{
+ "id": "test_wings",
+ "name": "Test Wings",
+ "slot": "wings",
+ "tint": [
+  {
+   "name": "Main",
+   "default": "#ff9ec8"
+  }
+ ],
+ "texture": "tex.png",
+ "bones": [
+  {
+   "name": "wing_l",
+   "pivot": [
+    2,
+    22,
+    -2.5
+   ],
+   "rotation": [
+    0,
+    -20,
+    0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 22,
+    "speed": 0.7,
+    "phase": 0
+   },
+   "cubes": [
+    {
+     "origin": [
+      2,
+      12,
+      -3
+     ],
+     "size": [
+      12,
+      14,
+      1
+     ],
+     "uv": [
+      0,
+      0
+     ],
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      6,
+      8,
+      -3
+     ],
+     "size": [
+      6,
+      5,
+      1
+     ],
+     "uv": [
+      0,
+      20
+     ],
+     "tint": "Main"
+    }
+   ]
+  },
+  {
+   "name": "wing_r",
+   "pivot": [
+    -2,
+    22,
+    -2.5
+   ],
+   "rotation": [
+    0,
+    20,
+    0
+   ],
+   "anim": {
+    "type": "flap",
+    "axis": "y",
+    "amplitude": 22,
+    "speed": 0.7,
+    "phase": 3.141592653589793
+   },
+   "cubes": [
+    {
+     "origin": [
+      -14,
+      12,
+      -3
+     ],
+     "size": [
+      12,
+      14,
+      1
+     ],
+     "uv": [
+      0,
+      0
+     ],
+     "tint": "Main"
+    },
+    {
+     "origin": [
+      -12,
+      8,
+      -3
+     ],
+     "size": [
+      6,
+      5,
+      1
+     ],
+     "uv": [
+      0,
+      20
+     ],
+     "tint": "Main"
+    }
+   ]
+  }
+ ]
+}

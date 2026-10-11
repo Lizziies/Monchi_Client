@@ -1,0 +1,38 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: build
+        shell: pwsh
+        env:
+          ONLINE_URL: ${{ secrets.MONCHI_ONLINE_URL || vars.MONCHI_ONLINE_URL }}
+        run: |
+          $version = $env:GITHUB_REF_NAME.Substring(1)
+          $repo = $env:GITHUB_REPOSITORY.Split('/')[1]
+          if (-not $env:ONLINE_URL.StartsWith('https://')) { throw 'Configure MONCHI_ONLINE_URL before publishing a release' }
+          cmake -S dll -B C:/monchi-build -A x64 -DMONCHI_FLARIAL=ON -DMONCHI_VERSION="$version" -DMONCHI_REPO_OWNER="$env:GITHUB_REPOSITORY_OWNER" -DMONCHI_REPO_NAME="$repo" -DMONCHI_ONLINE_URL="$env:ONLINE_URL"
+          cmake --build C:/monchi-build --config Release --target Monchi flarial_core --parallel 4
+          cmake -S launcher -B build-launcher -A x64 -DMONCHI_VERSION="$version" -DMONCHI_REPO_OWNER="$env:GITHUB_REPOSITORY_OWNER" -DMONCHI_REPO_NAME="$repo" -DMONCHI_ONLINE_URL="$env:ONLINE_URL" -DMONCHI_DLL=C:/monchi-build/Release/Monchi.dll -DMONCHI_CORE=C:/monchi-build/Release/MonchiFlarial.dll -DMONCHI_COSMETICS="$pwd/cosmetics"
+          cmake --build build-launcher --config Release --parallel 4
+          python tools/verify_payloads.py build-launcher/Release/MonchiLauncher.exe --dll C:/monchi-build/Release/Monchi.dll --core C:/monchi-build/Release/MonchiFlarial.dll --signatures build-launcher/signatures.pack
+          New-Item -ItemType Directory out | Out-Null
+          Copy-Item build-launcher/Release/MonchiLauncher.exe out/
+          $hash = (Get-FileHash out/MonchiLauncher.exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          Set-Content out/checksums.txt "$hash  MonchiLauncher.exe" -Encoding ascii
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-release-build
+          path: out/

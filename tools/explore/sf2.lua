@@ -1,0 +1,1 @@
+rt.run("lib") rt.run("sctag") local n = rt.scannext(LO, HI) local out = {} for _, a in ipairs(rt.scanlist(30)) do out[#out + 1] = string.format("%x=%.2f", a, rt.f32(a)) end rt.log("sc next", n, table.concat(out, " "))

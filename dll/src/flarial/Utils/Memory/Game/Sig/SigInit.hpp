@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Adapted from Flarial src/Utils/Memory/Game/Sig/SigInit.hpp: adds the 1.26.52 set.
+#pragma once
+
+class SigInit {
+public:
+    static void init2652();
+    static void init260();
+    static void init21131();
+    static void init21130();
+    static void init21120();
+    static void init21110();
+    static void init21100();
+    static void init2190();
+    static void init2180();
+    static void init2170();
+    static void init2160();
+    static void init2150();
+    static void init2140();
+    static void init2130();
+    static void init2120();
+    static void init2102();
+    static void init2100();
+    static void init2080();
+    static void init2070();
+    static void init2060();
+    static void init2050();
+    static void init2040();
+    static void init2030();
+};

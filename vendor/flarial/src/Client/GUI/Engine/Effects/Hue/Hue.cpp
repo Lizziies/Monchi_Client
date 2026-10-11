@@ -1,0 +1,27 @@
+#include "../../Engine.hpp"
+#include "../../../../Hook/Hooks/Render/DirectX/DXGI/SwapchainHook.hpp"
+
+void FlarialGUI::ApplyHue(float Hue) {
+
+    if (SwapchainHook::init) {
+
+        ID2D1Effect *saturationEffect = nullptr;
+
+        D2D::context->CreateEffect(CLSID_D2D1Saturation, &saturationEffect);
+
+        ID2D1Bitmap *bitmap = nullptr;
+
+        if (SwapchainHook::isDX12)
+            FlarialGUI::CopyBitmap(SwapchainHook::D2D1Bitmaps[SwapchainHook::currentBitmap].get(), &bitmap);
+        else FlarialGUI::CopyBitmap(SwapchainHook::D2D1Bitmap.get(), &bitmap);
+
+        saturationEffect->SetInput(0, bitmap);
+
+        // Set blur intensity
+        saturationEffect->SetValue(D2D1_SATURATION_PROP_SATURATION, Hue);
+        D2D::context->DrawImage(saturationEffect);
+
+        Memory::SafeRelease(bitmap);
+        Memory::SafeRelease(saturationEffect);
+    }
+}

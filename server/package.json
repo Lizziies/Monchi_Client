@@ -1,0 +1,14 @@
+{
+  "name": "mochi-online",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev.js",
+    "bundle": "node bundle.js",
+    "test": "node --test test/*.test.js && STORE=d1 node --test test/*.test.js && STORE=turso node --test test/*.test.js",
+    "start": "node render.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

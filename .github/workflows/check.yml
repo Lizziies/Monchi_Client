@@ -1,0 +1,49 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: privacy scan
+        run: python tools/check_publish.py --allow-history
+      - name: privacy scanner tests
+        run: python tools/tests/check_publish_test.py
+      - name: build client and core
+        run: |
+          cmake -S dll -B C:/monchi-build -A x64 -DMONCHI_FLARIAL=ON
+          cmake --build C:/monchi-build --config Release --target Monchi flarial_core --parallel 4
+      - name: build embedded launcher
+        run: |
+          cmake -S launcher -B build-launcher -A x64 -DMONCHI_DLL=C:/monchi-build/Release/Monchi.dll -DMONCHI_CORE=C:/monchi-build/Release/MonchiFlarial.dll -DMONCHI_COSMETICS="$pwd/cosmetics"
+          cmake --build build-launcher --config Release --parallel 4
+          python tools/verify_payloads.py build-launcher/Release/MonchiLauncher.exe --dll C:/monchi-build/Release/Monchi.dll --core C:/monchi-build/Release/MonchiFlarial.dll --signatures build-launcher/signatures.pack
+      - name: native tests
+        run: |
+          cmake -S tools/tests -B build-tests -A x64
+          cmake --build build-tests --config Release --parallel 4
+          ctest --test-dir build-tests -C Release --output-on-failure
+  online:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+        working-directory: server

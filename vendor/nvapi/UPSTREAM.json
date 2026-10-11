@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/NVIDIA/nvapi",
+  "commit": "70d337db9186e968eab622f7e786de7e437faf3d",
+  "license": "MIT",
+  "files": "nvapi.h, nvapi_interface.h, nvapi_lite_*.h, License.txt",
+  "runtime": "nvapi64.dll from the installed NVIDIA driver, System32 only"
+}
