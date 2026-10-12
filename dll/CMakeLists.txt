@@ -67,6 +67,9 @@ endforeach()
 file(GENERATE OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/signatures.rc" CONTENT "${SIG_RESOURCES}")
 target_sources(Monchi PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/signatures.rc")
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../common/vault.cmake)
+monchi_vault_key(Monchi)
+
 target_include_directories(Monchi PRIVATE
     src
     ../common

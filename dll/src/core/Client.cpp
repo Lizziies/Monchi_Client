@@ -12,6 +12,7 @@
 #include "hook/Input.hpp"
 #include "gui/Notify.hpp"
 #include "hook/Net.hpp"
+#include "hook/Sealed.hpp"
 #include "modules/Manager.hpp"
 #include "modules/post/PostFx.hpp"
 #include "sdk/Explore.hpp"
@@ -46,6 +47,7 @@ static void boot() {
         logger::error("renderer hooks failed, nothing to draw on");
     }
     net::install();
+    sealed::install();
     hook::enableAll();
 
     for (int i = 0; i < 600 && !dx::window() && !leaving; i++) Sleep(50);

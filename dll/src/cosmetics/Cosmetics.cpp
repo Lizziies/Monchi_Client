@@ -6,6 +6,7 @@
 #include "core/Log.hpp"
 #include "core/Paths.hpp"
 #include "render/Ui.hpp"
+#include "Vault.hpp"
 
 #include <imgui_internal.h>
 #include <json.hpp>
@@ -24,15 +25,22 @@
 
 namespace cosmetics {
 
+thread_local int reading = 0;
+
 namespace {
 
 std::vector<Item> list;
 unsigned gen = 1;
 bool loaded = false;
 
-std::vector<unsigned char> readFile(const std::filesystem::path& p) {
+// name is the file's place under the cosmetics folder, which is what it was sealed under
+std::string readFile(const std::filesystem::path& p, const std::string& name) {
+    reading++;
     std::ifstream in(p, std::ios::binary);
-    return {std::istreambuf_iterator<char>(in), std::istreambuf_iterator<char>()};
+    std::string data{std::istreambuf_iterator<char>(in), std::istreambuf_iterator<char>()};
+    in.close();
+    reading--;
+    return vault::open(name, std::move(data));
 }
 
 ImTextureData* upload(const unsigned char* rgba, int w, int h) {
@@ -64,22 +72,20 @@ Motion motionOf(const std::string& s) {
     return Motion::None;
 }
 
-bool readItem(const std::filesystem::path& dir, Item& out);
+bool readItem(const std::filesystem::path& dir, const std::string& name, Item& out);
 
 // a field of the wrong type makes the json library throw; that costs the one item, not the frame that asked for it
-bool loadItem(const std::filesystem::path& dir, Item& out) {
+bool loadItem(const std::filesystem::path& dir, const std::string& name, Item& out) {
     try {
-        return readItem(dir, out);
+        return readItem(dir, name, out);
     } catch (const std::exception& e) {
         logger::warn("cosmetic in {}: {}", logger::narrow(dir.filename().wstring()), e.what());
         return false;
     }
 }
 
-bool readItem(const std::filesystem::path& dir, Item& out) {
-    std::ifstream in(dir / L"item.json");
-    if (!in) return false;
-    auto j = nlohmann::json::parse(in, nullptr, false);
+bool readItem(const std::filesystem::path& dir, const std::string& name, Item& out) {
+    auto j = nlohmann::json::parse(readFile(dir / L"item.json", name + "/item.json"), nullptr, false);
     if (!j.is_object()) return false;
     out.id = j.value("id", "");
     out.name = j.value("name", out.id);
@@ -180,9 +186,10 @@ bool readItem(const std::filesystem::path& dir, Item& out) {
         out.bones.push_back(std::move(bone));
     }
 
-    auto png = readFile(dir / std::filesystem::path(j.value("texture", "tex.png")));
+    std::string textureName = j.value("texture", "tex.png");
+    auto png = readFile(dir / std::filesystem::path(textureName), name + "/" + textureName);
     int w = 0, h = 0, n = 0;
-    unsigned char* pixels = png.empty() ? nullptr : stbi_load_from_memory(png.data(), int(png.size()), &w, &h, &n, 4);
+    unsigned char* pixels = png.empty() ? nullptr : stbi_load_from_memory(reinterpret_cast<const stbi_uc*>(png.data()), int(png.size()), &w, &h, &n, 4);
     if (!pixels) {
         for (auto& b : out.bones)
             if (!b.cubes.empty()) return false;
@@ -191,7 +198,7 @@ bool readItem(const std::filesystem::path& dir, Item& out) {
     out.texW = w;
     out.texH = h;
     out.texture = upload(pixels, w, h);
-    out.texturePath = logger::narrow((dir / std::filesystem::path(j.value("texture", "tex.png"))).wstring());
+    out.texturePath = logger::narrow((dir / std::filesystem::path(textureName)).wstring());
     stbi_image_free(pixels);
     return true;
 }
@@ -225,26 +232,24 @@ void reload() {
     for (auto& i : list) retire(i.texture);
     list.clear();
     auto root = paths::root() / L"cosmetics";
-    std::ifstream in(root / L"index.json");
-    auto j = in ? nlohmann::json::parse(in, nullptr, false) : nlohmann::json();
+    auto j = nlohmann::json::parse(readFile(root / L"index.json", "index.json"), nullptr, false);
     if (!j.is_object() || !j.contains("items")) j = nlohmann::json{{"items", nlohmann::json::array()}};
     if (!j["items"].is_array()) j["items"] = nlohmann::json::array();
     for (auto& e : j["items"]) {
         const std::string id = e.is_object() && e.contains("id") && e["id"].is_string() ? e["id"].get<std::string>() : "";
         if (id.empty() || id.find_first_of("/\\:") != std::string::npos || id == "." || id == "..") continue;
         Item item;
-        if (loadItem(root / std::filesystem::path(id), item)) list.push_back(std::move(item));
+        if (loadItem(root / std::filesystem::path(id), id, item)) list.push_back(std::move(item));
         else logger::warn("cosmetic {} could not be loaded", id);
     }
     auto line = root / L"line";
-    std::ifstream lineIndex(line / L"index.json");
-    auto catalog = lineIndex ? nlohmann::json::parse(lineIndex, nullptr, false) : nlohmann::json();
+    auto catalog = nlohmann::json::parse(readFile(line / L"index.json", "line/index.json"), nullptr, false);
     if (catalog.is_object() && catalog.contains("items") && catalog["items"].is_array()) {
         for (const auto& entry : catalog["items"]) {
             const std::string id = entry.is_object() && entry.contains("id") && entry["id"].is_string() ? entry["id"].get<std::string>() : "";
             if (id.empty() || id.find_first_of("/\\:") != std::string::npos || id == "." || id == "..") continue;
             Item item;
-            if (!loadItem(line / id, item)) {
+            if (!loadItem(line / id, "line/" + id, item)) {
                 logger::warn("cosmetic {} could not be loaded", id);
                 continue;
             }
@@ -260,7 +265,7 @@ void reload() {
     for (auto& e : std::filesystem::directory_iterator(root, ec)) {
         if (!e.is_directory() || find(e.path().filename().string())) continue;
         Item item;
-        if (loadItem(e.path(), item) && !find(item.id)) list.push_back(std::move(item));
+        if (loadItem(e.path(), e.path().filename().string(), item) && !find(item.id)) list.push_back(std::move(item));
     }
 }
 

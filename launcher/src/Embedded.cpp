@@ -2,6 +2,7 @@
 #include "Build.hpp"
 #include "Files.hpp"
 #include "Update.hpp"
+#include "Vault.hpp"
 
 #include "../res/resource.h"
 
@@ -9,6 +10,7 @@
 #include <thread>
 #include <windows.h>
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <set>
@@ -48,6 +50,15 @@ bool take(std::string_view& in, T& out) {
     return true;
 }
 
+// the list of files inside the embedded blob; their contents stay sealed
+std::string listOf(std::string_view pack) {
+    if (pack.size() < 4) return {};
+    std::string body(pack.substr(4));
+    if (std::memcmp(pack.data(), "MVLT", 4) == 0) vault::apply("#pack", 0, reinterpret_cast<uint8_t*>(body.data()), body.size());
+    else if (std::memcmp(pack.data(), "MCOS", 4) != 0) return {};
+    return body;
+}
+
 // the item folder a packed file belongs to: "cape/tex.png" -> "cape", "line/cape/tex.png" -> "line/cape"
 std::string folderOf(const std::string& rel) {
     size_t cut = rel.find('/');
@@ -57,11 +68,11 @@ std::string folderOf(const std::string& rel) {
 
 // Items an earlier launcher put there and this one no longer ships are taken out; a folder someone added by hand
 // is in no index and stays.
-void prune(std::string_view pack, const files::fs::path& root) {
+void prune(std::string_view packed, const files::fs::path& root) {
     std::set<std::string> keep;
     uint32_t count = 0;
-    if (pack.size() < 4 || std::memcmp(pack.data(), "MCOS", 4) != 0) return;
-    pack.remove_prefix(4);
+    std::string body = listOf(packed);
+    std::string_view pack = body;
     if (!take(pack, count)) return;
     for (uint32_t i = 0; i < count; i++) {
         uint16_t len = 0;
@@ -73,7 +84,7 @@ void prune(std::string_view pack, const files::fs::path& root) {
         pack.remove_prefix(size);
     }
     for (std::string prefix : {"", "line/"}) {
-        auto index = nlohmann::json::parse(files::read(root / files::widen(prefix + "index.json")), nullptr, false);
+        auto index = nlohmann::json::parse(vault::open(prefix + "index.json", files::read(root / files::widen(prefix + "index.json"))), nullptr, false);
         if (!index.is_object() || !index.contains("items") || !index["items"].is_array()) continue;
         for (auto& item : index["items"]) {
             std::string id = item.is_object() ? item.value("id", "") : "";
@@ -82,12 +93,21 @@ void prune(std::string_view pack, const files::fs::path& root) {
             files::fs::remove_all(root / files::widen(prefix + id), ec);
         }
     }
+    // a whole catalog folder of an earlier launcher that this one has nothing in
+    std::vector<files::fs::path> gone;
+    std::error_code ec;
+    for (auto& entry : files::fs::directory_iterator(root, ec)) {
+        if (!entry.is_directory(ec) || !files::fs::exists(entry.path() / L"index.json", ec)) continue;
+        std::string catalog = files::narrow(entry.path().filename().wstring()) + "/";
+        if (std::none_of(keep.begin(), keep.end(), [&](const std::string& kept) { return kept.starts_with(catalog); })) gone.push_back(entry.path());
+    }
+    for (auto& folder : gone) files::fs::remove_all(folder, ec);
 }
 
-void unpack(std::string_view pack, const files::fs::path& root) {
+void unpack(std::string_view packed, const files::fs::path& root) {
     uint32_t count = 0;
-    if (pack.size() < 4 || std::memcmp(pack.data(), "MCOS", 4) != 0) return;
-    pack.remove_prefix(4);
+    std::string body = listOf(packed);
+    std::string_view pack = body;
     if (!take(pack, count)) return;
     for (uint32_t i = 0; i < count; i++) {
         uint16_t len = 0;

@@ -101,7 +101,7 @@ struct Item {
     int texH = 0;
     float texel = 1.f;
     ImTextureData* texture = nullptr;
-    // the png on disk, for the game to load when the item is drawn in the world
+    // the sealed png on disk; the game loads it when the item is drawn in the world and gets it opened as it reads
     std::string texturePath;
 };
 
@@ -169,6 +169,9 @@ struct Look {
     // where the viewer is in the item's space, for billboard cards in a mesh
     const V3* eye = nullptr;
 };
+
+// above zero while this thread reads a cosmetics file itself and opens it on its own
+extern thread_local int reading;
 
 const std::vector<Item>& items();
 void reload();

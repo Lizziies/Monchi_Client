@@ -53,7 +53,7 @@ if(MONCHI_DLL AND EXISTS "${MONCHI_DLL}")
     list(APPEND EMBED_DEPENDS ${EMBED_SIGS})
     if(MONCHI_COSMETICS AND EXISTS "${MONCHI_COSMETICS}" AND Python3_FOUND)
         set(EMBED_PACK ${CMAKE_CURRENT_BINARY_DIR}/cosmetics.pack)
-        execute_process(COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../tools/pack.py ${EMBED_PACK} ${MONCHI_COSMETICS})
+        execute_process(COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../tools/pack.py ${EMBED_PACK} ${MONCHI_COSMETICS} "${MONCHI_COSMETICS_KEY}" COMMAND_ERROR_IS_FATAL ANY)
         string(APPEND EMBED_TEXT "IDR_COSMETICS RCDATA \"${EMBED_PACK}\"\n")
         list(APPEND EMBED_DEPENDS ${EMBED_PACK})
     endif()
@@ -83,6 +83,8 @@ add_executable(MonchiLauncher WIN32
     res/launcher.rc
 )
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../common/vault.cmake)
+monchi_vault_key(MonchiLauncher)
 target_include_directories(MonchiLauncher PRIVATE src shim ${COSMETICS} ${CMAKE_CURRENT_SOURCE_DIR}/../common ${LIB}/imgui ${LIB}/imgui/backends ${LIB}/json ${LIB}/stb)
 
 target_compile_definitions(MonchiLauncher PRIVATE
